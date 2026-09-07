@@ -33,8 +33,8 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({ experiences = [] 
                   <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 </div>
               ) : (
-                <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center border-2 border-brand-300 shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center border-2 border-brand-300 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-brand-400"></span>
                 </div>
               )}
             </div>
