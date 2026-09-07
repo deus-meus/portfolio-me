@@ -8,7 +8,7 @@ interface RecruiterCardProps {
 
 export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
   return (
-    <div className="bg-white border border-brand-200 p-4 sm:p-6 space-y-3.5 sm:space-y-4">
+    <div className="w-full bg-white border border-brand-200 p-4 sm:p-6 space-y-3.5 sm:space-y-4 shadow-sm">
       <div className="flex items-center justify-between pb-3.5 border-b border-brand-100">
         <div className="flex items-center gap-2.5">
           <div className="w-3 h-3 bg-emerald-500 flex items-center justify-center">

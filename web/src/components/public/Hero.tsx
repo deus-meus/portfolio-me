@@ -122,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
         </div>
 
         {/* Right Column: Recruiter Quick Card */}
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-5 w-full">
           <RecruiterCard profile={profile} />
         </div>
       </div>

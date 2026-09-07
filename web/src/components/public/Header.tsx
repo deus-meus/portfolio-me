@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, Mail, Terminal, Menu, X } from 'lucide-react';
+import { Download, Mail, Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   fullName?: string;
@@ -19,8 +19,8 @@ export const Header: React.FC<HeaderProps> = ({
     { href: "#tech-stack", label: "Tech Stack" },
     { href: "#case-studies", label: "Case Studies" },
     { href: "#experience", label: "Experience" },
-    { href: "#credentials", label: "Credentials" },
-    { href: "#api-playground", label: "API Playground", isApi: true },
+    { href: "#credentials", label: "Education" },
+    { href: "#api-playground", label: "API Playground" },
   ];
 
   return (
@@ -49,9 +49,8 @@ export const Header: React.FC<HeaderProps> = ({
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-brand-900 transition-colors flex items-center gap-1 whitespace-nowrap"
+              className="hover:text-brand-900 transition-colors whitespace-nowrap"
             >
-              {link.isApi && <Terminal className="w-3.5 h-3.5 text-accent" />}
               {link.label}
             </a>
           ))}
@@ -98,8 +97,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3 py-2 text-brand-800 hover:bg-brand-50 border-b border-brand-100 last:border-b-0 transition-colors"
             >
-              <span className="flex items-center gap-2 font-medium">
-                {link.isApi && <Terminal className="w-3.5 h-3.5 text-accent" />}
+              <span className="font-medium">
                 {link.label}
               </span>
               <span className="text-brand-400 text-[10px]">→</span>
