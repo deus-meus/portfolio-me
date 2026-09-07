@@ -9,7 +9,7 @@ interface StatusBannerProps {
 
 export const StatusBanner: React.FC<StatusBannerProps> = ({
   status = "READY FOR INTERVIEWS",
-  location = "Jakarta, ID (WIB) • Open to Remote & Hybrid",
+  location = "Bali, ID • Open to On-site, Hybrid & Remote (Relocation OK)",
   noticePeriod = "Notice Period: 1 Month / Immediate",
   email = "dwinarwastu02@gmail.com",
 }) => {
