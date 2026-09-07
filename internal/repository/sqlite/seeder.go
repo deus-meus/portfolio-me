@@ -316,13 +316,13 @@ func SeedData(db *sql.DB) error {
 			{
 				RoleTitle:      "Programmer (Backend Developer)",
 				CompanyName:    "PT. Semua Aplikasi Indonesia",
-				CompanyTagline: "IPTV Hospitality & Multi-Tenant Management",
+				CompanyTagline: "NontonPlus V2 — IPTV Hospitality & Multi-Tenant Management",
 				EmploymentType: "Full-time • On-site",
 				Location:       "Denpasar, Bali",
 				StartDate:      "Aug 2025",
 				EndDate:        "Present",
 				IsActive:       true,
-				CoreFocus:      "Built the backend of an IPTV hospitality management application from scratch using NestJS, PostgreSQL, and MongoDB. Implemented real-time communication using Socket.IO, caching via Redis, and system monitoring via Grafana and Loki.",
+				CoreFocus:      "Built the backend of NontonPlus V2 for the hospitality sector from scratch using NestJS, PostgreSQL, and MongoDB. Implemented multi-tenant ISP management, real-time communication via Socket.IO, caching via Redis, object storage with MinIO, and observability using Grafana and Loki.",
 				Achievements: []domain.ExperienceAchievement{
 					{
 						Number:      "01.",
@@ -332,9 +332,9 @@ func SeedData(db *sql.DB) error {
 					},
 					{
 						Number:      "02.",
-						Title:       "Real-Time Socket.IO",
+						Title:       "Real-Time Sockets & Telemetry",
 						Metric:      "Clustered Sockets",
-						Description: "Implemented real-time communication and nurse-call / hospitality requirements using Socket.IO.",
+						Description: "Implemented real-time communication and hospitality guest engagement features using Socket.IO.",
 					},
 					{
 						Number:      "03.",
@@ -351,6 +351,33 @@ func SeedData(db *sql.DB) error {
 				},
 				TechStack: []string{"NestJS", "Node.js", "PostgreSQL", "MongoDB", "Redis", "Socket.IO", "MinIO", "Grafana", "Loki", "Docker"},
 				SortOrder: 1,
+			},
+			{
+				RoleTitle:      "Programmer Intern",
+				CompanyName:    "PT. Semua Aplikasi Indonesia",
+				CompanyTagline: "NontonPlus V1 — Hospital IPTV & Patient Care System",
+				EmploymentType: "Internship",
+				Location:       "Denpasar, Bali",
+				StartDate:      "Feb 2025",
+				EndDate:        "Jun 2025",
+				IsActive:       false,
+				CoreFocus:      "Developed the backend for patient satisfaction surveys and real-time nurse-call features on NontonPlus V1 (IPTV application for hospitals) using Node.js, Express, MongoDB, and Socket.IO.",
+				Achievements: []domain.ExperienceAchievement{
+					{
+						Number:      "01.",
+						Title:       "Hospital Nurse-Call System",
+						Metric:      "Socket.IO Real-Time",
+						Description: "Implemented real-time emergency nurse-call communication protocol between patient rooms and nursing stations.",
+					},
+					{
+						Number:      "02.",
+						Title:       "Patient Survey Module",
+						Metric:      "Node.js & MongoDB",
+						Description: "Developed REST API endpoints and data models for inpatient hospital satisfaction surveys and feedback collection.",
+					},
+				},
+				TechStack: []string{"Node.js", "Express", "MongoDB", "Mongoose", "Socket.IO", "REST API"},
+				SortOrder: 2,
 			},
 			{
 				RoleTitle:      "Programmer Intern",
@@ -377,7 +404,7 @@ func SeedData(db *sql.DB) error {
 					},
 				},
 				TechStack: []string{"PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"},
-				SortOrder: 2,
+				SortOrder: 3,
 			},
 			{
 				RoleTitle:      "Programmer Intern",
@@ -404,7 +431,7 @@ func SeedData(db *sql.DB) error {
 					},
 				},
 				TechStack: []string{"Go (Golang)", "HTTP Client", "JSON Parsing", "REST API"},
-				SortOrder: 3,
+				SortOrder: 4,
 			},
 		}
 		for _, exp := range experiences {
