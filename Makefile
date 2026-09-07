@@ -18,5 +18,8 @@ build-web:
 build: build-web
 	go build -ldflags="-s -w" -o bin/portfolio cmd/server/main.go
 
+seed:
+	go run cmd/seed/main.go
+
 clean:
 	rm -rf bin/ web/dist/ portfolio.db*
