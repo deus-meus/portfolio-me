@@ -43,3 +43,7 @@ web/dist/
 
 # Raw Stitch design export references
 design_stitch/
+
+# SDD and superpowers workspace/plans
+docs/superpowers/
+.superpowers/
