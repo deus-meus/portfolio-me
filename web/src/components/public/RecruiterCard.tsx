@@ -45,7 +45,7 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
             </span>
           </div>
           <div className="flex flex-wrap gap-1.5 pt-0.5">
-            {["Go (Golang)", "TypeScript / Node", "NestJS / Fastify", "PostgreSQL", "Redis", "BullMQ", "Docker"].map((stack) => (
+            {["TypeScript / Node", "NestJS", "Fastify", "PostgreSQL", "MongoDB", "Redis", "BullMQ", "Docker", "Go"].map((stack) => (
               <span
                 key={stack}
                 className="px-2 py-0.5 bg-white border border-brand-200 text-[11px] font-semibold text-brand-900"

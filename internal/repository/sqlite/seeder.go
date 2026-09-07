@@ -31,8 +31,8 @@ func SeedData(db *sql.DB) error {
 		_, err = db.ExecContext(ctx, profileQuery,
 			"Narwastu Dwi Nilan Bara' Allo",
 			"Backend Developer",
-			"Engineering Reliable RESTful APIs & Scalable Backend Architecture",
-			"Backend Developer experienced in building structured REST APIs, asynchronous background queues, and reliable persistence layers. Proficient in Go (Golang), TypeScript/Node.js, PostgreSQL, Redis, BullMQ, and Docker with Clean Architecture principles.",
+			"Engineering Reliable RESTful APIs & Scalable Backend Systems",
+			"Backend Developer experienced in building structured REST APIs, asynchronous background queues, and reliable persistence layers. Currently developing backend microservices for NontonPlus V2 (IPTV & VOD platform with hybrid PostgreSQL/MongoDB and real-time WebSockets). Proficient in Node.js/TypeScript (NestJS, Fastify), with practical experience in Redis, BullMQ, Docker, and working knowledge of Go.",
 			"dwinarwastu02@gmail.com",
 			"https://github.com/deus-meus",
 			"https://linkedin.com/in/dwinarwastu",
@@ -108,7 +108,7 @@ func SeedData(db *sql.DB) error {
 				GithubURL:   "https://github.com/dwinarwastu/hookbridge",
 				DocsURL:     "https://github.com/dwinarwastu/hookbridge#how-it-works",
 				IsPublished: true,
-				SortOrder:   1,
+				SortOrder:   2,
 			},
 			{
 				Slug:           "guardrail",
@@ -140,7 +140,7 @@ func SeedData(db *sql.DB) error {
 				GithubURL:   "https://github.com/dwinarwastu/guardrail",
 				DocsURL:     "https://github.com/dwinarwastu/guardrail#architecture",
 				IsPublished: true,
-				SortOrder:   2,
+				SortOrder:   3,
 			},
 			{
 				Slug:           "notihub-pulseboard",
@@ -172,13 +172,13 @@ func SeedData(db *sql.DB) error {
 				GithubURL:   "https://github.com/dwinarwastu/notihub",
 				DocsURL:     "https://github.com/dwinarwastu/pulseboard",
 				IsPublished: true,
-				SortOrder:   3,
+				SortOrder:   4,
 			},
 			{
 				Slug:           "nontonplus-v2-backend",
 				Title:          "High-Throughput IPTV & VOD Microservices with Hybrid Database",
 				DomainCategory: "ENTERPRISE STREAMING & TELEMETRY",
-				BadgeLabel:     "PRODUCTION SCALE",
+				BadgeLabel:     "ACTIVE PRODUCTION",
 				ArchitectureFlow: []string{
 					"STB / Smart TV Clients",
 					"Fastify HTTP API Gateway",
@@ -204,7 +204,7 @@ func SeedData(db *sql.DB) error {
 				GithubURL:   "https://github.com/deus-meus",
 				DocsURL:     "https://github.com/deus-meus",
 				IsPublished: true,
-				SortOrder:   4,
+				SortOrder:   1,
 			},
 			{
 				Slug:           "padelhive",
@@ -260,18 +260,18 @@ func SeedData(db *sql.DB) error {
 
 		skills := []domain.Skill{
 			// Languages
-			{Category: "languages", Name: "Go (Golang)", IsFeatured: true, SortOrder: 1},
-			{Category: "languages", Name: "TypeScript", IsFeatured: true, SortOrder: 2},
-			{Category: "languages", Name: "Node.js", IsFeatured: true, SortOrder: 3},
-			{Category: "languages", Name: "Bun", IsFeatured: true, SortOrder: 4},
-			{Category: "languages", Name: "SQL (ANSI)", IsFeatured: true, SortOrder: 5},
+			{Category: "languages", Name: "TypeScript", IsFeatured: true, SortOrder: 1},
+			{Category: "languages", Name: "Node.js / JavaScript", IsFeatured: true, SortOrder: 2},
+			{Category: "languages", Name: "SQL (PostgreSQL/SQLite)", IsFeatured: true, SortOrder: 3},
+			{Category: "languages", Name: "Go (Golang)", IsFeatured: true, SortOrder: 4},
+			{Category: "languages", Name: "Bun", IsFeatured: true, SortOrder: 5},
 			// Frameworks
-			{Category: "frameworks", Name: "Go Chi", IsFeatured: true, SortOrder: 1},
-			{Category: "frameworks", Name: "Fiber", IsFeatured: true, SortOrder: 2},
-			{Category: "frameworks", Name: "NestJS", IsFeatured: true, SortOrder: 3},
-			{Category: "frameworks", Name: "Fastify", IsFeatured: true, SortOrder: 4},
-			{Category: "frameworks", Name: "Elysia", IsFeatured: true, SortOrder: 5},
-			{Category: "frameworks", Name: "gRPC / Protobuf", IsFeatured: true, SortOrder: 6},
+			{Category: "frameworks", Name: "NestJS", IsFeatured: true, SortOrder: 1},
+			{Category: "frameworks", Name: "Fastify", IsFeatured: true, SortOrder: 2},
+			{Category: "frameworks", Name: "Express", IsFeatured: true, SortOrder: 3},
+			{Category: "frameworks", Name: "Go Chi", IsFeatured: true, SortOrder: 4},
+			{Category: "frameworks", Name: "Fiber", IsFeatured: true, SortOrder: 5},
+			{Category: "frameworks", Name: "Elysia", IsFeatured: true, SortOrder: 6},
 			// Databases
 			{Category: "databases", Name: "PostgreSQL", IsFeatured: true, SortOrder: 1},
 			{Category: "databases", Name: "Redis Cluster", IsFeatured: true, SortOrder: 2},

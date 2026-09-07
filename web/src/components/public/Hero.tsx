@@ -27,20 +27,12 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-brand-900 leading-[1.18] tracking-tight">
-            {profile?.headline || (
-              <>
-                Engineering{' '}
-                <span className="text-brand-900 underline decoration-emerald-500 underline-offset-4">
-                  Reliable RESTful APIs
-                </span>{' '}
-                & Scalable Backend Architecture.
-              </>
-            )}
+            {profile?.headline || "Engineering Reliable RESTful APIs & Scalable Backend Systems."}
           </h1>
 
           <p className="text-base text-brand-600 leading-relaxed font-normal">
             {profile?.bio ||
-              "Backend Developer experienced in building structured REST APIs, asynchronous background queues, and reliable persistence layers. Proficient in Go (Golang), TypeScript/Node.js, PostgreSQL, Redis, BullMQ, and Docker with Clean Architecture principles."}
+              "Backend Developer experienced in building structured REST APIs, asynchronous background queues, and reliable persistence layers. Currently developing backend microservices for NontonPlus V2 (IPTV & VOD platform with hybrid PostgreSQL/MongoDB and real-time WebSockets). Proficient in Node.js/TypeScript (NestJS, Fastify), with practical experience in Redis, BullMQ, Docker, and working knowledge of Go."}
           </p>
 
           <div className="flex flex-wrap items-center gap-2.5 pt-1">
@@ -96,35 +88,35 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Throughput Target</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Core Focus</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
-                {profile?.peak_rps || "1,500+ RPS"}
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
+                REST APIs
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Tested Concurrency</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Clean Architecture</span>
             </div>
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Availability</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Databases</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
-                {profile?.sla_uptime || "99.9%"}
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
+                Postgres & Redis
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Target SLA</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Relational & Caching</span>
             </div>
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">P99 Latency</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Async Flow</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
-                {profile?.p99_latency || "< 50ms"}
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
+                Queues & Workers
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Indexed Endpoints</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Background Processing</span>
             </div>
           </div>
         </div>
