@@ -17,15 +17,6 @@ services:
       - JWT_SECRET=${JWT_SECRET}
       - ADMIN_USER=${ADMIN_USER}
       - ADMIN_PASS=${ADMIN_PASS}
-
-  # Optional: Automatic container updater when a new image is pushed to GHCR
-  # Run with: docker compose --profile auto-update up -d
-  watchtower:
-    image: containrrr/watchtower:latest
-    container_name: portfolio-watchtower
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 120 --cleanup portfolio-app
-    profiles:
-      - auto-update
+    labels:
+      # Enable automatic updates via your server's existing Watchtower
+      - "com.centurylinklabs.watchtower.enable=true"
