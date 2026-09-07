@@ -1,4 +1,4 @@
-module github.com/deus-meus/portofolio-me
+module github.com/deus-meus/portfolio-me
 
 go 1.26.0
 

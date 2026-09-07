@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/deus-meus/portofolio-me/internal/domain"
-	"github.com/deus-meus/portofolio-me/internal/handler/middleware"
-	"github.com/deus-meus/portofolio-me/internal/usecase"
+	"github.com/deus-meus/portfolio-me/internal/domain"
+	"github.com/deus-meus/portfolio-me/internal/handler/middleware"
+	"github.com/deus-meus/portfolio-me/internal/usecase"
 	"github.com/golang-jwt/jwt/v5"
 )
 

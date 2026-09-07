@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deus-meus/portofolio-me/internal/config"
-	"github.com/deus-meus/portofolio-me/internal/handler/middleware"
-	"github.com/deus-meus/portofolio-me/internal/usecase"
+	"github.com/deus-meus/portfolio-me/internal/config"
+	"github.com/deus-meus/portfolio-me/internal/handler/middleware"
+	"github.com/deus-meus/portfolio-me/internal/usecase"
 	"github.com/go-chi/chi/v5"
 	chimiddleware "github.com/go-chi/chi/v5/middleware"
 )

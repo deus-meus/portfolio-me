@@ -7,10 +7,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/deus-meus/portofolio-me/internal/config"
-	"github.com/deus-meus/portofolio-me/internal/domain"
-	"github.com/deus-meus/portofolio-me/internal/handler"
-	"github.com/deus-meus/portofolio-me/internal/usecase"
+	"github.com/deus-meus/portfolio-me/internal/config"
+	"github.com/deus-meus/portfolio-me/internal/domain"
+	"github.com/deus-meus/portfolio-me/internal/handler"
+	"github.com/deus-meus/portfolio-me/internal/usecase"
 )
 
 type mockProfileRepo struct{}

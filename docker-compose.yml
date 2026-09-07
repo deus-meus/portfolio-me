@@ -1,6 +1,6 @@
 services:
   portfolio:
-    image: ghcr.io/deus-meus/portofolio-me:latest
+    image: ghcr.io/deus-meus/portfolio-me:latest
     container_name: portfolio-app
     restart: unless-stopped
     ports:

@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/deus-meus/portofolio-me/internal/domain"
-	"github.com/deus-meus/portofolio-me/internal/usecase"
+	"github.com/deus-meus/portfolio-me/internal/domain"
+	"github.com/deus-meus/portfolio-me/internal/usecase"
 )
 
 type mockWebhookRepo struct {

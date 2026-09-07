@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/deus-meus/portofolio-me/internal/config"
-	"github.com/deus-meus/portofolio-me/internal/repository/sqlite"
+	"github.com/deus-meus/portfolio-me/internal/config"
+	"github.com/deus-meus/portfolio-me/internal/repository/sqlite"
 )
 
 func main() {

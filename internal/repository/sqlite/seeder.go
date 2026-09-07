@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/deus-meus/portofolio-me/internal/domain"
+	"github.com/deus-meus/portfolio-me/internal/domain"
 	"golang.org/x/crypto/bcrypt"
 )
 

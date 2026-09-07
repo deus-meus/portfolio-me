@@ -3,8 +3,8 @@ package handler
 import (
 	"net/http"
 
-	"github.com/deus-meus/portofolio-me/internal/domain"
-	"github.com/deus-meus/portofolio-me/internal/usecase"
+	"github.com/deus-meus/portfolio-me/internal/domain"
+	"github.com/deus-meus/portfolio-me/internal/usecase"
 	"github.com/go-chi/chi/v5"
 )
 

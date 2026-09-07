@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/deus-meus/portofolio-me/internal/config"
+	"github.com/deus-meus/portfolio-me/internal/config"
 )
 
 func TestLoadConfig_Defaults(t *testing.T) {

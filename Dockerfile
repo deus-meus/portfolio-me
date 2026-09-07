@@ -38,7 +38,7 @@ COPY --from=builder-web /build/web/dist ./web/dist
 
 # Build production binary and seeder CLI with stripped symbols
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /build/portfolio cmd/server/main.go && \
-    CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /build/seed cmd/seed/main.go
+  CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /build/seed cmd/seed/main.go
 
 # ==============================================================================
 # Stage 3: Minimal Production Runtime
@@ -62,8 +62,8 @@ EXPOSE 8080
 
 # Default environment variables
 ENV PORT=8080 \
-    APP_ENV=production \
-    DB_PATH=/app/data/portfolio.db
+  APP_ENV=production \
+  DB_PATH=/app/data/portfolio.db
 
 # Run portfolio server
 CMD ["/app/portfolio"]

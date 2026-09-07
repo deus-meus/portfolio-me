@@ -11,11 +11,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/deus-meus/portofolio-me/internal/config"
-	"github.com/deus-meus/portofolio-me/internal/handler"
-	"github.com/deus-meus/portofolio-me/internal/repository/sqlite"
-	"github.com/deus-meus/portofolio-me/internal/usecase"
-	"github.com/deus-meus/portofolio-me/web"
+	"github.com/deus-meus/portfolio-me/internal/config"
+	"github.com/deus-meus/portfolio-me/internal/handler"
+	"github.com/deus-meus/portfolio-me/internal/repository/sqlite"
+	"github.com/deus-meus/portfolio-me/internal/usecase"
+	"github.com/deus-meus/portfolio-me/web"
 )
 
 func main() {
