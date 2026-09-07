@@ -1,8 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- Swiss Slate-900 Background -->
-  <rect width="32" height="32" rx="6" fill="#0f172a"/>
-  <!-- Crisp Geometric Monogram "N" -->
-  <path d="M8 8.5h3.6l8.8 11.2V8.5H24v15h-3.6L11.6 12.3v11.2H8V8.5z" fill="#ffffff"/>
-  <!-- Precision Emerald Status Indicator Dot -->
-  <circle cx="25.5" cy="7.5" r="2.2" fill="#10b981"/>
+  <defs>
+    <linearGradient id="diagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark Engineering Obsidian Slate Canvas -->
+  <rect width="32" height="32" rx="5" fill="#0b0f19"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="4.5" fill="none" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Left Pillar (Architectural Muted Slate) -->
+  <path d="M6.5 6.5 h4.5 v19 h-4.5 z" fill="#64748b"/>
+
+  <!-- Right Pillar (Precision Engineering Emerald) -->
+  <path d="M21 6.5 h4.5 v19 h-4.5 z" fill="url(#emeraldGrad)"/>
+
+  <!-- Front Diagonal Ribbon (Folded White Blade) -->
+  <path d="M6.5 6.5 L21 25.5 h4.5 L11 6.5 Z" fill="url(#diagGrad)"/>
 </svg>
