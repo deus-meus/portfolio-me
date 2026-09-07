@@ -74,6 +74,14 @@ func SeedData(db *sql.DB) error {
 		return fmt.Errorf("check case studies count: %w", err)
 	}
 
+	var hasPostgresInNontonPlus bool
+	_ = db.QueryRowContext(ctx, "SELECT EXISTS(SELECT 1 FROM case_studies WHERE slug='nontonplus-v2-backend' AND (tech_stack LIKE '%PostgreSQL%' OR architecture_flow LIKE '%PostgreSQL%'))").Scan(&hasPostgresInNontonPlus)
+
+	if csCount < 5 || hasPostgresInNontonPlus {
+		_, _ = db.ExecContext(ctx, "DELETE FROM case_studies")
+		csCount = 0
+	}
+
 	if csCount == 0 {
 		csRepo := NewCaseStudyRepository(db)
 
@@ -309,6 +317,14 @@ func SeedData(db *sql.DB) error {
 		return fmt.Errorf("check exp count: %w", err)
 	}
 
+	var hasV1 bool
+	_ = db.QueryRowContext(ctx, "SELECT EXISTS(SELECT 1 FROM experiences WHERE company_tagline LIKE '%NontonPlus V1%')").Scan(&hasV1)
+
+	if expCount < 4 || !hasV1 {
+		_, _ = db.ExecContext(ctx, "DELETE FROM experiences")
+		expCount = 0
+	}
+
 	if expCount == 0 {
 		expRepo := NewExperienceRepository(db)
 
@@ -322,13 +338,13 @@ func SeedData(db *sql.DB) error {
 				StartDate:      "Aug 2025",
 				EndDate:        "Present",
 				IsActive:       true,
-				CoreFocus:      "Built the backend of NontonPlus V2 for the hospitality sector from scratch using NestJS, PostgreSQL, and MongoDB. Implemented multi-tenant ISP management, real-time communication via Socket.IO, caching via Redis, object storage with MinIO, and observability using Grafana and Loki.",
+				CoreFocus:      "Built the backend of NontonPlus V2 for the hospitality sector from scratch using NestJS, Node.js, and MongoDB. Implemented multi-tenant ISP management, real-time communication via Socket.IO, caching via Redis, object storage with MinIO, and observability using Grafana and Loki.",
 				Achievements: []domain.ExperienceAchievement{
 					{
 						Number:      "01.",
 						Title:       "IPTV Hospitality Backend",
 						Metric:      "NestJS & Mongo",
-						Description: "Built backend architecture from scratch with PostgreSQL for billing and MongoDB for high-write device playback telemetry.",
+						Description: "Built backend architecture from scratch using MongoDB for multi-tenant IPTV services and high-write device playback telemetry.",
 					},
 					{
 						Number:      "02.",
@@ -349,7 +365,7 @@ func SeedData(db *sql.DB) error {
 						Description: "Used Redis for caching, MinIO for object storage, and performed system observability with Grafana and Loki.",
 					},
 				},
-				TechStack: []string{"NestJS", "Node.js", "PostgreSQL", "MongoDB", "Redis", "Socket.IO", "MinIO", "Grafana", "Loki", "Docker"},
+				TechStack: []string{"NestJS", "Node.js", "MongoDB", "Mongoose", "Redis", "Socket.IO", "MinIO", "Grafana", "Loki", "Docker"},
 				SortOrder: 1,
 			},
 			{
