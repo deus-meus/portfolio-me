@@ -35,8 +35,8 @@ func TestSQLiteRepositories(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to get profile: %v", err)
 	}
-	if profile.FullName != "Dwinarwastu" {
-		t.Errorf("expected Dwinarwastu, got %s", profile.FullName)
+	if profile.FullName != "Narwastu Dwi Nilan Bara' Allo" {
+		t.Errorf("expected Narwastu Dwi Nilan Bara' Allo, got %s", profile.FullName)
 	}
 
 	// Update Profile

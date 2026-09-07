@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-brand-200">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-base text-brand-900">Dwinarwastu</span>
+              <span className="font-bold text-base text-brand-900">Narwastu Dwi Nilan Bara' Allo</span>
               <span className="font-mono text-[11px] px-2 py-0.5 bg-brand-100 text-brand-800 border border-brand-200 uppercase font-medium">
                 Backend Systems
               </span>
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-brand-500">
           <div>
-            © {new Date().getFullYear()} Dwinarwastu. Released under MIT License.
+            © {new Date().getFullYear()} Narwastu Dwi Nilan Bara' Allo. Built with Go & React.
           </div>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">

@@ -58,11 +58,11 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
 
         <div className="grid grid-cols-2 gap-2.5">
           <div className="p-3 bg-brand-50/70 border border-brand-200/80">
-            <span className="text-[10px] text-brand-500 uppercase block font-medium">PRODUCTION YEARS</span>
+            <span className="text-[10px] text-brand-500 uppercase block font-medium">EXPERIENCE</span>
             <span className="text-[13px] font-bold text-brand-900">
-              {profile?.years_experience ? `${profile.years_experience}+ Years` : "3+ Years"}
+              {profile?.years_experience ? `${profile.years_experience}+ Years` : "2+ Years"}
             </span>
-            <span className="text-[10px] text-brand-600 block mt-0.5">Production Services</span>
+            <span className="text-[10px] text-brand-600 block mt-0.5">Backend Development</span>
           </div>
           <div className="p-3 bg-brand-50/70 border border-brand-200/80">
             <span className="text-[10px] text-brand-500 uppercase block font-medium">NOTICE PERIOD</span>
@@ -81,8 +81,8 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
         </div>
 
         <div className="p-2.5 bg-brand-50/70 border border-brand-200/80 flex items-center justify-between">
-          <span className="text-[10px] text-brand-500 uppercase font-medium">DESIRED LEVEL</span>
-          <span className="text-[11px] font-semibold text-brand-900">Mid-to-Senior Backend Engineer</span>
+          <span className="text-[10px] text-brand-500 uppercase font-medium">DESIRED ROLE</span>
+          <span className="text-[11px] font-semibold text-brand-900">Backend Developer / Software Engineer</span>
         </div>
       </div>
 

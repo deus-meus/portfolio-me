@@ -28,7 +28,7 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({ experiences = [] 
           <div key={exp.id || idx} className="relative flex items-start gap-4 sm:gap-6 group">
             {/* Timeline Node */}
             <div className="w-10 shrink-0 flex items-center justify-center pt-1 z-10">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-brand-900 text-white flex items-center justify-center border-4 border-[#f8fafc] font-mono text-xs font-bold ring-2 ring-emerald-500">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-900 text-white flex items-center justify-center border-2 border-[#f8fafc] font-mono text-xs font-bold ring-2 ring-emerald-500 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               </div>
             </div>

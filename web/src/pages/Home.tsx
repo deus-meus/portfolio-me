@@ -11,11 +11,7 @@ import { Footer } from '../components/public/Footer';
 import { api } from '../services/api';
 import type { CaseStudy, Credential, Experience, Profile, Skill } from '../types';
 
-interface HomeProps {
-  onNavigateToAdmin?: () => void;
-}
-
-export const HomePage: React.FC<HomeProps> = ({ onNavigateToAdmin }) => {
+export const HomePage: React.FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [skills, setSkills] = useState<Record<string, Skill[]>>({});
@@ -64,7 +60,6 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigateToAdmin }) => {
         fullName={profile?.full_name}
         roleTitle={profile?.role_title}
         resumeUrl={profile?.resume_url}
-        onNavigateToAdmin={onNavigateToAdmin}
       />
       <main className="flex-1 w-full">
         <Hero profile={profile} />

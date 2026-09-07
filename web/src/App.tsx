@@ -94,7 +94,7 @@ export const App: React.FC = () => {
   }
 
   // Otherwise, render Public Portfolio
-  return <HomePage onNavigateToAdmin={() => navigateTo('/admin')} />;
+  return <HomePage />;
 };
 
 export default App;

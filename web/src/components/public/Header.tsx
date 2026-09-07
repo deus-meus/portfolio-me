@@ -5,14 +5,12 @@ interface HeaderProps {
   fullName?: string;
   roleTitle?: string;
   resumeUrl?: string;
-  onNavigateToAdmin?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  fullName = "Dwinarwastu",
+  fullName = "Narwastu Dwi Nilan Bara' Allo",
   roleTitle = "Backend Developer",
   resumeUrl = "/resume.pdf",
-  onNavigateToAdmin,
 }) => {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
@@ -53,14 +51,6 @@ export const Header: React.FC<HeaderProps> = ({
             <Download className="w-3.5 h-3.5" />
             Download Resume (PDF)
           </a>
-          {onNavigateToAdmin && (
-            <button
-              onClick={onNavigateToAdmin}
-              className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-mono font-medium text-brand-700 bg-brand-100 hover:bg-brand-200 border border-brand-200 transition-colors"
-            >
-              CMS Console
-            </button>
-          )}
           <a
             href="#contact"
             className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold bg-white text-brand-800 border border-brand-300 hover:bg-brand-50 transition-colors"

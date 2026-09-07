@@ -16,27 +16,27 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono font-semibold tracking-wide uppercase bg-brand-900 text-white">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              BACKEND ENGINEER
+              BACKEND DEVELOPER
             </span>
             <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono bg-white text-brand-700 border border-brand-200 font-medium">
-              <span className="text-emerald-500 font-bold">●</span> Production-Grade Systems
+              <span className="text-emerald-500 font-bold">●</span> Clean Architecture
             </span>
             <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono bg-white text-brand-700 border border-brand-200 font-medium">
-              <Cpu className="w-3.5 h-3.5 text-accent" /> High-Throughput & Queues
+              <Cpu className="w-3.5 h-3.5 text-accent" /> Async Queues & Databases
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-brand-900 leading-[1.18] tracking-tight">
             Engineering{' '}
             <span className="text-brand-900 underline decoration-emerald-500 underline-offset-4">
-              High-Performance RESTful APIs
+              Reliable RESTful APIs
             </span>{' '}
-            & Resilient Distributed Services.
+            & Scalable Backend Architecture.
           </h1>
 
           <p className="text-base text-brand-600 leading-relaxed font-normal">
             {profile?.bio ||
-              "Backend Engineer specializing in distributed system engineering, high-throughput microservices architecture, and event-driven data streaming. Proficient in Go (Golang), TypeScript/Node.js, PostgreSQL, and Docker in mission-critical production environments."}
+              "Backend Developer experienced in building structured REST APIs, asynchronous background queues, and reliable persistence layers. Proficient in Go (Golang), TypeScript/Node.js, PostgreSQL, Redis, BullMQ, and Docker with Clean Architecture principles."}
           </p>
 
           <div className="flex flex-wrap items-center gap-2.5 pt-1">
@@ -85,42 +85,42 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
               </div>
               <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
-                {profile?.years_experience ? `${profile.years_experience}+ Years` : "3+ Years"}
+                {profile?.years_experience ? `${profile.years_experience}+ Years` : "2+ Years"}
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Production Systems</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Backend Development</span>
             </div>
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Peak Throughput</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Core Stack</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
-                {profile?.peak_rps || "12k+ RPS"}
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
+                Go & Node
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Flash-scale Peak</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">TypeScript Ecosystem</span>
             </div>
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">SLA Uptime</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Databases</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
-                {profile?.sla_uptime || "99.95%"}
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
+                Postgres & Redis
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Zero Outage Target</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Relational & In-Memory</span>
             </div>
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">P99 Latency</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Architecture</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
-                {profile?.p99_latency || "< 30ms"}
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
+                Clean & Queues
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Index & Caching</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">BullMQ & Async Flow</span>
             </div>
           </div>
         </div>

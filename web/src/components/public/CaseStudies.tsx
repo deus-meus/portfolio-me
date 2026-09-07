@@ -19,7 +19,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
           </h2>
         </div>
         <p className="text-sm text-brand-600 max-w-md mt-2 md:mt-0 font-normal">
-          Large-scale backend engineering with emphasis on data resilience, throughput scaling, and zero fault tolerance.
+          Real-world backend projects demonstrating Clean Architecture, asynchronous queues, database optimization, and type-safe APIs.
         </p>
       </div>
 

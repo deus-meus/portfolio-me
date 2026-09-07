@@ -114,7 +114,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
               </span>
             </div>
             <p className="text-xs text-brand-600">
-              Hookbridge, Guardrail, Notihub, NontonPlus V2.
+              Hookbridge, Guardrail, Notihub, NontonPlus V2, PadelHive.
             </p>
             <button
               onClick={() => onNavigate('case-studies')}
