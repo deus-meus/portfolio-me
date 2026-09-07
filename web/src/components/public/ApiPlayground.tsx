@@ -69,7 +69,7 @@ export const ApiPlayground: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Live System Telemetry Card */}
-        <div className="lg:col-span-5 bg-white border border-brand-200 p-6 flex flex-col justify-between space-y-5">
+        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between space-y-5">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-brand-100">
               <div className="flex items-center gap-2">
@@ -144,20 +144,20 @@ export const ApiPlayground: React.FC = () => {
         </div>
 
         {/* Right Column: Interactive Webhook Simulator */}
-        <div className="lg:col-span-7 bg-white border border-brand-200 p-6 space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-brand-100">
-            <div className="flex items-center gap-2">
-              <Terminal className="w-4 h-4 text-accent" />
-              <h3 className="font-mono text-xs font-bold text-brand-900 uppercase tracking-wider">
+        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-brand-100 gap-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <Terminal className="w-4 h-4 text-accent shrink-0" />
+              <h3 className="font-mono text-xs font-bold text-brand-900 uppercase tracking-wider truncate">
                 HMAC-SHA256 WEBHOOK INGESTION SIMULATOR
               </h3>
             </div>
-            <span className="font-mono text-[10px] bg-brand-100 text-brand-800 px-2 py-0.5 font-semibold">
+            <span className="font-mono text-[9px] sm:text-[10px] bg-brand-100 text-brand-800 px-2 py-0.5 font-semibold shrink-0">
               POST /api/v1/webhooks/test
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-mono text-[11px] font-semibold text-brand-700 uppercase mb-1">
                 Webhook Provider
@@ -212,16 +212,16 @@ export const ApiPlayground: React.FC = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between pt-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2">
             <button
               onClick={handleSimulate}
               disabled={simulating}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 disabled:bg-brand-400 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 disabled:bg-brand-400 transition-colors w-full sm:w-auto"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               {simulating ? 'DISPATCHING...' : 'DISPATCH & VERIFY SIGNATURE'}
             </button>
-            <span className="font-mono text-[11px] text-brand-500">
+            <span className="font-mono text-[10px] sm:text-[11px] text-brand-500 text-center sm:text-right">
               Zero-Allocation HMAC Evaluator
             </span>
           </div>
@@ -229,38 +229,38 @@ export const ApiPlayground: React.FC = () => {
           {/* Simulation Output Box */}
           {errorMsg && (
             <div className="p-3 bg-red-50 border border-red-200 text-red-700 font-mono text-xs flex items-center gap-2">
-              <ShieldAlert className="w-4 h-4 text-red-600" />
+              <ShieldAlert className="w-4 h-4 text-red-600 shrink-0" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {simResult && (
             <div className="mt-3 p-3 bg-brand-50 border border-brand-200 font-mono text-xs space-y-1.5">
-              <div className="flex items-center justify-between pb-1 border-b border-brand-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-1 border-b border-brand-200">
                 <span className="flex items-center gap-1.5 font-bold">
                   {simResult.is_valid ? (
                     <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                       <span className="text-emerald-800">SIGNATURE VALIDATED (200 OK)</span>
                     </>
                   ) : (
                     <>
-                      <ShieldAlert className="w-4 h-4 text-red-600" />
+                      <ShieldAlert className="w-4 h-4 text-red-600 shrink-0" />
                       <span className="text-red-700">SIGNATURE MISMATCH / TAMPERED (400)</span>
                     </>
                   )}
                 </span>
-                <span className="text-brand-600 tabular-nums">
+                <span className="text-brand-600 tabular-nums text-[11px]">
                   Execution Latency: {simResult.response_time_ms} ms
                 </span>
               </div>
-              <div className="text-[11px] text-brand-700 pt-1">
-                <div className="truncate">
-                  <span className="text-brand-500">Provided: </span>
+              <div className="text-[11px] text-brand-700 pt-1 space-y-1">
+                <div className="break-all">
+                  <span className="text-brand-500 font-semibold">Provided: </span>
                   {simResult.provided_signature}
                 </div>
-                <div className="truncate">
-                  <span className="text-brand-500">Expected: </span>
+                <div className="break-all">
+                  <span className="text-brand-500 font-semibold">Expected: </span>
                   {simResult.expected_signature}
                 </div>
               </div>

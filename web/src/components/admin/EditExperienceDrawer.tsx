@@ -93,7 +93,7 @@ export const EditExperienceDrawer: React.FC<EditExperienceDrawerProps> = ({
     <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/50 backdrop-blur-sm">
       <div className="w-full max-w-xl bg-white border-l border-brand-200 shadow-2xl flex flex-col h-full font-mono text-xs">
         {/* Drawer Header */}
-        <div className="px-6 py-4 border-b border-brand-200 flex items-center justify-between bg-brand-50">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-brand-200 flex items-center justify-between bg-brand-50">
           <div>
             <h2 className="text-sm font-bold text-brand-900 uppercase">
               {initialData ? 'EDIT CAREER POSITION' : 'ADD NEW CAREER POSITION'}
@@ -117,8 +117,8 @@ export const EditExperienceDrawer: React.FC<EditExperienceDrawerProps> = ({
         )}
 
         {/* Drawer Form Body */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-4">
-          <div className="grid grid-cols-2 gap-3">
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold uppercase text-brand-700 mb-1">
                 Role Title *
@@ -157,7 +157,7 @@ export const EditExperienceDrawer: React.FC<EditExperienceDrawerProps> = ({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold uppercase text-brand-700 mb-1">
                 Employment Type
@@ -182,7 +182,7 @@ export const EditExperienceDrawer: React.FC<EditExperienceDrawerProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold uppercase text-brand-700 mb-1">
                 Start Date
@@ -306,18 +306,18 @@ export const EditExperienceDrawer: React.FC<EditExperienceDrawerProps> = ({
           </div>
 
           {/* Submit */}
-          <div className="pt-4 border-t border-brand-200 flex items-center justify-between">
+          <div className="pt-4 border-t border-brand-200 flex flex-wrap items-center justify-between gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 bg-brand-100 hover:bg-brand-200 text-brand-800 font-semibold"
+              className="px-3 sm:px-4 py-2 bg-brand-100 hover:bg-brand-200 text-brand-800 font-semibold text-xs transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-5 py-2 bg-brand-900 hover:bg-brand-800 text-white font-semibold flex items-center gap-1.5"
+              className="px-4 sm:px-5 py-2 bg-brand-900 hover:bg-brand-800 text-white font-semibold flex items-center gap-1.5 text-xs transition-colors"
             >
               <Check className="w-4 h-4" />
               {saving ? 'Saving...' : 'Save Position'}

@@ -62,7 +62,7 @@ export const AdminCaseStudies: React.FC = () => {
             setEditingItem(null);
             setModalOpen(true);
           }}
-          className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 transition-colors"
+          className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 transition-colors w-full sm:w-auto"
         >
           <Plus className="w-4 h-4" />
           Create New STAR Case Study
@@ -76,8 +76,8 @@ export const AdminCaseStudies: React.FC = () => {
           No case studies found. Click "Create New STAR Case Study" to add one.
         </div>
       ) : (
-        <div className="border border-brand-200 overflow-x-auto">
-          <table className="w-full text-left font-mono text-xs">
+        <div className="border border-brand-200 overflow-x-auto shadow-sm">
+          <table className="w-full text-left font-mono text-xs min-w-[550px]">
             <thead className="bg-brand-50 border-b border-brand-200 text-brand-700">
               <tr>
                 <th className="p-3">Title & Domain</th>

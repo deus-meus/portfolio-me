@@ -107,8 +107,8 @@ export const AdminWebhooks: React.FC = () => {
             No webhook simulations executed yet. Test via public API Playground.
           </div>
         ) : (
-          <div className="border border-brand-200 overflow-x-auto">
-            <table className="w-full text-left font-mono text-xs">
+          <div className="border border-brand-200 overflow-x-auto shadow-sm">
+            <table className="w-full text-left font-mono text-xs min-w-[500px]">
               <thead className="bg-brand-50 border-b border-brand-200 text-brand-700">
                 <tr>
                   <th className="p-3">Status</th>

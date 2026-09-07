@@ -27,26 +27,26 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
         {caseStudies.map((cs, idx) => (
           <article
             key={cs.slug || idx}
-            className="bg-white border border-brand-200 p-6 shadow-sm hover:border-brand-300 transition-colors"
+            className="bg-white border border-brand-200 p-4 sm:p-6 shadow-sm hover:border-brand-300 transition-colors"
           >
             {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-brand-100">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 pb-3.5 sm:pb-4 border-b border-brand-100">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-mono text-xs font-semibold text-brand-600 uppercase">
+                  <span className="font-mono text-[10px] sm:text-xs font-semibold text-brand-600 uppercase">
                     {cs.domain_category}
                   </span>
-                  <span className="inline-flex items-center px-2 py-0.5 font-mono text-[10px] font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  <span className="inline-flex items-center px-2 py-0.5 font-mono text-[9px] sm:text-[10px] font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
                     {cs.badge_label}
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-brand-900">{cs.title}</h3>
+                <h3 className="text-base sm:text-xl font-bold text-brand-900 leading-snug">{cs.title}</h3>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {cs.tech_stack?.map((tech) => (
                   <span
                     key={tech}
-                    className="font-mono text-xs px-2.5 py-0.5 bg-brand-100 text-brand-800 font-medium"
+                    className="font-mono text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 bg-brand-100 text-brand-800 font-medium"
                   >
                     {tech}
                   </span>
@@ -56,14 +56,14 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
 
             {/* Architecture Pipeline Flow */}
             {cs.architecture_flow && cs.architecture_flow.length > 0 && (
-              <div className="my-4 p-3 bg-brand-50 border border-brand-200 font-mono text-[11px] text-brand-700 flex flex-wrap items-center gap-2">
-                <span className="text-brand-500 font-bold uppercase text-[10px] flex items-center gap-1">
+              <div className="my-3 sm:my-4 p-2.5 sm:p-3 bg-brand-50 border border-brand-200 font-mono text-[10px] sm:text-[11px] text-brand-700 flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span className="text-brand-500 font-bold uppercase text-[9px] sm:text-[10px] flex items-center gap-1">
                   <GitBranch className="w-3 h-3 text-accent" />
                   Pipeline:
                 </span>
                 {cs.architecture_flow.map((node, nIdx) => (
                   <React.Fragment key={nIdx}>
-                    <span className="px-2 py-0.5 bg-white border border-brand-200 font-semibold text-brand-900">
+                    <span className="px-1.5 sm:px-2 py-0.5 bg-white border border-brand-200 font-semibold text-brand-900">
                       {node}
                     </span>
                     {nIdx < cs.architecture_flow.length - 1 && (
@@ -75,7 +75,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
             )}
 
             {/* 3-Column STAR Content */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 py-2">
               {/* Column 1: Problems & Challenges */}
               <div className="space-y-2">
                 <div className="flex items-center gap-1.5 font-mono text-xs font-semibold text-brand-900 uppercase">
@@ -107,18 +107,18 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
               </div>
 
               {/* Column 3: Tested Impact & Results */}
-              <div className="space-y-3 bg-emerald-50/60 p-4 border border-emerald-200">
+              <div className="space-y-3 bg-emerald-50/60 p-3 sm:p-4 border border-emerald-200">
                 <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-emerald-800 uppercase tracking-wider">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   03. Tested Impact & Results
                 </div>
-                <div className="grid grid-cols-2 gap-3 font-mono pt-1 border-t border-emerald-200/60">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 font-mono pt-1 border-t border-emerald-200/60">
                   {cs.metrics?.map((m, mIdx) => (
                     <div key={mIdx} className="bg-white/80 p-2.5 border border-emerald-100">
                       <span className="text-[10px] text-brand-500 uppercase tracking-wide block font-medium">
                         {m.label}
                       </span>
-                      <span className="text-lg font-bold text-brand-900 block mt-0.5 tabular-nums">
+                      <span className="text-base sm:text-lg font-bold text-brand-900 block mt-0.5 tabular-nums">
                         {m.value}
                       </span>
                       <span className="text-[10px] text-emerald-700 block mt-0.5">
@@ -131,7 +131,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
             </div>
 
             {/* Footer Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-brand-100 text-xs font-mono">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-3 border-t border-brand-100 text-xs font-mono">
               {cs.github_url && (
                 <a
                   href={cs.github_url}

@@ -117,13 +117,13 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/50 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-3xl bg-white border border-brand-200 shadow-xl flex flex-col font-sans">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/50 backdrop-blur-sm overflow-y-auto">
+      <div className="relative w-full max-w-3xl bg-white border border-brand-200 shadow-xl flex flex-col font-sans my-auto max-h-[95vh]">
         {/* Modal Top Bar */}
-        <div className="px-6 py-4 border-b border-brand-200 flex items-center justify-between">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-brand-200 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 bg-brand-900"></div>
-            <h2 className="font-mono text-sm font-bold text-brand-900 uppercase tracking-wider">
+            <div className="w-2.5 h-2.5 bg-brand-900 shrink-0"></div>
+            <h2 className="font-mono text-xs sm:text-sm font-bold text-brand-900 uppercase tracking-wider truncate">
               {initialData ? 'EDIT STAR CASE STUDY' : 'CREATE NEW STAR CASE STUDY'}
             </h2>
           </div>
@@ -136,7 +136,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
         </div>
 
         {/* Wizard Step Tabs */}
-        <div className="bg-brand-50 border-b border-brand-200 px-6 flex items-center gap-1 font-mono text-xs overflow-x-auto">
+        <div className="bg-brand-50 border-b border-brand-200 px-3 sm:px-6 flex items-center gap-1 font-mono text-xs overflow-x-auto whitespace-nowrap">
           {[
             { id: 1, label: '1. METADATA' },
             { id: 2, label: '2. STAR TEXT' },
@@ -146,7 +146,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2.5 border-b-2 font-semibold transition-colors ${
+              className={`px-3 sm:px-4 py-2 sm:py-2.5 border-b-2 font-semibold transition-colors shrink-0 ${
                 activeTab === tab.id
                   ? 'border-brand-900 text-brand-900 bg-white'
                   : 'border-transparent text-brand-500 hover:text-brand-900'
@@ -158,13 +158,13 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
         </div>
 
         {error && (
-          <div className="mx-6 mt-4 p-3 bg-red-50 border border-red-200 text-red-700 text-xs font-mono">
+          <div className="mx-4 sm:mx-6 mt-3 sm:mt-4 p-3 bg-red-50 border border-red-200 text-red-700 text-xs font-mono">
             {error}
           </div>
         )}
 
         {/* Tab Contents */}
-        <div className="p-6 max-h-[60vh] overflow-y-auto space-y-4">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 flex-1">
           {activeTab === 1 && (
             <div className="space-y-4 text-xs font-mono">
               <div>
@@ -186,7 +186,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-semibold uppercase text-brand-700 mb-1">
                     Slug (URL Key) *
@@ -224,7 +224,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-semibold uppercase text-brand-700 mb-1">
                     GitHub URL
@@ -297,7 +297,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
               <label className="block font-semibold uppercase text-brand-700">
                 03. Quantifiable Impact & Tested Metrics (4 Cells)
               </label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 {metrics.map((m, idx) => (
                   <div key={idx} className="p-3 bg-brand-50 border border-brand-200 space-y-2">
                     <div>
@@ -375,11 +375,11 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
         </div>
 
         {/* Modal Footer Controls */}
-        <div className="px-6 py-4 bg-brand-50 border-t border-brand-200 flex items-center justify-between font-mono text-xs">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 bg-brand-50 border-t border-brand-200 flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 bg-white border border-brand-300 text-brand-700 hover:bg-brand-100 font-semibold transition-colors"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white border border-brand-300 text-brand-700 hover:bg-brand-100 font-semibold transition-colors"
           >
             Cancel
           </button>
@@ -388,7 +388,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
               <button
                 type="button"
                 onClick={() => setActiveTab(activeTab + 1)}
-                className="px-4 py-2 bg-brand-200 text-brand-900 hover:bg-brand-300 font-semibold transition-colors"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-200 text-brand-900 hover:bg-brand-300 font-semibold transition-colors"
               >
                 Next Step →
               </button>
@@ -397,7 +397,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
               type="button"
               onClick={handleSubmit}
               disabled={saving}
-              className="px-5 py-2 bg-brand-900 text-white font-semibold hover:bg-brand-800 disabled:bg-brand-400 flex items-center gap-1.5 transition-colors"
+              className="px-4 sm:px-5 py-1.5 sm:py-2 bg-brand-900 text-white font-semibold hover:bg-brand-800 disabled:bg-brand-400 flex items-center gap-1.5 transition-colors"
             >
               <Check className="w-4 h-4" />
               {saving ? 'Saving...' : 'Save Case Study'}

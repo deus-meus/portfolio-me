@@ -69,13 +69,13 @@ export const AdminSkills: React.FC = () => {
       </div>
 
       {/* Add Skill Bar */}
-      <form onSubmit={handleAdd} className="p-4 bg-brand-50 border border-brand-200 flex flex-wrap items-center gap-3 font-mono text-xs">
+      <form onSubmit={handleAdd} className="p-3.5 sm:p-4 bg-brand-50 border border-brand-200 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 font-mono text-xs">
         <div className="flex items-center gap-2">
-          <span className="font-semibold uppercase text-brand-700">Category:</span>
+          <span className="font-semibold uppercase text-brand-700 shrink-0">Category:</span>
           <select
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
-            className="bg-white border border-brand-300 p-2 text-brand-900 focus:outline-none"
+            className="flex-1 sm:flex-none bg-white border border-brand-300 p-2 text-brand-900 focus:outline-none"
           >
             {categories.map((c) => (
               <option key={c} value={c}>{c.toUpperCase()}</option>
@@ -83,7 +83,7 @@ export const AdminSkills: React.FC = () => {
           </select>
         </div>
 
-        <div className="flex-1 min-w-[200px]">
+        <div className="flex-1 w-full">
           <input
             type="text"
             required
@@ -97,7 +97,7 @@ export const AdminSkills: React.FC = () => {
         <button
           type="submit"
           disabled={adding}
-          className="px-4 py-2 bg-brand-900 text-white font-semibold flex items-center gap-1 hover:bg-brand-800"
+          className="px-4 py-2 bg-brand-900 text-white font-semibold flex items-center justify-center gap-1 hover:bg-brand-800 shrink-0"
         >
           <Plus className="w-3.5 h-3.5" />
           {adding ? 'Adding...' : 'Add Skill'}

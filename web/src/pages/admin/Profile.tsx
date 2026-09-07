@@ -141,7 +141,7 @@ export const AdminProfile: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-2">
             <div>
               <label className="block font-semibold uppercase text-brand-700 mb-1">Years Experience</label>
               <input
@@ -184,7 +184,7 @@ export const AdminProfile: React.FC = () => {
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 bg-brand-900 text-white font-semibold flex items-center gap-2 hover:bg-brand-800 disabled:bg-brand-400"
+              className="w-full sm:w-auto justify-center px-6 py-2.5 bg-brand-900 text-white font-semibold flex items-center gap-2 hover:bg-brand-800 disabled:bg-brand-400 text-xs transition-colors"
             >
               <Check className="w-4 h-4" />
               {saving ? 'Saving Profile...' : 'Save Profile Changes'}
