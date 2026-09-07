@@ -23,14 +23,20 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({ experiences = [] 
         </p>
       </div>
 
-      <div className="relative space-y-10 before:absolute before:left-5 before:-translate-x-1/2 before:top-6 before:bottom-6 before:w-0.5 before:bg-brand-200">
+      <div className="relative space-y-10 before:absolute before:left-5 before:-translate-x-1/2 before:top-6 before:bottom-6 before:w-px before:bg-brand-200">
         {experiences.map((exp, idx) => (
           <div key={exp.id || idx} className="relative flex items-start gap-4 sm:gap-6 group">
             {/* Timeline Node */}
-            <div className="w-10 shrink-0 flex items-center justify-center pt-1 z-10">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-900 text-white flex items-center justify-center border-2 border-[#f8fafc] font-mono text-xs font-bold ring-2 ring-emerald-500 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              </div>
+            <div className="w-10 shrink-0 flex items-center justify-center pt-1.5 z-10">
+              {exp.is_active || idx === 0 ? (
+                <div className="w-7 h-7 rounded-full bg-brand-900 flex items-center justify-center border-2 border-white ring-2 ring-emerald-500 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                </div>
+              ) : (
+                <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center border-2 border-brand-300 shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+                </div>
+              )}
             </div>
 
             {/* Experience Card */}
