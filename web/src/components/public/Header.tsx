@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <a href="#" className="flex flex-col min-w-0">
             <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-              <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug truncate max-w-[200px] xs:max-w-none">
+              <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug whitespace-nowrap">
                 {fullName}
               </span>
               <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 shrink-0">

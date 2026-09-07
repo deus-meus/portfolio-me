@@ -73,16 +73,11 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
           </div>
         </div>
 
-        <div className="p-2.5 bg-brand-50/70 border border-brand-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-          <span className="text-[10px] text-brand-500 uppercase font-medium shrink-0">LOCATION & BASE</span>
-          <span className="text-[11px] font-semibold text-brand-900 break-words">
-            {profile?.location || "Denpasar, Bali • On-site, Hybrid & Remote (Relocation OK)"}
+        <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80 space-y-1">
+          <span className="text-[10px] text-brand-500 uppercase font-medium block">LOCATION & BASE</span>
+          <span className="text-[11px] sm:text-xs font-semibold text-brand-900 block leading-snug">
+            {profile?.location || "Denpasar, Bali • Open to On-site, Hybrid & Remote (Relocation OK)"}
           </span>
-        </div>
-
-        <div className="p-2.5 bg-brand-50/70 border border-brand-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-          <span className="text-[10px] text-brand-500 uppercase font-medium shrink-0">DESIRED ROLE</span>
-          <span className="text-[11px] font-semibold text-brand-900">Backend Developer / Software Engineer</span>
         </div>
       </div>
 
