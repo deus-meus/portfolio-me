@@ -25,26 +25,28 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-4">
         {/* Brand / Identity */}
-        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <a href="#" className="flex flex-col min-w-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-              <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug whitespace-nowrap">
+        <div className="flex items-center gap-3 min-w-0 shrink-0">
+          <a href="#" className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-brand-900 text-white flex items-center justify-center font-mono font-bold text-sm shrink-0 border border-brand-800 shadow-sm">
+              N
+            </div>
+            <div className="flex flex-col min-w-0">
+              <span className="font-bold text-base text-brand-900 tracking-tight leading-none whitespace-nowrap">
                 {fullName}
               </span>
-              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 shrink-0">
-                {roleTitle}
+              <span className="text-[11px] font-mono text-brand-500 mt-1 flex items-center gap-1.5 whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span className="font-semibold text-brand-700">{roleTitle}</span>
+                <span className="hidden xl:inline">• RESTful APIs & Distributed Systems</span>
               </span>
             </div>
-            <span className="text-[11px] font-mono text-brand-500 hidden md:block mt-0.5">
-              RESTful APIs, Queues & Distributed Systems
-            </span>
           </a>
         </div>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-xs xl:text-sm font-medium text-brand-600">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-medium text-brand-600">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -63,12 +65,10 @@ export const Header: React.FC<HeaderProps> = ({
             href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap shadow-sm"
           >
             <Download className="w-3.5 h-3.5" />
-            <span className="hidden xs:inline">Resume</span>
-            <span className="xs:hidden">CV</span>
-            <span className="hidden sm:inline">(PDF)</span>
+            <span>CV (PDF)</span>
           </a>
           <a
             href="#contact"
