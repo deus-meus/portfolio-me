@@ -10,7 +10,7 @@ dev:
 	make -j2 dev-api dev-web
 
 test:
-	go test -v -race ./...
+	go test -v -race ./internal/...
 
 build-web:
 	cd web && npm run build
