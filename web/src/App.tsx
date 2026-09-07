@@ -1,12 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { HomePage } from './pages/Home';
+import { Login } from './pages/admin/Login';
+import { AdminLayout } from './components/admin/AdminLayout';
+import { Dashboard } from './pages/admin/Dashboard';
+import { AdminCaseStudies } from './pages/admin/CaseStudies';
+import { AdminSkills } from './pages/admin/Skills';
+import { AdminExperience } from './pages/admin/Experience';
+import { AdminWebhooks } from './pages/admin/Webhooks';
+import { AdminProfile } from './pages/admin/Profile';
+import { api } from './services/api';
 
 export const App: React.FC = () => {
-  const [currentRoute, setCurrentRoute] = useState<string>(window.location.pathname);
+  const [currentPath, setCurrentPath] = useState<string>(window.location.pathname);
+  const [adminTab, setAdminTab] = useState<string>('dashboard');
+  const [adminUser, setAdminUser] = useState<string | null>(null);
+  const [checkingAuth, setCheckingAuth] = useState<boolean>(true);
+
+  const checkAuth = async () => {
+    try {
+      const me = await api.getMe();
+      setAdminUser(me.username);
+    } catch {
+      setAdminUser(null);
+    } finally {
+      setCheckingAuth(false);
+    }
+  };
 
   useEffect(() => {
+    checkAuth();
+
     const handlePopState = () => {
-      setCurrentRoute(window.location.pathname);
+      setCurrentPath(window.location.pathname);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -14,24 +39,61 @@ export const App: React.FC = () => {
 
   const navigateTo = (path: string) => {
     window.history.pushState({}, '', path);
-    setCurrentRoute(path);
+    setCurrentPath(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (currentRoute.startsWith('/admin')) {
+  const handleLogout = async () => {
+    try {
+      await api.logout();
+    } catch {
+      // ignore
+    }
+    setAdminUser(null);
+    navigateTo('/');
+  };
+
+  // If in Admin Section
+  if (currentPath.startsWith('/admin')) {
+    if (checkingAuth) {
+      return (
+        <div className="min-h-screen bg-brand-50 flex items-center justify-center font-mono text-xs text-brand-600">
+          Checking console authorization...
+        </div>
+      );
+    }
+
+    if (!adminUser) {
+      return (
+        <Login
+          onLoginSuccess={(username) => {
+            setAdminUser(username);
+            navigateTo('/admin');
+          }}
+          onBackToHome={() => navigateTo('/')}
+        />
+      );
+    }
+
     return (
-      <div className="p-8 font-mono text-xs">
-        <h1 className="text-base font-bold mb-4">CMS Console Loading...</h1>
-        <button
-          onClick={() => navigateTo('/')}
-          className="px-3 py-1.5 bg-brand-900 text-white font-semibold"
-        >
-          ← Return to Portfolio
-        </button>
-      </div>
+      <AdminLayout
+        currentTab={adminTab}
+        onSelectTab={setAdminTab}
+        onLogout={handleLogout}
+        onBackToSite={() => navigateTo('/')}
+        username={adminUser}
+      >
+        {adminTab === 'dashboard' && <Dashboard onNavigate={setAdminTab} />}
+        {adminTab === 'case-studies' && <AdminCaseStudies />}
+        {adminTab === 'skills' && <AdminSkills />}
+        {adminTab === 'experience' && <AdminExperience />}
+        {adminTab === 'webhooks' && <AdminWebhooks />}
+        {adminTab === 'profile' && <AdminProfile />}
+      </AdminLayout>
     );
   }
 
+  // Otherwise, render Public Portfolio
   return <HomePage onNavigateToAdmin={() => navigateTo('/admin')} />;
 };
 
