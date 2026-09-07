@@ -27,11 +27,15 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-brand-900 leading-[1.18] tracking-tight">
-            Engineering{' '}
-            <span className="text-brand-900 underline decoration-emerald-500 underline-offset-4">
-              Reliable RESTful APIs
-            </span>{' '}
-            & Scalable Backend Architecture.
+            {profile?.headline || (
+              <>
+                Engineering{' '}
+                <span className="text-brand-900 underline decoration-emerald-500 underline-offset-4">
+                  Reliable RESTful APIs
+                </span>{' '}
+                & Scalable Backend Architecture.
+              </>
+            )}
           </h1>
 
           <p className="text-base text-brand-600 leading-relaxed font-normal">
@@ -92,35 +96,35 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Core Stack</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Throughput Target</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
-                Go & Node
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
+                {profile?.peak_rps || "1,500+ RPS"}
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">TypeScript Ecosystem</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Tested Concurrency</span>
             </div>
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Databases</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Availability</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
-                Postgres & Redis
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
+                {profile?.sla_uptime || "99.9%"}
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">Relational & In-Memory</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Target SLA</span>
             </div>
 
             <div className="p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">Architecture</span>
+                <span className="text-brand-500 uppercase text-[10px] font-semibold tracking-wider">P99 Latency</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               </div>
-              <span className="font-bold text-brand-900 text-lg sm:text-xl block">
-                Clean & Queues
+              <span className="font-bold text-brand-900 text-lg sm:text-xl block tabular-nums">
+                {profile?.p99_latency || "< 50ms"}
               </span>
-              <span className="text-[11px] text-brand-600 block mt-0.5">BullMQ & Async Flow</span>
+              <span className="text-[11px] text-brand-600 block mt-0.5">Indexed Endpoints</span>
             </div>
           </div>
         </div>
