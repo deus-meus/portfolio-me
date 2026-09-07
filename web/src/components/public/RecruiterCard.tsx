@@ -76,7 +76,7 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
         <div className="p-2.5 bg-brand-50/70 border border-brand-200/80 flex items-center justify-between">
           <span className="text-[10px] text-brand-500 uppercase font-medium">LOCATION & BASE</span>
           <span className="text-[11px] font-semibold text-brand-900">
-            {profile?.location || "Bali, ID • On-site, Hybrid & Remote (Relocation OK)"}
+            {profile?.location || "Denpasar, Bali • On-site, Hybrid & Remote (Relocation OK)"}
           </span>
         </div>
 

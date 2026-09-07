@@ -32,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
           <p className="text-base text-brand-600 leading-relaxed font-normal">
             {profile?.bio ||
-              "Backend Developer experienced in building structured REST APIs, asynchronous background queues, and reliable persistence layers. Currently developing backend microservices for NontonPlus V2 (IPTV & VOD platform with hybrid PostgreSQL/MongoDB and real-time WebSockets). Proficient in Node.js/TypeScript (NestJS, Fastify), with practical experience in Redis, BullMQ, Docker, and working knowledge of Go."}
+              "Backend Developer experienced in building backend systems using NestJS and Node.js, including real-time systems (Socket.IO) and data management with PostgreSQL, MongoDB, and Redis. Familiar with observability infrastructure (Grafana, Loki) and object storage (MinIO). Seeking a Backend Developer role."}
           </p>
 
           <div className="flex flex-wrap items-center gap-2.5 pt-1">
