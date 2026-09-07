@@ -16,7 +16,8 @@ RUN npm run build
 # ==============================================================================
 # Stage 2: Build Single Go Binary with Embedded Assets
 # ==============================================================================
-FROM golang:1.23-alpine AS builder-api
+FROM golang:alpine AS builder-api
+ENV GOTOOLCHAIN=auto
 
 # Install git and ca-certificates
 RUN apk add --no-cache git ca-certificates
