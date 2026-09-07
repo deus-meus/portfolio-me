@@ -122,7 +122,7 @@ func NewRouter(
 	// Embedded Static File Server for React SPA
 	if staticFS != nil {
 		fileServer := http.FileServer(http.FS(staticFS))
-		r.Get("/*", func(w http.ResponseWriter, req *http.Request) {
+		serveStatic := func(w http.ResponseWriter, req *http.Request) {
 			path := strings.TrimPrefix(req.URL.Path, "/")
 			if path == "" {
 				path = "index.html"
@@ -150,7 +150,10 @@ func NewRouter(
 			}
 
 			http.ServeContent(w, req, "index.html", stat.ModTime(), indexFile.(io.ReadSeeker))
-		})
+		}
+
+		r.Get("/*", serveStatic)
+		r.Head("/*", serveStatic)
 	}
 
 	return r

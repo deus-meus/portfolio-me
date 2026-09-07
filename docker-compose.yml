@@ -1,0 +1,31 @@
+services:
+  portfolio:
+    image: ghcr.io/deus-meus/portofolio-me:latest
+    container_name: portfolio-app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:8080"
+    volumes:
+      # Persistent SQLite database storage on the host
+      - ./data:/app/data
+    env_file:
+      - .env
+    environment:
+      - PORT=8080
+      - DB_PATH=/app/data/portfolio.db
+      - APP_ENV=${APP_ENV:-production}
+      - JWT_SECRET=${JWT_SECRET}
+      - ADMIN_USER=${ADMIN_USER}
+      - ADMIN_PASS=${ADMIN_PASS}
+
+  # Optional: Automatic container updater when a new image is pushed to GHCR
+  # Run with: docker compose --profile auto-update up -d
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: portfolio-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 120 --cleanup portfolio-app
+    profiles:
+      - auto-update
