@@ -1,0 +1,45 @@
+# Binaries and build artifacts
+bin/
+dist/
+build/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+*.out
+*.test
+vendor/
+
+# Node / Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+web/dist/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# IDE and OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# Raw Stitch design export references
+design_stitch/
