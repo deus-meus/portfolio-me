@@ -11,7 +11,7 @@ export const CredentialsSection: React.FC<CredentialsProps> = ({ credentials = [
   const { t } = useLanguage();
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-brand-200" id="credentials">
+    <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-10 sm:py-12 border-t border-brand-200" id="credentials">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-brand-200">
         <div>
           <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">

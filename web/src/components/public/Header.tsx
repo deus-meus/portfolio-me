@@ -27,15 +27,15 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 min-h-16 py-2 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand / Identity */}
-        <div className="flex items-center gap-3 min-w-0 shrink-0">
+        <div className="flex items-center gap-2 min-w-0 flex-1 pr-1">
           <a href="#" className="flex flex-col min-w-0 space-y-0.5">
-            <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug">
+            <span className="font-bold text-xs xs:text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug truncate">
               {fullName}
             </span>
             <div className="py-0.5">
-              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 inline-block">
+              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] xs:text-[10px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 inline-block">
                 {roleTitle}
               </span>
             </div>
@@ -64,10 +64,10 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={toggleLang}
-            className="inline-flex items-center gap-1 px-2 sm:px-2.5 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
+            className="inline-flex items-center gap-1 px-1.5 xs:px-2.5 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
             title={lang === 'en' ? 'Beralih ke Bahasa Indonesia' : 'Switch to English'}
           >
-            <Globe className="w-3.5 h-3.5 text-brand-700" />
+            <Globe className="w-3.5 h-3.5 text-brand-700 shrink-0" />
             <span className="tracking-tight font-bold">{lang === 'en' ? 'ID' : 'EN'}</span>
             <span className="text-[10px] text-brand-400 font-normal hidden xs:inline">| {lang === 'en' ? 'EN' : 'ID'}</span>
           </button>

@@ -11,10 +11,10 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
   const { lang, t } = useLanguage();
 
   return (
-    <div className="w-full bg-white border border-brand-200 p-4 sm:p-6 space-y-3.5 sm:space-y-4 shadow-sm">
-      <div className="flex items-center justify-between pb-3.5 border-b border-brand-100">
-        <div className="flex items-center gap-2.5">
-          <div className="w-3 h-3 bg-emerald-500 flex items-center justify-center">
+    <div className="w-full bg-white border border-brand-200 p-3 sm:p-6 space-y-3 sm:space-y-4 shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-brand-100">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 bg-emerald-500 flex items-center justify-center shrink-0">
             <span className="w-1.5 h-1.5 bg-white animate-pulse"></span>
           </div>
           <div>
@@ -26,7 +26,7 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
             </span>
           </div>
         </div>
-        <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 px-2.5 py-1 border border-emerald-200 font-semibold flex items-center gap-1.5 shrink-0">
+        <span className="text-[10px] xs:text-[11px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 sm:px-2.5 sm:py-1 border border-emerald-200 font-semibold flex items-center gap-1.5 shrink-0">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           {t.openToWork}
         </span>
