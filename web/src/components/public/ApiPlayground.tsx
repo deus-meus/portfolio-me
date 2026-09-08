@@ -218,27 +218,27 @@ export const ApiPlayground: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-4 p-3 bg-brand-900 text-brand-200 font-mono text-[11px] space-y-1 relative group">
-              <div className="flex items-center justify-between text-emerald-400 font-semibold">
-                <span>$ curl http://101.32.126.104:8080/api/v1/health</span>
+            <div className="mt-4 p-3 bg-brand-900 text-brand-200 font-mono text-[10px] sm:text-[11px] space-y-1 relative group overflow-hidden">
+              <div className="flex items-start justify-between gap-2 text-emerald-400 font-semibold">
+                <span className="break-all">$ curl http://101.32.126.104:8080/api/v1/health</span>
                 <button
                   onClick={handleCopyCurl}
-                  className="p-1 hover:text-white transition-colors"
+                  className="p-1 hover:text-white transition-colors shrink-0 bg-brand-800/80"
                   title="Copy cURL Command"
                 >
                   <Copy className="w-3.5 h-3.5" />
                 </button>
               </div>
-              <div className="text-brand-300">
+              <div className="text-brand-300 text-[10px] sm:text-[11px]">
                 HTTP/1.1 200 OK | Content-Type: application/json
               </div>
-              <div className="text-brand-400 truncate">
+              <div className="text-brand-400 truncate text-[10px] sm:text-[11px]">
                 {`{"status":"${health?.status || 'ok'}","goroutines":${health?.goroutines || 0},"memory_alloc_mb":${health?.memory_alloc_mb?.toFixed(2) || '0.00'}}`}
               </div>
             </div>
           </div>
 
-          <div className="pt-3 border-t border-brand-100 flex items-center justify-between text-xs font-mono text-brand-500">
+          <div className="pt-3 border-t border-brand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] sm:text-xs font-mono text-brand-500">
             <span>DATABASE: SQLite (WAL Mode)</span>
             <span className="text-emerald-700 font-semibold">CGO-Free Pure Go</span>
           </div>
@@ -247,11 +247,11 @@ export const ApiPlayground: React.FC = () => {
         {/* Right Column: Interactive Simulators (Webhook HMAC vs Rate Limiter) */}
         <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 space-y-4">
           {/* Tab Switcher Header */}
-          <div className="flex items-center justify-between pb-3 border-b border-brand-100 gap-2">
-            <div className="flex items-center gap-1.5 font-mono text-xs font-bold">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-brand-100 gap-2">
+            <div className="grid grid-cols-2 gap-1.5 font-mono text-xs font-bold w-full sm:w-auto">
               <button
                 onClick={() => setActiveTab('webhook')}
-                className={`px-2.5 sm:px-3 py-1.5 border transition-all ${
+                className={`px-2.5 sm:px-3 py-1.5 border transition-all text-center text-[10px] sm:text-xs font-bold ${
                   activeTab === 'webhook'
                     ? 'bg-brand-900 text-white border-brand-900 shadow-xs'
                     : 'bg-brand-50 text-brand-700 border-brand-200 hover:bg-brand-100'
@@ -261,7 +261,7 @@ export const ApiPlayground: React.FC = () => {
               </button>
               <button
                 onClick={() => setActiveTab('ratelimit')}
-                className={`px-2.5 sm:px-3 py-1.5 border transition-all ${
+                className={`px-2.5 sm:px-3 py-1.5 border transition-all text-center text-[10px] sm:text-xs font-bold ${
                   activeTab === 'ratelimit'
                     ? 'bg-brand-900 text-white border-brand-900 shadow-xs'
                     : 'bg-brand-50 text-brand-700 border-brand-200 hover:bg-brand-100'
@@ -270,7 +270,7 @@ export const ApiPlayground: React.FC = () => {
                 ⚡ {t.tabRateLimiter}
               </button>
             </div>
-            <span className="font-mono text-[9px] sm:text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 font-semibold shrink-0">
+            <span className="font-mono text-[9px] sm:text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 font-semibold self-start sm:self-auto shrink-0">
               {activeTab === 'webhook' ? 'POST /api/v1/webhooks/test' : 'GET /api/v1/rate-limit'}
             </span>
           </div>

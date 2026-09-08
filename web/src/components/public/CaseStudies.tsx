@@ -14,34 +14,34 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
   const filterOptions = useMemo(() => {
     const counts = {
       all: caseStudies.length,
-      go: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /go|chi|grpc/i.test(t)) || /guardrail|hookbridge/i.test(cs.slug)).length,
-      node: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /nest|fastify|elysia|bun|node|typescript/i.test(t))).length,
-      queues: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse/i.test(t))).length,
-      mongodb: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo/i.test(t))).length,
+      queues: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse|lua/i.test(t))).length,
+      realtime: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub|elysia|midtrans/i.test(t)) || /notihub|nontonplus|padelhive/i.test(cs.slug)).length,
+      databases: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo|postgres|prisma|mongoose/i.test(t))).length,
+      infra: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /docker|minio|grafana|loki|fastify|nest/i.test(t))).length,
     };
 
     return [
       { id: 'all', label: t.allProjects, count: counts.all },
-      { id: 'go', label: 'Go & Microservices', count: counts.go },
-      { id: 'node', label: 'TypeScript & Node', count: counts.node },
-      { id: 'queues', label: 'Redis & Queues', count: counts.queues },
-      { id: 'mongodb', label: 'MongoDB', count: counts.mongodb },
+      { id: 'queues', label: lang === 'id' ? 'Antrean & Async' : 'Queues & Async', count: counts.queues },
+      { id: 'realtime', label: lang === 'id' ? 'Real-Time & Webhooks' : 'Real-Time & Webhooks', count: counts.realtime },
+      { id: 'databases', label: 'PostgreSQL & MongoDB', count: counts.databases },
+      { id: 'infra', label: lang === 'id' ? 'Gateway & Infra' : 'Gateways & Infra', count: counts.infra },
     ];
-  }, [caseStudies, t]);
+  }, [caseStudies, lang, t]);
 
   const filteredCaseStudies = useMemo(() => {
     if (selectedFilter === 'all') return caseStudies;
-    if (selectedFilter === 'go') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /go|chi|grpc/i.test(t)) || /guardrail|hookbridge/i.test(cs.slug));
-    }
-    if (selectedFilter === 'node') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /nest|fastify|elysia|bun|node|typescript/i.test(t)));
-    }
     if (selectedFilter === 'queues') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse/i.test(t)));
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse|lua/i.test(t)));
     }
-    if (selectedFilter === 'mongodb') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo/i.test(t)));
+    if (selectedFilter === 'realtime') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub|elysia|midtrans/i.test(t)) || /notihub|nontonplus|padelhive/i.test(cs.slug));
+    }
+    if (selectedFilter === 'databases') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo|postgres|prisma|mongoose/i.test(t)));
+    }
+    if (selectedFilter === 'infra') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /docker|minio|grafana|loki|fastify|nest/i.test(t)));
     }
     return caseStudies;
   }, [caseStudies, selectedFilter]);
