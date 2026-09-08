@@ -46,7 +46,7 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-brand-900 flex flex-col font-sans overflow-x-hidden w-full max-w-full">
+    <div className="min-h-screen bg-[#f8fafc] text-brand-900 flex flex-col font-sans w-full max-w-full">
       {loading && (
         <div className="fixed top-0 left-0 right-0 h-0.5 bg-accent animate-pulse z-50"></div>
       )}
@@ -61,7 +61,7 @@ export const HomePage: React.FC = () => {
         roleTitle={profile?.role_title}
         resumeUrl={profile?.resume_url}
       />
-      <main className="flex-1 w-full max-w-full overflow-x-hidden">
+      <main className="flex-1 w-full max-w-full">
         <Hero profile={profile} />
         <TechStack skills={skills} />
         <CaseStudies caseStudies={caseStudies} />
