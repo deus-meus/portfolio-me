@@ -4,6 +4,7 @@ import { api } from '../../services/api';
 import type { HealthMetrics, SimulationResult } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { useToast } from '../../context/ToastContext';
+import { copyToClipboard } from '../../utils/clipboard';
 
 interface RateLimitLog {
   id: number;
@@ -50,7 +51,7 @@ export const ApiPlayground: React.FC = () => {
 
   const handleCopyCurl = () => {
     const curlCmd = "curl http://101.32.126.104:8080/api/v1/health";
-    navigator.clipboard.writeText(curlCmd);
+    copyToClipboard(curlCmd);
     showToast(t.curlCopied);
   };
 

@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Profile } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { useToast } from '../../context/ToastContext';
+import { copyToClipboard } from '../../utils/clipboard';
 
 interface RecruiterCardProps {
   profile?: Profile | null;
@@ -15,7 +16,7 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
     const email = profile?.email || "dwinarwastu02@gmail.com";
-    navigator.clipboard.writeText(email);
+    copyToClipboard(email);
     showToast(t.emailCopied);
   };
 

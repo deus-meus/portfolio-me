@@ -4,6 +4,7 @@ import type { Profile } from '../../types';
 import { RecruiterCard } from './RecruiterCard';
 import { useLanguage } from '../../context/LanguageContext';
 import { useToast } from '../../context/ToastContext';
+import { copyToClipboard } from '../../utils/clipboard';
 
 interface HeroProps {
   profile?: Profile | null;
@@ -19,7 +20,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
     const email = profile?.email || "dwinarwastu02@gmail.com";
-    navigator.clipboard.writeText(email);
+    copyToClipboard(email);
     showToast(t.emailCopied);
   };
 
