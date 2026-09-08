@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Play, RefreshCw, CheckCircle2, ShieldAlert, Cpu, Activity, Clock, Database } from 'lucide-react';
+import { Play, RefreshCw, CheckCircle2, ShieldAlert, Cpu, Activity, Clock, Database } from 'lucide-react';
 import { api } from '../../services/api';
 import type { HealthMetrics, SimulationResult } from '../../types';
 
@@ -54,8 +54,7 @@ export const ApiPlayground: React.FC = () => {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-brand-200" id="api-playground">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-brand-200">
         <div>
-          <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider flex items-center gap-1.5">
-            <Terminal className="w-3.5 h-3.5 text-accent" />
+          <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">
             [05] INTERACTIVE BACKEND & WEBHOOK PLAYGROUND
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold text-brand-900 mt-1">
@@ -147,7 +146,6 @@ export const ApiPlayground: React.FC = () => {
         <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-brand-100 gap-2">
             <div className="flex items-center gap-2 min-w-0">
-              <Terminal className="w-4 h-4 text-accent shrink-0" />
               <h3 className="font-mono text-xs font-bold text-brand-900 uppercase tracking-wider truncate">
                 HMAC-SHA256 WEBHOOK INGESTION SIMULATOR
               </h3>
