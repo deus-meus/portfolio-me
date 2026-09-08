@@ -46,7 +46,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-6 text-xs xl:text-sm font-medium text-brand-600">
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-6 text-xs xl:text-sm font-medium text-brand-600 px-2 min-w-0">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Action Buttons & Mobile Hamburger */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <div className="flex items-center justify-end gap-1.5 sm:gap-2.5 shrink-0">
           {/* Language Toggle Button */}
           <button
             type="button"
