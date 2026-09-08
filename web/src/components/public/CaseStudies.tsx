@@ -56,18 +56,18 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
 
             {/* Architecture Pipeline Flow */}
             {cs.architecture_flow && cs.architecture_flow.length > 0 && (
-              <div className="my-3 sm:my-4 p-2.5 sm:p-3 bg-brand-50 border border-brand-200 font-mono text-[10px] sm:text-[11px] text-brand-700 flex flex-wrap items-center gap-1.5 sm:gap-2">
-                <span className="text-brand-500 font-bold uppercase text-[9px] sm:text-[10px] flex items-center gap-1">
+              <div className="my-3 sm:my-4 p-2.5 sm:p-3 bg-brand-50 border border-brand-200 font-mono text-[10px] sm:text-[11px] text-brand-700 flex flex-nowrap sm:flex-wrap items-center gap-1.5 sm:gap-2 overflow-x-auto">
+                <span className="text-brand-500 font-bold uppercase text-[9px] sm:text-[10px] flex items-center gap-1 shrink-0">
                   <GitBranch className="w-3 h-3 text-accent" />
                   Pipeline:
                 </span>
                 {cs.architecture_flow.map((node, nIdx) => (
                   <React.Fragment key={nIdx}>
-                    <span className="px-1.5 sm:px-2 py-0.5 bg-white border border-brand-200 font-semibold text-brand-900">
+                    <span className="px-1.5 sm:px-2 py-0.5 bg-white border border-brand-200 font-semibold text-brand-900 shrink-0 whitespace-nowrap">
                       {node}
                     </span>
                     {nIdx < cs.architecture_flow.length - 1 && (
-                      <span className="text-brand-400">→</span>
+                      <span className="text-brand-400 shrink-0">→</span>
                     )}
                   </React.Fragment>
                 ))}

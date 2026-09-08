@@ -102,10 +102,10 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                 <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">Databases</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
-              <span className="font-bold text-brand-900 text-base sm:text-xl block">
-                Postgres & Redis
+              <span className="font-bold text-brand-900 text-xs sm:text-lg block leading-snug">
+                Mongo & Redis
               </span>
-              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Relational & Cache</span>
+              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Document & Cache</span>
             </div>
 
             <div className="p-2.5 sm:p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
@@ -113,10 +113,10 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                 <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">Async Flow</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               </div>
-              <span className="font-bold text-brand-900 text-base sm:text-xl block">
+              <span className="font-bold text-brand-900 text-xs sm:text-lg block leading-snug">
                 Queues & Workers
               </span>
-              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Async Flow</span>
+              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Background Jobs</span>
             </div>
           </div>
         </div>
