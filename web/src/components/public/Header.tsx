@@ -30,18 +30,18 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-4">
         {/* Brand / Identity */}
         <div className="flex items-center gap-3 min-w-0 shrink-0">
-          <a href="#" className="flex flex-col min-w-0">
+          <a href="#" className="flex flex-col min-w-0 space-y-0.5">
             <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug">
               {fullName}
             </span>
-            <div className="flex items-center gap-2 mt-0.5">
-              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 shrink-0">
+            <div>
+              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 inline-block">
                 {roleTitle}
               </span>
-              <span className="text-[11px] font-mono text-brand-500 hidden xl:inline truncate">
-                RESTful APIs, Queues & Distributed Systems
-              </span>
             </div>
+            <span className="text-[11px] font-mono text-brand-500 hidden xl:block">
+              RESTful APIs, Queues & Distributed Systems
+            </span>
           </a>
         </div>
 
