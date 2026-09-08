@@ -335,16 +335,16 @@ export const ApiPlayground: React.FC = () => {
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2">
+              <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2">
                 <button
                   onClick={handleSimulate}
                   disabled={simulating}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 disabled:bg-brand-400 transition-colors w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 disabled:bg-brand-400 transition-colors"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
                   {simulating ? t.dispatchingBtn : t.dispatchBtn}
                 </button>
-                <span className="font-mono text-[10px] sm:text-[11px] text-brand-500 text-center sm:text-right">
+                <span className="font-mono text-[10px] sm:text-[11px] text-brand-500">
                   {t.hmacEvaluator}
                 </span>
               </div>
@@ -428,8 +428,8 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-1 font-mono text-xs">
-                <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2 font-mono text-xs">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <button
                     onClick={handleSendRateLimitReq}
                     className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-900 text-white font-semibold hover:bg-brand-800 transition-colors shadow-xs"
@@ -457,7 +457,7 @@ export const ApiPlayground: React.FC = () => {
                   </button>
                 </div>
 
-                <span className="font-mono text-[10px] sm:text-[11px] text-brand-500 text-center sm:text-right">
+                <span className="font-mono text-[10px] sm:text-[11px] text-brand-500">
                   Token Bucket Engine (1500ms Refill)
                 </span>
               </div>
