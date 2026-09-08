@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Profile } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
+import { useToast } from '../../context/ToastContext';
 
 interface RecruiterCardProps {
   profile?: Profile | null;
@@ -9,6 +10,14 @@ interface RecruiterCardProps {
 
 export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
   const { lang, t } = useLanguage();
+  const { showToast } = useToast();
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const email = profile?.email || "dwinarwastu02@gmail.com";
+    navigator.clipboard.writeText(email);
+    showToast(t.emailCopied);
+  };
 
   return (
     <div className="w-full bg-white border border-brand-200 p-3 sm:p-6 space-y-3 sm:space-y-4 shadow-sm">
@@ -88,7 +97,9 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
         <span className="text-brand-500">{t.directContact}</span>
         <a
           href={`mailto:${profile?.email || "dwinarwastu02@gmail.com"}`}
-          className="text-emerald-700 hover:text-emerald-800 font-semibold inline-flex items-center gap-1 underline underline-offset-2 break-all"
+          onClick={handleCopyEmail}
+          title="Click to copy email address"
+          className="text-emerald-700 hover:text-emerald-800 font-semibold inline-flex items-center gap-1 underline underline-offset-2 break-all cursor-pointer"
         >
           {profile?.email || "dwinarwastu02@gmail.com"}
           <ArrowRight className="w-3.5 h-3.5 shrink-0" />

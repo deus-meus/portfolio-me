@@ -1,5 +1,5 @@
-import React from 'react';
-import { ExternalLink, CheckCircle2, GitBranch } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { ExternalLink, CheckCircle2, GitBranch, Filter } from 'lucide-react';
 import type { CaseStudy } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -9,6 +9,42 @@ interface CaseStudiesProps {
 
 export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) => {
   const { lang, t } = useLanguage();
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+
+  const filterOptions = useMemo(() => {
+    const counts = {
+      all: caseStudies.length,
+      go: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /go|chi|grpc/i.test(t)) || /guardrail|hookbridge/i.test(cs.slug)).length,
+      node: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /nest|fastify|elysia|bun|node|typescript/i.test(t))).length,
+      queues: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse/i.test(t))).length,
+      mongodb: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo/i.test(t))).length,
+    };
+
+    return [
+      { id: 'all', label: t.allProjects, count: counts.all },
+      { id: 'go', label: 'Go & Microservices', count: counts.go },
+      { id: 'node', label: 'TypeScript & Node', count: counts.node },
+      { id: 'queues', label: 'Redis & Queues', count: counts.queues },
+      { id: 'mongodb', label: 'MongoDB', count: counts.mongodb },
+    ];
+  }, [caseStudies, t]);
+
+  const filteredCaseStudies = useMemo(() => {
+    if (selectedFilter === 'all') return caseStudies;
+    if (selectedFilter === 'go') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /go|chi|grpc/i.test(t)) || /guardrail|hookbridge/i.test(cs.slug));
+    }
+    if (selectedFilter === 'node') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /nest|fastify|elysia|bun|node|typescript/i.test(t)));
+    }
+    if (selectedFilter === 'queues') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse/i.test(t)));
+    }
+    if (selectedFilter === 'mongodb') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo/i.test(t)));
+    }
+    return caseStudies;
+  }, [caseStudies, selectedFilter]);
 
   return (
     <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-10 sm:py-12 border-t border-brand-200" id="case-studies">
@@ -26,8 +62,38 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
         </p>
       </div>
 
+      {/* Interactive Filter Bar */}
+      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-6 font-mono text-xs">
+        <span className="text-brand-500 font-semibold mr-1 flex items-center gap-1">
+          <Filter className="w-3.5 h-3.5 text-accent" />
+          {t.filterBy}
+        </span>
+        {filterOptions.map((opt) => (
+          <button
+            key={opt.id}
+            onClick={() => setSelectedFilter(opt.id)}
+            className={`px-2.5 sm:px-3 py-1.5 border transition-all flex items-center gap-1.5 font-medium ${
+              selectedFilter === opt.id
+                ? 'bg-brand-900 text-white border-brand-900 shadow-xs font-bold'
+                : 'bg-white text-brand-700 border-brand-200 hover:border-brand-400 hover:bg-brand-50'
+            }`}
+          >
+            <span>{opt.label}</span>
+            <span
+              className={`text-[10px] px-1.5 py-0.2 font-bold ${
+                selectedFilter === opt.id
+                  ? 'bg-emerald-400 text-brand-950'
+                  : 'bg-brand-100 text-brand-600'
+              }`}
+            >
+              {opt.count}
+            </span>
+          </button>
+        ))}
+      </div>
+
       <div className="space-y-6">
-        {caseStudies.map((cs, idx) => {
+        {filteredCaseStudies.map((cs, idx) => {
           const override = lang === 'id' ? t.caseStudyOverrides[cs.slug] : undefined;
           const displayTitle = override?.title || cs.title;
           const displayDomain = override?.domain_category || cs.domain_category;

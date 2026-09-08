@@ -3,6 +3,7 @@ import { Download, ExternalLink, Mail, Cpu } from 'lucide-react';
 import type { Profile } from '../../types';
 import { RecruiterCard } from './RecruiterCard';
 import { useLanguage } from '../../context/LanguageContext';
+import { useToast } from '../../context/ToastContext';
 
 interface HeroProps {
   profile?: Profile | null;
@@ -10,9 +11,17 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ profile }) => {
   const { lang, t } = useLanguage();
+  const { showToast } = useToast();
 
   const headlineText = lang === 'id' ? t.heroHeadline : (profile?.headline || t.heroHeadline);
   const bioText = lang === 'id' ? t.heroBio : (profile?.bio || t.heroBio);
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const email = profile?.email || "dwinarwastu02@gmail.com";
+    navigator.clipboard.writeText(email);
+    showToast(t.emailCopied);
+  };
 
   return (
     <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-10 sm:pb-12 border-b border-brand-200" id="overview">
@@ -71,6 +80,8 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
             </a>
             <a
               href={`mailto:${profile?.email || "dwinarwastu02@gmail.com"}`}
+              onClick={handleCopyEmail}
+              title="Click to copy email address"
               className="inline-flex items-center justify-center gap-1.5 px-2 xs:px-3 sm:px-3.5 py-2 sm:py-2.5 bg-white text-brand-800 border border-brand-300 text-[11px] xs:text-xs font-semibold hover:bg-brand-50 hover:border-brand-400 transition-colors col-span-2 sm:col-span-1 min-w-0"
             >
               <Mail className="w-3.5 h-3.5 text-emerald-600 shrink-0" />

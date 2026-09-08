@@ -80,6 +80,8 @@ export interface Translations {
   colResults: string;
   githubRepo: string;
   archBlueprint: string;
+  allProjects: string;
+  filterBy: string;
 
   // Case Studies Data Overrides (Indonesian STAR Content for ALL 5 Case Studies)
   caseStudyOverrides: Record<string, {
@@ -126,6 +128,8 @@ export interface Translations {
   goroutines: string;
   heapAlloc: string;
   gcCycles: string;
+  tabWebhook: string;
+  tabRateLimiter: string;
   simulatorTitle: string;
   providerLabel: string;
   eventTypeLabel: string;
@@ -140,6 +144,19 @@ export interface Translations {
   execLatency: string;
   providedSig: string;
   expectedSig: string;
+  rateLimiterTitle: string;
+  bucketCapacity: string;
+  refillRate: string;
+  availableTokens: string;
+  sendOneReq: string;
+  spamBurstReq: string;
+  resetBucket: string;
+  rateLimitOk: string;
+  rateLimitExceeded: string;
+
+  // Toasts
+  emailCopied: string;
+  curlCopied: string;
 
   // Footer
   footerSub: string;
@@ -224,6 +241,8 @@ export const translations: Record<Language, Translations> = {
     caseStudiesTag: "[02] PRODUCTION CASE STUDIES (STAR FORMAT)",
     caseStudiesTitle: "Production System Case Studies",
     caseStudiesDesc: "Real-world backend projects demonstrating Clean Architecture, asynchronous queues, database optimization, and type-safe APIs.",
+    allProjects: "All Projects",
+    filterBy: "Filter Stack:",
     colProblems: "01. Problems & Challenges",
     colSolution: "02. Architecture Solution",
     colResults: "03. Tested Impact & Results",
@@ -258,6 +277,8 @@ export const translations: Record<Language, Translations> = {
     goroutines: "Goroutines",
     heapAlloc: "Heap Alloc",
     gcCycles: "GC Cycles",
+    tabWebhook: "Webhook HMAC",
+    tabRateLimiter: "Rate Limiter Simulator",
     simulatorTitle: "HMAC-SHA256 WEBHOOK INGESTION SIMULATOR",
     providerLabel: "Webhook Provider",
     eventTypeLabel: "Event Type",
@@ -272,6 +293,17 @@ export const translations: Record<Language, Translations> = {
     execLatency: "Execution Latency: ",
     providedSig: "Provided: ",
     expectedSig: "Expected: ",
+    rateLimiterTitle: "TOKEN BUCKET RATE LIMITER SIMULATOR",
+    bucketCapacity: "Bucket Capacity",
+    refillRate: "Refill Rate",
+    availableTokens: "Available Tokens",
+    sendOneReq: "Send 1 Request",
+    spamBurstReq: "Spam 10 Requests (Burst)",
+    resetBucket: "Reset Bucket",
+    rateLimitOk: "200 OK — Request Processed",
+    rateLimitExceeded: "429 TOO MANY REQUESTS — Token Bucket Depleted",
+    emailCopied: "Email address copied to clipboard!",
+    curlCopied: "cURL command copied to clipboard!",
 
     // Footer
     footerSub: "Engineered with Go Clean Architecture, SQLite WAL, and Swiss Precision React UI.",
@@ -354,6 +386,8 @@ export const translations: Record<Language, Translations> = {
     caseStudiesTag: "[02] STUDI KASUS PRODUKSI (FORMAT STAR)",
     caseStudiesTitle: "Studi Kasus Sistem Produksi",
     caseStudiesDesc: "Proyek nyata backend yang menerapkan Clean Architecture, antrean asinkron, optimasi basis data, dan API berjenis data ketat.",
+    allProjects: "Semua Proyek",
+    filterBy: "Filter Stack:",
     colProblems: "01. Masalah & Tantangan",
     colSolution: "02. Solusi Arsitektur",
     colResults: "03. Hasil & Dampak Teruji",
@@ -551,6 +585,8 @@ export const translations: Record<Language, Translations> = {
     goroutines: "Goroutines",
     heapAlloc: "Memori Heap",
     gcCycles: "Siklus GC",
+    tabWebhook: "Webhook HMAC",
+    tabRateLimiter: "Simulasi Rate Limiter",
     simulatorTitle: "SIMULATOR PENERIMAAN WEBHOOK HMAC-SHA256",
     providerLabel: "Penyedia Webhook",
     eventTypeLabel: "Jenis Event",
@@ -565,6 +601,17 @@ export const translations: Record<Language, Translations> = {
     execLatency: "Latensi Eksekusi: ",
     providedSig: "Diberikan: ",
     expectedSig: "Diharapkan: ",
+    rateLimiterTitle: "SIMULATOR TOKEN BUCKET RATE LIMITER",
+    bucketCapacity: "Kapasitas Bucket",
+    refillRate: "Kecepatan Isi Ulang",
+    availableTokens: "Token Tersedia",
+    sendOneReq: "Kirim 1 Request",
+    spamBurstReq: "Spam 10 Request (Burst)",
+    resetBucket: "Reset Bucket",
+    rateLimitOk: "200 OK — Request Diproses",
+    rateLimitExceeded: "429 TOO MANY REQUESTS — Token Bucket Habis",
+    emailCopied: "Alamat email berhasil disalin ke clipboard!",
+    curlCopied: "Perintah cURL berhasil disalin ke clipboard!",
 
     // Footer
     footerSub: "Direkayasa dengan Go Clean Architecture, SQLite WAL, dan Swiss Precision React UI.",
