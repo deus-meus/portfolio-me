@@ -87,26 +87,28 @@ export const TechStack: React.FC<TechStackProps> = ({ skills }) => {
           return (
             <div
               key={d.key}
-              className="bg-white p-5 border border-brand-200 flex flex-col justify-between h-full space-y-4 hover:border-brand-300 transition-colors"
+              className="bg-white p-4 sm:p-5 border border-brand-200 flex flex-col justify-between h-full space-y-3.5 hover:border-brand-400 transition-colors shadow-2xs"
             >
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Icon className="w-5 h-5 text-brand-700" />
-                    <h3 className="font-bold text-brand-900 text-base">{d.title}</h3>
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 shrink-0 bg-brand-50 border border-brand-300 flex items-center justify-center text-brand-900 shadow-2xs">
+                      <Icon className="w-4 h-4 text-emerald-600" />
+                    </div>
+                    <h3 className="font-bold text-brand-900 text-sm sm:text-base leading-snug">{d.title}</h3>
                   </div>
-                  <span className="font-mono text-[10px] text-brand-500 bg-brand-100 px-2 py-0.5 font-medium tracking-wide">
+                  <span className="font-mono text-[9px] sm:text-[10px] text-brand-700 bg-brand-100 border border-brand-200 px-2 py-0.5 font-semibold tracking-wider uppercase shrink-0">
                     {d.badge}
                   </span>
                 </div>
-                <p className="text-xs text-brand-600 leading-relaxed">{d.desc}</p>
+                <p className="text-xs text-brand-600 leading-relaxed font-normal">{d.desc}</p>
               </div>
 
-              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-brand-100">
+              <div className="flex flex-wrap gap-1.5 pt-2.5 border-t border-brand-100 font-mono text-[11px] sm:text-xs">
                 {items.map((name) => (
                   <span
                     key={name}
-                    className="font-mono text-xs px-2.5 py-1 bg-brand-50 text-brand-900 border border-brand-200 font-medium"
+                    className="px-2.5 py-1 bg-brand-50 text-brand-900 border border-brand-200 font-semibold"
                   >
                     {name}
                   </span>
