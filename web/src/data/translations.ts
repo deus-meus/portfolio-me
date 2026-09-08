@@ -224,9 +224,9 @@ export const translations: Record<Language, Translations> = {
     caseStudiesTag: "[02] PRODUCTION CASE STUDIES (STAR FORMAT)",
     caseStudiesTitle: "Production System Case Studies",
     caseStudiesDesc: "Real-world backend projects demonstrating Clean Architecture, asynchronous queues, database optimization, and type-safe APIs.",
-    colProblems: "Problems & Challenges",
-    colSolution: "Architecture Solution",
-    colResults: "Tested Impact & Results",
+    colProblems: "01. Problems & Challenges",
+    colSolution: "02. Architecture Solution",
+    colResults: "03. Tested Impact & Results",
     githubRepo: "GitHub Repository",
     archBlueprint: "Architecture Blueprint",
 
@@ -281,10 +281,10 @@ export const translations: Record<Language, Translations> = {
   },
   id: {
     // Navigation & Status Banner
-    status: "SIAP BEKERJA & INTERVIEW",
+    status: "SIAP BEKERJA (AVAILABLE)",
     statusText: "TERBUKA UNTUK PELUANG KERJA",
     locationText: "Denpasar, Bali • Siap WFO (On-site), Hybrid & Remote (Siap Relokasi)",
-    noticePeriodText: "Masa Pemberitahuan: Langsung Siap Kerja / 1 Bulan",
+    noticePeriodText: "Masa Notice: 1 Bulan / Langsung Siap",
     emailDirectly: "Kirim Email Langsung →",
     backendPos: "Posisi Backend Developer",
     navOverview: "Ringkasan",
@@ -299,8 +299,8 @@ export const translations: Record<Language, Translations> = {
 
     // Hero Section
     roleBadge: "BACKEND DEVELOPER",
-    heroHeadline: "Merekayasa RESTful API Handal & Sistem Backend Berskala Tinggi.",
-    heroBio: "Backend Developer berpengalaman membangun sistem backend menggunakan NestJS dan Node.js, mencakup sistem real-time (Socket.IO) serta pengelolaan data menggunakan PostgreSQL, MongoDB, dan Redis. Terbiasa menggunakan infrastruktur observabilitas (Grafana, Loki) dan object storage (MinIO). Siap berkontribusi sebagai Backend Developer.",
+    heroHeadline: "Mengembangkan RESTful API Handal & Arsitektur Backend Berskala Besar.",
+    heroBio: "Backend Developer berfokus pada pengembangan sistem berskala produksi menggunakan NestJS & Node.js, pemrosesan real-time (Socket.IO), serta manajemen data dengan PostgreSQL, MongoDB, dan Redis. Terbiasa mengelola infrastruktur observabilitas (Grafana, Loki) dan object storage (MinIO). Siap berkontribusi sebagai Backend Developer.",
     yearsExp: "2+ Tahun",
     yearsExpSub: "Backend Dev",
     coreFocusLabel: "Fokus Utama",
@@ -314,14 +314,14 @@ export const translations: Record<Language, Translations> = {
 
     // Recruiter Quick Card
     recruiterCardTitle: "RINGKASAN REKRUTER",
-    recruiterSnapshot: "Ringkasan Kandidat Terverifikasi",
+    recruiterSnapshot: "Profil Ringkas Kandidat Terverifikasi",
     openToWork: "Siap Bekerja",
     targetRoleLabel: "POSISI INCARAN",
     targetRoleVal: "Backend Developer / Software Engineer",
     primaryStackLabel: "TECH STACK UTAMA PRODUKSI",
     productionGrade: "Standar Produksi",
-    noticePeriodLabel: "MASA PEMBERITAHUAN",
-    noticePeriodVal: "Langsung Siap / 1 Bulan",
+    noticePeriodLabel: "MASA NOTICE",
+    noticePeriodVal: "1 Bulan / Langsung Siap",
     noticePeriodSub: "Dapat Dinegosiasikan",
     locationLabel: "LOKASI & DOMISILI",
     locationVal: "Denpasar, Bali • Siap WFO (On-site), Hybrid & Remote (Siap Relokasi)",
@@ -330,10 +330,10 @@ export const translations: Record<Language, Translations> = {
     // Tech Stack Section
     techStackTag: "[01] TECH STACK & KEAHLIAN TEKNIS",
     techStackTitle: "Spesialisasi Arsitektur Backend",
-    techStackDesc: "Framework, penyimpan data, dan arsitektur antrean teruji di lingkungan produksi dengan konkurensi tinggi.",
+    techStackDesc: "Framework, penyimpan data, dan antrean pesan teruji di lingkungan produksi dengan konkurensi tinggi.",
     catLanguages: "Bahasa Pemrograman & Runtime",
     catLanguagesBadge: "SINTAKS UTAMA",
-    catLanguagesDesc: "Bahasa konkurensi tinggi dan mesin runtime yang efisien.",
+    catLanguagesDesc: "Bahasa berkonkurensi tinggi dan mesin runtime yang efisien.",
     catFrameworks: "Framework & Protokol",
     catFrameworksBadge: "EKSEKUSI CEPAT",
     catFrameworksDesc: "Router HTTP throughput tinggi, transport RPC, dan fondasi mikroservis.",
@@ -362,45 +362,45 @@ export const translations: Record<Language, Translations> = {
 
     caseStudyOverrides: {
       "nontonplus-v2-backend": {
-        title: "NontonPlus V2 Hospitality IPTV & Platform Manajemen ISP Multi-Tenant",
+        title: "Backend NontonPlus V2 — Platform IPTV Hospitality & Manajemen ISP Multi-Tenant",
         domain_category: "Backend IPTV & Manajemen ISP",
         badge_label: "Sistem Produksi Hospitality",
         problems_challenges: [
-          "Mendesain arsitektur V2 backend berbasis NestJS, Fastify, MongoDB, dan Redis untuk menggantikan sistem legacy agar mampu melayani IPTV rumah sakit/hotel dan jaringan ISP multi-tenant.",
-          "Menangani komunikasi real-time Socket.IO untuk pembaruan status channel IPTV, permintaan layanan kamar, dan sinkronisasi log sistem tanpa latency.",
-          "Mengintegrasikan MinIO object storage untuk manajemen media video/gambar dan Loki/Grafana untuk observabilitas log terpusat."
+          "Refactoring sistem legacy backend menjadi arsitektur berbasis NestJS & Fastify berskala produksi dengan stack 100% MongoDB & Mongoose untuk melayani IPTV rumah sakit, hotel, serta manajemen ISP multi-tenant.",
+          "Menangani komunikasi real-time Socket.IO untuk pembaruan status channel IPTV, permintaan layanan kamar, dan sinkronisasi log tanpa delay.",
+          "Mengintegrasikan MinIO object storage untuk manajemen aset media serta Grafana & Loki untuk observabilitas log terpusat."
         ],
         architecture_solution: [
-          "Merancang arsitektur mikroservis NestJS dan Fastify dengan stack 100% MongoDB & Mongoose untuk penyimpanan dokumen multi-tenant.",
-          "Menerapkan Redis caching dan Socket.IO gateway guna menjamin pengiriman sinyal real-time dengan latensi terendah.",
-          "Mengimplementasikan struktur observability terintegrasi dengan Grafana & Loki untuk monitoring performa serta penyimpanan media di MinIO."
+          "Merancang arsitektur backend berkinerja tinggi menggunakan NestJS dan Fastify dengan penyimpanan dokumen MongoDB multi-tenant yang efisien.",
+          "Memanfaatkan Redis Caching dan Socket.IO gateway guna menjamin pengiriman sinyal real-time dengan latensi terendah.",
+          "Mengimplementasikan infrastruktur pemantauan terintegrasi dengan Grafana & Loki untuk analisis log terpusat dan penyimpanan media di MinIO."
         ],
         metrics: [
           { label: "Waktu Respon API", value: "< 45ms", delta: "Optimasi Query MongoDB" },
-          { label: "Manajemen Tenant", value: "Multi-Tenant", delta: "Pemisahan Data ISP & Hotel" },
-          { label: "Status Real-time", value: "100%", delta: "Socket.IO & Event Sync" },
-          { label: "Observabilitas Log", value: "Grafana/Loki", delta: "Pencatatan Log Terpusat" }
+          { label: "Arsitektur Sistem", value: "Multi-Tenant", delta: "Isolasi Data ISP & Hotel" },
+          { label: "Sinyal Real-Time", value: "100% Sync", delta: "Socket.IO & Event Gateway" },
+          { label: "Pemantauan Log", value: "Grafana & Loki", delta: "Log Terpusat Real-Time" }
         ]
       },
       "nontonplus-v1-internship": {
-        title: "NontonPlus V1 Hospital IPTV, Survei Pasien & Nurse-Call Backend (Magang)",
+        title: "Backend NontonPlus V1 — Sistem IPTV Rumah Sakit, Survei Pasien & Nurse-Call (Magang)",
         domain_category: "Magang Backend Enterprise",
         badge_label: "Sistem IPTV Rumah Sakit",
         problems_challenges: [
-          "Mengembangkan modul backend untuk IPTV rumah sakit (NontonPlus V1) dalam rangka integrasi survei kepuasan pasien dan pemanggilan perawat (nurse-call).",
-          "Membantu desain API untuk pemrosesan survei interaktif di layar TV pasien rumah sakit.",
-          "Menjaga keterhubungan data survei secara akurat dengan log kamar pasien."
+          "Mengembangkan modul backend untuk IPTV rumah sakit (NontonPlus V1) mencakup fitur survei kepuasan pasien dan pemanggilan perawat (nurse-call).",
+          "Membangun API untuk pemrosesan survei interaktif yang berjalan langsung di layar TV pasien kamar rumah sakit.",
+          "Memastikan pengiriman alur sinyal pemanggilan perawat terhubung secara andal dan bebas hambatan."
         ],
         architecture_solution: [
-          "Membangun REST API dan modul pengumpulan data survei pasien secara terstruktur.",
-          "Mengintegrasikan alur pengiriman sinyal nurse-call secara cepat dan stabil.",
-          "Menyusun dokumentasi dan unit test pendukung untuk keandalan API."
+          "Membangun REST API dan modul pengumpulan data survei pasien yang terstruktur dan responsif.",
+          "Mengintegrasikan alur pengiriman sinyal nurse-call secara cepat dan stabil dari TV pasien ke sistem perawat.",
+          "Menyusun dokumentasi teknis dan skenario pengujian API pendukung untuk keandalan deployment NontonPlus V1."
         ],
         metrics: [
           { label: "Proyek Magang", value: "IPTV V1", delta: "Sistem Rumah Sakit" },
-          { label: "Modul Survei", value: "Real-time", delta: "Responsif di TV Pasien" },
-          { label: "Modul Nurse-Call", value: "Integrasi API", delta: "Sinyal Pemanggilan Cepat" },
-          { label: "Uji Coba API", value: "Terverifikasi", delta: "Hasil Magang Sukses" }
+          { label: "Modul Survei", value: "Interaktif", delta: "Responsif di TV Pasien" },
+          { label: "Modul Nurse-Call", value: "Integrasi API", delta: "Sinyal Panggilan Cepat" },
+          { label: "Pengujian API", value: "Teruji (AAA)", delta: "Integrasi Berhasil" }
         ]
       }
     },
@@ -415,43 +415,43 @@ export const translations: Record<Language, Translations> = {
     expOverrides: {
       "saia-fulltime": {
         role_title: "Backend Developer",
-        company_tagline: "Sistem NontonPlus V2 Hospitality IPTV & Multi-tenant ISP",
+        company_tagline: "NontonPlus V2 Hospitality IPTV & Platform ISP Multi-Tenant",
         employment_type: "Full-time",
         location: "Surabaya, Jawa Timur",
-        core_focus: "Mengembangkan backend NontonPlus V2 menggunakan NestJS, Fastify, MongoDB, Redis, Socket.IO, MinIO, serta pemantauan Loki & Grafana.",
+        core_focus: "Mengembangkan backend NontonPlus V2 menggunakan NestJS, Fastify, MongoDB, Redis, Socket.IO, MinIO, serta pemantauan log terpusat Grafana & Loki.",
         achievements: [
           {
             number: "01.",
-            title: "Pengembangan NontonPlus V2 Backend",
-            metric: "MongoDB & NestJS Stack",
+            title: "Pengembangan Backend NontonPlus V2",
+            metric: "NestJS & MongoDB Stack",
             description: "Membangun sistem backend berskala produksi untuk IPTV hospitality dan manajemen jaringan ISP multi-tenant."
           },
           {
             number: "02.",
             title: "Sistem Real-Time & Observabilitas",
             metric: "Socket.IO & Grafana/Loki",
-            description: "Menghubungkan sinyal real-time Socket.IO untuk pembaruan IPTV serta menyiapkan pemantauan log terpusat via Grafana & Loki."
+            description: "Mengimplementasikan komunikasi Socket.IO real-time dan sistem log terpusat Grafana & Loki."
           }
         ]
       },
       "saia-intern": {
         role_title: "Backend Developer Intern",
-        company_tagline: "Sistem NontonPlus V1 Hospital IPTV",
+        company_tagline: "NontonPlus V1 Hospital IPTV",
         employment_type: "Magang",
         location: "Surabaya, Jawa Timur",
-        core_focus: "Mengembangkan API backend NontonPlus V1 untuk survei kepuasan pasien rumah sakit dan integrasi sistem pemanggilan perawat (nurse-call).",
+        core_focus: "Mengembangkan API backend NontonPlus V1 untuk survei kepuasan pasien rumah sakit dan pengiriman sinyal panggilan perawat (nurse-call).",
         achievements: [
           {
             number: "01.",
             title: "Modul Survei Pasien & Nurse-Call",
             metric: "Integrasi NontonPlus V1",
-            description: "Membangun endpoint API pendukung survei kepuasan pasien di TV rumah sakit dan pengiriman alur sinyal pemanggilan perawat."
+            description: "Membangun endpoint API survei di TV kamar pasien serta integrasi sinyal panggilan perawat yang cepat dan stabil."
           },
           {
             number: "02.",
             title: "Dokumentasi & Pengujian API",
             metric: "Kualitas Kode API",
-            description: "Menyusun tes API dan dokumentasi modul backend untuk memastikan kelancaran deployment NontonPlus V1."
+            description: "Menyusun skenario pengujian API dan dokumentasi modul backend untuk mendukung deployment NontonPlus V1."
           }
         ]
       }
@@ -482,7 +482,7 @@ export const translations: Record<Language, Translations> = {
     sigPlaceholder: "contoh: tes tanda tangan salah untuk simulasikan manipulasi data",
     dispatchBtn: "KIRIM & VERIFIKASI TANDA TANGAN",
     dispatchingBtn: "MENGIRIM...",
-    hmacEvaluator: "Evaluator HMAC Alokasi-Nol",
+    hmacEvaluator: "Evaluasi HMAC Tanpa Alokasi Memori (Zero-Allocation)",
     sigValid: "TANDA TANGAN TERVERIFIKASI (200 OK)",
     sigInvalid: "TANDA TANGAN TIDAK COCOK / DIMANIPULASI (400)",
     execLatency: "Latensi Eksekusi: ",
