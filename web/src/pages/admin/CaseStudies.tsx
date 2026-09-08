@@ -110,35 +110,37 @@ export const AdminCaseStudies: React.FC = () => {
                       {cs.is_published ? 'PUBLISHED' : 'DRAFT'}
                     </span>
                   </td>
-                  <td className="p-3 text-right space-x-2">
-                    {cs.github_url && (
-                      <a
-                        href={cs.github_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1 text-brand-400 hover:text-brand-900 inline-block"
-                        title="View Repo"
+                  <td className="p-3 text-right whitespace-nowrap">
+                    <div className="flex items-center justify-end gap-1.5 whitespace-nowrap shrink-0">
+                      {cs.github_url && (
+                        <a
+                          href={cs.github_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1.5 text-brand-700 hover:text-brand-900 border border-brand-200 bg-white hover:bg-brand-50 transition-colors shadow-2xs"
+                          title="View Repo"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                      <button
+                        onClick={() => {
+                          setEditingItem(cs);
+                          setModalOpen(true);
+                        }}
+                        className="p-1.5 text-brand-700 hover:text-brand-900 border border-brand-200 bg-white hover:bg-brand-50 transition-colors shadow-2xs"
+                        title="Edit Case Study"
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    <button
-                      onClick={() => {
-                        setEditingItem(cs);
-                        setModalOpen(true);
-                      }}
-                      className="p-1 text-brand-600 hover:text-brand-900 transition-colors"
-                      title="Edit"
-                    >
-                      <Edit2 className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => setDeletingId(cs.id)}
-                      className="p-1 text-red-500 hover:text-red-700 transition-colors"
-                      title="Delete"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                        <Edit2 className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => setDeletingId(cs.id)}
+                        className="p-1.5 text-red-600 hover:text-red-700 border border-red-200 bg-white hover:bg-red-50 transition-colors shadow-2xs"
+                        title="Delete Case Study"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

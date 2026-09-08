@@ -158,7 +158,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         </aside>
 
         {/* Dynamic Content Panel */}
-        <main className="flex-1 min-w-0 space-y-6">
+        <main className="flex-1 min-w-0 bg-white border border-brand-200 p-4 sm:p-6 shadow-xs">
           {children}
         </main>
       </div>
