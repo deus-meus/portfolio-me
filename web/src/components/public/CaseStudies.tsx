@@ -153,7 +153,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
               )}
 
               {/* 3-Column STAR Content */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 py-2">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 py-2">
                 {/* Column 1: Problems & Challenges */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-1.5 font-mono text-xs font-semibold text-brand-900 uppercase">
@@ -190,7 +190,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     {t.colResults}
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 font-mono pt-1 border-t border-emerald-200/60">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-2 sm:gap-3 font-mono pt-1 border-t border-emerald-200/60">
                     {displayMetrics?.map((m, mIdx) => (
                       <div key={mIdx} className="bg-white/80 p-2.5 border border-emerald-100">
                         <span className="text-[10px] text-brand-500 uppercase tracking-wide block font-medium">
