@@ -428,32 +428,38 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="grid grid-cols-1 xs:grid-cols-3 gap-2 pt-1 font-mono text-xs">
-                <button
-                  onClick={handleSendRateLimitReq}
-                  className="inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-2 bg-brand-900 hover:bg-brand-800 text-white font-semibold transition-colors shadow-xs"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current shrink-0" />
-                  <span className="truncate">{t.sendOneReq}</span>
-                </button>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-1 font-mono text-xs">
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    onClick={handleSendRateLimitReq}
+                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-900 text-white font-semibold hover:bg-brand-800 transition-colors shadow-xs"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current shrink-0" />
+                    <span>{t.sendOneReq}</span>
+                  </button>
 
-                <button
-                  onClick={handleSpamBurst}
-                  className="inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-2 bg-brand-800 hover:bg-brand-900 text-white font-semibold transition-colors shadow-xs"
-                >
-                  <Activity className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
-                  <span className="truncate">{t.spamBurstReq}</span>
-                </button>
+                  <button
+                    onClick={handleSpamBurst}
+                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-800 text-white font-semibold hover:bg-brand-900 transition-colors shadow-xs"
+                  >
+                    <Activity className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
+                    <span>{t.spamBurstReq}</span>
+                  </button>
 
-                <button
-                  onClick={() => {
-                    setTokens(MAX_TOKENS);
-                    setRlLogs([]);
-                  }}
-                  className="inline-flex items-center justify-center min-h-[40px] px-3 py-2 bg-white text-brand-700 border border-brand-300 hover:bg-brand-50 font-medium transition-colors"
-                >
-                  {t.resetBucket}
-                </button>
+                  <button
+                    onClick={() => {
+                      setTokens(MAX_TOKENS);
+                      setRlLogs([]);
+                    }}
+                    className="inline-flex items-center justify-center px-3 py-2 bg-white text-brand-700 border border-brand-300 hover:bg-brand-50 font-medium transition-colors"
+                  >
+                    {t.resetBucket}
+                  </button>
+                </div>
+
+                <span className="font-mono text-[10px] sm:text-[11px] text-brand-500 text-center sm:text-right">
+                  Token Bucket Engine (1500ms Refill)
+                </span>
               </div>
 
               {/* Request Logs Terminal */}
