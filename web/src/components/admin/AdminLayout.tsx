@@ -72,9 +72,9 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
       {/* Main Admin Area */}
       <div className="flex-1 flex flex-col md:flex-row max-w-7xl w-full mx-auto px-3 sm:px-6 py-4 sm:py-6 gap-4 sm:gap-6">
-        {/* Navigation Sidebar (Horizontal Tabs on Mobile, Vertical Sidebar on Desktop) */}
+        {/* Navigation Sidebar (3-Column Grid on Mobile, Vertical Sidebar on Desktop) */}
         <aside className="w-full md:w-56 shrink-0">
-          <div className="bg-white border border-brand-200 p-1.5 sm:p-2 flex md:flex-col overflow-x-auto gap-1 shadow-sm">
+          <div className="bg-white border border-brand-200 p-1.5 sm:p-2 grid grid-cols-2 xs:grid-cols-3 md:flex md:flex-col gap-1.5 shadow-sm">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentTab === item.id;
@@ -82,14 +82,14 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 <button
                   key={item.id}
                   onClick={() => onSelectTab(item.id)}
-                  className={`flex items-center gap-2 px-3 py-2 text-xs font-mono font-medium transition-colors whitespace-nowrap shrink-0 md:shrink md:w-full ${
+                  className={`flex items-center justify-start gap-2 px-2.5 sm:px-3 py-2 text-xs font-mono font-medium transition-colors md:w-full min-h-[38px] ${
                     isActive
-                      ? 'bg-brand-900 text-white font-semibold'
-                      : 'text-brand-700 hover:bg-brand-100'
+                      ? 'bg-brand-900 text-white font-semibold shadow-xs'
+                      : 'text-brand-700 bg-brand-50/50 hover:bg-brand-100 border border-brand-200/60 md:border-transparent'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-emerald-400' : 'text-brand-500'}`} />
-                  {item.label}
+                  <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-emerald-400' : 'text-brand-500'}`} />
+                  <span className="truncate">{item.label}</span>
                 </button>
               );
             })}

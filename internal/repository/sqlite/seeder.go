@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"os"
 
 	"github.com/deus-meus/portfolio-me/internal/domain"
 	"golang.org/x/crypto/bcrypt"
@@ -50,20 +51,36 @@ func SeedData(db *sql.DB) error {
 		}
 	}
 
-	// 2. Check and seed Admin User
+	// 2. Check and sync Admin User from ADMIN_PASS / ADMIN_USER env
+	adminPass := os.Getenv("ADMIN_PASS")
+	if adminPass == "" {
+		adminPass = "admin123"
+	}
+	adminUser := os.Getenv("ADMIN_USER")
+	if adminUser == "" {
+		adminUser = "admin"
+	}
+
+	hash, err := bcrypt.GenerateFromPassword([]byte(adminPass), bcrypt.DefaultCost)
+	if err != nil {
+		return fmt.Errorf("hash admin password: %w", err)
+	}
+
 	var userCount int
-	err = db.QueryRowContext(ctx, "SELECT COUNT(*) FROM users").Scan(&userCount)
+	err = db.QueryRowContext(ctx, "SELECT COUNT(*) FROM users WHERE username = ?", adminUser).Scan(&userCount)
 	if err != nil {
 		return fmt.Errorf("check user count: %w", err)
 	}
 	if userCount == 0 {
-		hash, err := bcrypt.GenerateFromPassword([]byte("admin123"), bcrypt.DefaultCost)
-		if err != nil {
-			return fmt.Errorf("hash default password: %w", err)
-		}
-		_, err = db.ExecContext(ctx, "INSERT INTO users (username, password_hash) VALUES (?, ?)", "admin", string(hash))
+		_, err = db.ExecContext(ctx, "INSERT INTO users (username, password_hash) VALUES (?, ?)", adminUser, string(hash))
 		if err != nil {
 			return fmt.Errorf("seed admin user: %w", err)
+		}
+	} else {
+		// Always sync password hash from ADMIN_PASS env if user exists
+		_, err = db.ExecContext(ctx, "UPDATE users SET password_hash = ? WHERE username = ?", string(hash), adminUser)
+		if err != nil {
+			return fmt.Errorf("update admin password: %w", err)
 		}
 	}
 
