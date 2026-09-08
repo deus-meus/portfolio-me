@@ -27,26 +27,26 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand / Identity */}
-        <div className="flex items-center gap-3 min-w-0 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 shrink-0">
           <a href="#" className="flex flex-col min-w-0">
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-              <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug">
+              <span className="font-bold text-xs sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug truncate">
                 {fullName}
               </span>
               <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 self-start sm:self-auto shrink-0 whitespace-nowrap">
                 {roleTitle}
               </span>
             </div>
-            <span className="text-[11px] font-mono text-brand-500 hidden sm:block mt-0.5">
+            <span className="text-[11px] font-mono text-brand-500 hidden xl:block mt-0.5">
               RESTful APIs, Queues & Distributed Systems
             </span>
           </a>
         </div>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-medium text-brand-600">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-6 text-xs xl:text-sm font-medium text-brand-600">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -59,31 +59,31 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Action Buttons & Mobile Hamburger */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           {/* Language Toggle Button */}
           <button
             type="button"
             onClick={toggleLang}
-            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
+            className="inline-flex items-center gap-1 px-2 sm:px-2.5 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
             title={lang === 'en' ? 'Beralih ke Bahasa Indonesia' : 'Switch to English'}
           >
             <Globe className="w-3.5 h-3.5 text-brand-700" />
             <span className="tracking-tight">{lang === 'en' ? 'EN' : 'ID'}</span>
-            <span className="text-[10px] text-brand-400 font-normal">| {lang === 'en' ? 'ID' : 'EN'}</span>
+            <span className="text-[10px] text-brand-400 font-normal hidden xs:inline">| {lang === 'en' ? 'ID' : 'EN'}</span>
           </button>
 
           <a
             href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap shadow-sm"
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap shadow-sm"
           >
             <Download className="w-3.5 h-3.5" />
             <span>{t.downloadCv}</span>
           </a>
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-white text-brand-800 border border-brand-300 hover:bg-brand-50 transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-white text-brand-800 border border-brand-300 hover:bg-brand-50 transition-colors whitespace-nowrap"
           >
             <Mail className="w-3.5 h-3.5" />
             {t.contactBtn}
