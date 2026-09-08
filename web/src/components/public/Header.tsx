@@ -117,14 +117,24 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="text-brand-400 text-[10px]">→</span>
             </a>
           ))}
-          <div className="pt-2 flex items-center gap-2">
+          <div className="pt-2 grid grid-cols-2 gap-2 font-sans">
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-900 text-white text-xs font-semibold hover:bg-brand-800 transition-colors shadow-xs"
+            >
+              <Download className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">{t.downloadCv}</span>
+            </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 font-semibold hover:bg-brand-100 transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 text-xs font-semibold hover:bg-brand-100 transition-colors"
             >
-              <Mail className="w-3.5 h-3.5" />
-              {t.directContact}
+              <Mail className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">{t.directContact}</span>
             </a>
           </div>
         </div>
