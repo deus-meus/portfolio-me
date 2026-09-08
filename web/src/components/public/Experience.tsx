@@ -26,7 +26,7 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({ experiences = [] 
         </p>
       </div>
 
-      <div className="relative space-y-8 sm:space-y-10 before:absolute before:left-5 before:-translate-x-1/2 before:top-6 before:bottom-6 before:w-px before:bg-brand-200">
+      <div className="relative space-y-8 sm:space-y-10 before:absolute before:left-3.5 sm:before:left-5 before:-translate-x-1/2 before:top-6 before:bottom-6 before:w-px before:bg-brand-200">
         {experiences.map((exp, idx) => {
           // Key detection for ID overrides
           const isV2Fulltime = exp.company_tagline?.includes('V2') || exp.employment_type === 'Full-time';
@@ -42,9 +42,9 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({ experiences = [] 
           const displayEndDate = exp.end_date || (lang === 'id' ? t.presentLabel : 'Present');
 
           return (
-            <div key={exp.id || idx} className="relative flex items-start gap-3 sm:gap-6 group">
+            <div key={exp.id || idx} className="relative flex items-start gap-2.5 sm:gap-6 group">
               {/* Timeline Node */}
-              <div className="w-10 shrink-0 flex items-center justify-center pt-1.5 z-10">
+              <div className="w-7 sm:w-10 shrink-0 flex items-center justify-center pt-1.5 z-10">
                 {exp.is_active || idx === 0 ? (
                   <div className="w-7 h-7 rounded-full bg-brand-900 flex items-center justify-center border-2 border-white ring-2 ring-emerald-500 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-emerald-400"></span>

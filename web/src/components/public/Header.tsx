@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 min-h-16 py-2 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand / Identity */}
         <div className="flex items-center gap-2 min-w-0 flex-1 pr-1">
           <a href="#" className="flex flex-col min-w-0 space-y-0.5">
@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={toggleLang}
-            className="inline-flex items-center gap-1 px-1.5 xs:px-2.5 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
+            className="inline-flex items-center gap-1 min-h-[36px] px-2 sm:px-2.5 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
             title={lang === 'en' ? 'Beralih ke Bahasa Indonesia' : 'Switch to English'}
           >
             <Globe className="w-3.5 h-3.5 text-brand-700 shrink-0" />
@@ -76,14 +76,14 @@ export const Header: React.FC<HeaderProps> = ({
             href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap shadow-sm"
+            className="hidden sm:inline-flex items-center gap-1.5 min-h-[36px] px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap shadow-sm"
           >
             <Download className="w-3.5 h-3.5" />
             <span>{t.downloadCv}</span>
           </a>
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-white text-brand-800 border border-brand-300 hover:bg-brand-50 transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-1.5 min-h-[36px] px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-white text-brand-800 border border-brand-300 hover:bg-brand-50 transition-colors whitespace-nowrap"
           >
             <Mail className="w-3.5 h-3.5" />
             {t.contactBtn}
@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-brand-700 hover:text-brand-900 border border-brand-200 hover:border-brand-400 transition-colors"
+            className="lg:hidden p-2 min-h-[36px] min-w-[36px] flex items-center justify-center text-brand-700 hover:text-brand-900 border border-brand-200 hover:border-brand-400 transition-colors"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -109,21 +109,21 @@ export const Header: React.FC<HeaderProps> = ({
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-3 py-2 text-brand-800 hover:bg-brand-50 border-b border-brand-100 last:border-b-0 transition-colors"
+              className="flex items-center justify-between px-3 py-2.5 text-brand-800 hover:bg-brand-50 border-b border-brand-100 last:border-b-0 transition-colors"
             >
-              <span className="font-medium">
+              <span className="font-medium text-xs">
                 {link.label}
               </span>
               <span className="text-brand-400 text-[10px]">→</span>
             </a>
           ))}
-          <div className="pt-2 grid grid-cols-2 gap-2 font-sans">
+          <div className="pt-2.5 grid grid-cols-2 gap-2 font-sans">
             <a
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-900 text-white text-xs font-semibold hover:bg-brand-800 transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-2 bg-brand-900 text-white text-xs font-semibold hover:bg-brand-800 transition-colors shadow-xs"
             >
               <Download className="w-3.5 h-3.5 shrink-0" />
               <span className="truncate">{t.downloadCv}</span>
@@ -131,7 +131,7 @@ export const Header: React.FC<HeaderProps> = ({
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 text-xs font-semibold hover:bg-brand-100 transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 text-xs font-semibold hover:bg-brand-100 transition-colors"
             >
               <Mail className="w-3.5 h-3.5 shrink-0" />
               <span className="truncate">{t.directContact}</span>

@@ -42,16 +42,16 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
         </span>
       </div>
 
-      <div className="space-y-2.5 font-mono text-xs">
-        <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-          <span className="text-[10px] sm:text-[11px] text-brand-500 font-medium uppercase">{t.targetRoleLabel}</span>
-          <span className="text-[11px] sm:text-[12px] font-bold text-brand-900">
+      <div className="space-y-3 font-mono text-xs">
+        <div className="pb-2.5 border-b border-brand-100 flex items-center justify-between gap-2">
+          <span className="text-[10px] sm:text-[11px] text-brand-500 font-semibold uppercase">{t.targetRoleLabel}</span>
+          <span className="text-xs sm:text-[12px] font-bold text-brand-900 text-right">
             {profile?.role_title || t.targetRoleVal}
           </span>
         </div>
 
-        <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80 space-y-2">
-          <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-brand-500 font-medium uppercase">
+        <div className="py-2.5 border-b border-brand-100 space-y-2">
+          <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-brand-500 font-semibold uppercase">
             <span>{t.primaryStackLabel}</span>
             <span className="text-emerald-700 font-semibold flex items-center gap-1 text-[10px]">
               <CheckCircle2 className="w-3 h-3" /> {t.productionGrade}
@@ -61,7 +61,7 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
             {["TypeScript / Node", "NestJS", "Fastify", "PostgreSQL", "MongoDB", "Redis", "BullMQ", "Docker", "Go"].map((stack) => (
               <span
                 key={stack}
-                className="px-2 py-0.5 bg-white border border-brand-200 text-[10px] sm:text-[11px] font-semibold text-brand-900"
+                className="px-2 py-0.5 bg-brand-50 border border-brand-200 text-[10px] sm:text-[11px] font-semibold text-brand-900"
               >
                 {stack}
               </span>
@@ -69,26 +69,26 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
-          <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80">
-            <span className="text-[10px] text-brand-500 uppercase block font-medium">{t.expLabel}</span>
-            <span className="text-[12px] sm:text-[13px] font-bold text-brand-900">
+        <div className="grid grid-cols-2 gap-3 py-2.5 border-b border-brand-100">
+          <div>
+            <span className="text-[10px] text-brand-500 uppercase block font-semibold">{t.expLabel}</span>
+            <span className="text-xs sm:text-[13px] font-bold text-brand-900 block mt-0.5">
               {profile?.years_experience ? `${profile.years_experience}+ ${lang === 'id' ? 'Tahun' : 'Years'}` : t.yearsExp}
             </span>
-            <span className="text-[10px] text-brand-600 block mt-0.5">{t.yearsExpSub}</span>
+            <span className="text-[10px] text-brand-500 block">{t.yearsExpSub}</span>
           </div>
-          <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80">
-            <span className="text-[10px] text-brand-500 uppercase block font-medium">{t.noticePeriodLabel}</span>
-            <span className="text-[12px] sm:text-[13px] font-bold text-emerald-700">
+          <div>
+            <span className="text-[10px] text-brand-500 uppercase block font-semibold">{t.noticePeriodLabel}</span>
+            <span className="text-xs sm:text-[13px] font-bold text-emerald-700 block mt-0.5">
               {lang === 'id' ? t.noticePeriodVal : (profile?.notice_period || t.noticePeriodVal)}
             </span>
-            <span className="text-[10px] text-brand-600 block mt-0.5">{t.noticePeriodSub}</span>
+            <span className="text-[10px] text-brand-500 block">{t.noticePeriodSub}</span>
           </div>
         </div>
 
-        <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80 space-y-1">
-          <span className="text-[10px] text-brand-500 uppercase font-medium block">{t.locationLabel}</span>
-          <span className="text-[11px] sm:text-xs font-semibold text-brand-900 block leading-snug">
+        <div className="pt-2 pb-1 space-y-0.5">
+          <span className="text-[10px] text-brand-500 uppercase font-semibold block">{t.locationLabel}</span>
+          <span className="text-xs font-semibold text-brand-900 block leading-snug">
             {lang === 'id' ? t.locationVal : (profile?.location || t.locationVal)}
           </span>
         </div>
