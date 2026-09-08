@@ -81,7 +81,7 @@ export interface Translations {
   githubRepo: string;
   archBlueprint: string;
 
-  // Case Studies Data Overrides (Indonesian STAR Content)
+  // Case Studies Data Overrides (Indonesian STAR Content for ALL 5 Case Studies)
   caseStudyOverrides: Record<string, {
     title?: string;
     domain_category?: string;
@@ -361,10 +361,87 @@ export const translations: Record<Language, Translations> = {
     archBlueprint: "Cetakan Arsitektur",
 
     caseStudyOverrides: {
+      "padelhive": {
+        title: "Platform Booking Padel & Engine Reservasi Real-Time Berkinerja Tinggi",
+        domain_category: "E-COMMERCE & RESERVASI REAL-TIME",
+        badge_label: "BUN & ELYSIAJS MONOREPO",
+        problems_challenges: [
+          "Mencegah race condition dan bentrok jadwal lapangan saat banyak pengguna melakukan booking di jam yang sama secara bersamaan.",
+          "Mengelola siklus lengkap pembayaran Midtrans (settlement, kedaluwarsa, refund) secara aman dengan sistem idempotensi dan verifikasi tanda tangan webhook."
+        ],
+        architecture_solution: [
+          "Menerapkan validasi transaksi booking menggunakan Prisma dan PostgreSQL dengan penguncian jadwal ketat sebelum reservasi dibuat.",
+          "Membangun sistem ingest webhook Midtrans otomatis dengan verifikasi tanda tangan kriptografi dan rekonsiliasi status.",
+          "Memanfaatkan kecepatan runtime Bun dan tipe data ketat ElysiaJS (Eden Treaty) untuk performa eksekusi tanpa overhead."
+        ],
+        metrics: [
+          { label: "Runtime Engine", value: "Bun 1.1+", delta: "Eksekusi Super Cepat" },
+          { label: "Arsitektur API", value: "ElysiaJS + Eden", delta: "Type-Safety End-to-End" },
+          { label: "Payment Gateway", value: "Integrasi Midtrans", delta: "Webhooks, Pembayaran & Refund" },
+          { label: "Keamanan Slot", value: "Isolasi ACID", delta: "Jaminan Bebas Double-Booking" }
+        ]
+      },
+      "hookbridge": {
+        title: "Gateway Webhook Berstandar Produksi & Pipeline Distributer Event",
+        domain_category: "INFRASTRUKTUR & INTEGRASI",
+        badge_label: "GATEWAY PRODUKSI",
+        problems_challenges: [
+          "Masalah head-of-line blocking pada antrean webhook legacy akibat endpoint pihak ketiga yang lambat dan menghabiskan thread pool worker.",
+          "Kebutuhan pengiriman at-least-once dengan verifikasi tanda tangan HMAC-SHA256 tanpa membuat klien bertrafik rendah kelaparan resource atau mengalami race condition."
+        ],
+        architecture_solution: [
+          "Merancang konsumen worker menggunakan BullMQ dan Redis dengan skalabilitas konkurensi dinamis serta retry policy exponential backoff.",
+          "Menerapkan validasi tanda tangan HMAC per penyedia (Stripe, GitHub, Midtrans) dan rute otomatis Dead-Letter Queue (DLQ) untuk payload gagal."
+        ],
+        metrics: [
+          { label: "Tanda Tangan Auth", value: "HMAC-SHA256", delta: "Stripe, GitHub, Midtrans" },
+          { label: "Antrean Pesan", value: "BullMQ + Redis", delta: "Isolasi Pool Worker" },
+          { label: "Toleransi Kegagalan", value: "DLQ & Retry", delta: "Exponential Backoff" },
+          { label: "Persistensi Data", value: "PostgreSQL", delta: "Pencatatan Transaksional" }
+        ]
+      },
+      "guardrail": {
+        title: "Layanan Rate Limiter Terdistribusi Berbasis Sliding Window",
+        domain_category: "KEAMANAN JARINGAN & KONTROL TRAFIK",
+        badge_label: "SISTEM TERDISTRIBUSI",
+        problems_challenges: [
+          "Lonjakan trafik mendadak saat campaign promo yang membebani basis data utama hingga kehabisan batas koneksi.",
+          "Rate limiter kaku (fixed-window) gagal mencegah lonjakan trafik 2x lipat pada batas pergantian jendela waktu."
+        ],
+        architecture_solution: [
+          "Menerapkan algoritma sliding window counter berkinerja tinggi menggunakan Redis Sorted Sets (ZSET) yang dieksekusi dalam skrip Lua atomik.",
+          "Menyediakan gRPC/HTTP check API ringan yang memungkinkan mikroservis internal memverifikasi batas rate limit dalam hitungan sub-milidetik."
+        ],
+        metrics: [
+          { label: "Algoritma", value: "Sliding Window", delta: "Score Timestamp Redis ZSET" },
+          { label: "Granularitas", value: "Multi-Key", delta: "IP, User ID, dan API Key" },
+          { label: "Eksekusi", value: "Dalam Memori", delta: "Latensi Sub-Milidetik" },
+          { label: "Kontrol Lonjakan", value: "Bebas Spike", delta: "Pembatasan Jendela Ketat" }
+        ]
+      },
+      "notihub-pulseboard": {
+        title: "Layanan Notifikasi Asinkron Multi-Saluran & Dashboard SSE Real-Time",
+        domain_category: "TELEMETRI REAL-TIME & STREAMING",
+        badge_label: "MESIN EVENT REAL-TIME",
+        problems_challenges: [
+          "Penyedia notifikasi eksternal yang lambat (Email SMTP, WhatsApp API) menghambat alur HTTP request pada transaksi utama.",
+          "Kurangnya visibilitas operasional real-time terhadap status pengiriman pesan di seluruh simpul worker asinkron."
+        ],
+        architecture_solution: [
+          "Membangun Notihub: pengirim notifikasi asinkron independen yang mendukung Email, WhatsApp, dan Web Push dengan template per saluran.",
+          "Membangun Pulseboard: dashboard pemantauan langsung yang mengonsumsi kanal Redis Pub/Sub dan menyiarkan perubahan status via Server-Sent Events (SSE)."
+        ],
+        metrics: [
+          { label: "Saluran", value: "Email & WhatsApp", delta: "Antrean BullMQ Terisolasi" },
+          { label: "Push Real-Time", value: "SSE & Pub/Sub", delta: "Broker Redis Pub/Sub" },
+          { label: "Engine Template", value: "Handlebars", delta: "Template Dinamis Per Saluran" },
+          { label: "Keandalan", value: "3x Auto Retry", delta: "Exponential Backoff saat Gagal" }
+        ]
+      },
       "nontonplus-v2-backend": {
         title: "Backend NontonPlus V2 — Platform IPTV Hospitality & Manajemen ISP Multi-Tenant",
-        domain_category: "Backend IPTV & Manajemen ISP",
-        badge_label: "Sistem Produksi Hospitality",
+        domain_category: "BACKEND IPTV & MANAJEMEN ISP",
+        badge_label: "SISTEM PRODUKSI HOSPITALITY",
         problems_challenges: [
           "Refactoring sistem legacy backend menjadi arsitektur berbasis NestJS & Fastify berskala produksi dengan stack 100% MongoDB & Mongoose untuk melayani IPTV rumah sakit, hotel, serta manajemen ISP multi-tenant.",
           "Menangani komunikasi real-time Socket.IO untuk pembaruan status channel IPTV, permintaan layanan kamar, dan sinkronisasi log tanpa delay.",
@@ -376,10 +453,10 @@ export const translations: Record<Language, Translations> = {
           "Mengimplementasikan infrastruktur pemantauan terintegrasi dengan Grafana & Loki untuk analisis log terpusat dan penyimpanan media di MinIO."
         ],
         metrics: [
-          { label: "Waktu Respon API", value: "< 45ms", delta: "Optimasi Query MongoDB" },
-          { label: "Arsitektur Sistem", value: "Multi-Tenant", delta: "Isolasi Data ISP & Hotel" },
-          { label: "Sinyal Real-Time", value: "100% Sync", delta: "Socket.IO & Event Gateway" },
-          { label: "Pemantauan Log", value: "Grafana & Loki", delta: "Log Terpusat Real-Time" }
+          { label: "Engine Server", value: "NestJS + Fastify", delta: "Adapter HTTP Overhead Rendah" },
+          { label: "Sockets Real-Time", value: "Redis Adapter", delta: "Heartbeat Perangkat Kluster" },
+          { label: "Basis Data Utama", value: "MongoDB Cluster", delta: "Playback & Katalog High-Write" },
+          { label: "Object Storage", value: "MinIO & Redis", delta: "Aset Media & Session Cache" }
         ]
       },
       "nontonplus-v1-internship": {

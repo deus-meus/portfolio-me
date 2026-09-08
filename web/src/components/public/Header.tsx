@@ -68,8 +68,8 @@ export const Header: React.FC<HeaderProps> = ({
             title={lang === 'en' ? 'Beralih ke Bahasa Indonesia' : 'Switch to English'}
           >
             <Globe className="w-3.5 h-3.5 text-brand-700" />
-            <span className="tracking-tight">{lang === 'en' ? 'EN' : 'ID'}</span>
-            <span className="text-[10px] text-brand-400 font-normal hidden xs:inline">| {lang === 'en' ? 'ID' : 'EN'}</span>
+            <span className="tracking-tight font-bold">{lang === 'en' ? 'ID' : 'EN'}</span>
+            <span className="text-[10px] text-brand-400 font-normal hidden xs:inline">| {lang === 'en' ? 'EN' : 'ID'}</span>
           </button>
 
           <a
