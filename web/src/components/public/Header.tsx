@@ -27,13 +27,13 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-4">
         {/* Brand / Identity */}
-        <div className="flex items-center gap-3 shrink-0">
-          <a href="#" className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-base sm:text-lg text-brand-900 tracking-tight leading-snug whitespace-nowrap">
+        <div className="flex items-center gap-3 min-w-0 shrink-0">
+          <a href="#" className="flex flex-col min-w-0">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+              <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug">
                 {fullName}
               </span>
-              <span className="px-2 py-0.5 text-[10px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 shrink-0 whitespace-nowrap">
+              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 self-start sm:self-auto shrink-0 whitespace-nowrap">
                 {roleTitle}
               </span>
             </div>
