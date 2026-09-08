@@ -14,34 +14,34 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
   const filterOptions = useMemo(() => {
     const counts = {
       all: caseStudies.length,
-      queues: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse|lua/i.test(t))).length,
-      realtime: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub|elysia|midtrans/i.test(t)) || /notihub|nontonplus|padelhive/i.test(cs.slug)).length,
-      databases: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo|postgres|prisma|mongoose/i.test(t))).length,
-      infra: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /docker|minio|grafana|loki|fastify|nest/i.test(t))).length,
+      queues: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bullmq|redis|lua/i.test(t)) || /hookbridge|guardrail|notihub/i.test(cs.slug)).length,
+      realtime: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub/i.test(t)) || /notihub|nontonplus/i.test(cs.slug)).length,
+      bun: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bun|elysia|prisma/i.test(t)) || cs.slug === 'padelhive').length,
+      mongodb: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo/i.test(t)) || cs.slug === 'nontonplus-v2-backend').length,
     };
 
     return [
       { id: 'all', label: t.allProjects, count: counts.all },
-      { id: 'queues', label: lang === 'id' ? 'Antrean & Async' : 'Queues & Async', count: counts.queues },
+      { id: 'queues', label: lang === 'id' ? 'Redis & Queues' : 'Redis & Queues', count: counts.queues },
       { id: 'realtime', label: lang === 'id' ? 'Real-Time & Webhooks' : 'Real-Time & Webhooks', count: counts.realtime },
-      { id: 'databases', label: 'PostgreSQL & MongoDB', count: counts.databases },
-      { id: 'infra', label: lang === 'id' ? 'Gateway & Infra' : 'Gateways & Infra', count: counts.infra },
+      { id: 'bun', label: 'Bun & ElysiaJS', count: counts.bun },
+      { id: 'mongodb', label: 'MongoDB & NoSQL', count: counts.mongodb },
     ];
   }, [caseStudies, lang, t]);
 
   const filteredCaseStudies = useMemo(() => {
     if (selectedFilter === 'all') return caseStudies;
     if (selectedFilter === 'queues') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /redis|bullmq|pub\/sub|sse|lua/i.test(t)));
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bullmq|redis|lua/i.test(t)) || /hookbridge|guardrail|notihub/i.test(cs.slug));
     }
     if (selectedFilter === 'realtime') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub|elysia|midtrans/i.test(t)) || /notihub|nontonplus|padelhive/i.test(cs.slug));
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub/i.test(t)) || /notihub|nontonplus/i.test(cs.slug));
     }
-    if (selectedFilter === 'databases') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo|postgres|prisma|mongoose/i.test(t)));
+    if (selectedFilter === 'bun') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bun|elysia|prisma/i.test(t)) || cs.slug === 'padelhive');
     }
-    if (selectedFilter === 'infra') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /docker|minio|grafana|loki|fastify|nest/i.test(t)));
+    if (selectedFilter === 'mongodb') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo/i.test(t)) || cs.slug === 'nontonplus-v2-backend');
     }
     return caseStudies;
   }, [caseStudies, selectedFilter]);
