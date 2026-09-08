@@ -25,14 +25,14 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2.5 text-xs font-mono w-full sm:w-auto">
-            <span className="inline-flex items-center justify-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1.5 border border-emerald-200 font-semibold text-[11px] sm:text-xs flex-1 sm:flex-none">
+          <div className="flex items-center gap-2 text-xs font-mono shrink-0">
+            <span className="inline-flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1.5 border border-emerald-200 font-semibold text-[11px] sm:text-xs shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
               {t.apiOnline}
             </span>
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center justify-center gap-1 text-brand-600 hover:text-brand-900 transition-colors border border-brand-200 px-3 py-1.5 text-[11px] sm:text-xs shrink-0"
+              className="inline-flex items-center justify-center gap-1 text-brand-700 hover:text-brand-900 bg-brand-50 hover:bg-brand-100 transition-colors border border-brand-300 px-3 py-1.5 text-[11px] sm:text-xs font-semibold shrink-0"
             >
               <ArrowUp className="w-3.5 h-3.5" />
               {t.topBtn}
