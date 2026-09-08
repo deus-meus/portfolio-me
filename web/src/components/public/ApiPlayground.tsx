@@ -432,7 +432,7 @@ export const ApiPlayground: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <button
                     onClick={handleSendRateLimitReq}
-                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-brand-900 text-white font-mono text-xs font-semibold uppercase tracking-wider hover:bg-brand-800 transition-colors shadow-xs"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 transition-colors shadow-xs"
                   >
                     <Play className="w-3.5 h-3.5 fill-current shrink-0" />
                     <span>{t.sendOneReq}</span>
@@ -440,7 +440,7 @@ export const ApiPlayground: React.FC = () => {
 
                   <button
                     onClick={handleSpamBurst}
-                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-brand-800 text-white font-mono text-xs font-semibold uppercase tracking-wider hover:bg-brand-900 transition-colors shadow-xs"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-brand-800 text-white font-mono text-xs font-semibold hover:bg-brand-900 transition-colors shadow-xs"
                   >
                     <Activity className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
                     <span>{t.spamBurstReq}</span>
@@ -451,7 +451,7 @@ export const ApiPlayground: React.FC = () => {
                       setTokens(MAX_TOKENS);
                       setRlLogs([]);
                     }}
-                    className="inline-flex items-center justify-center px-3.5 py-2.5 bg-white text-brand-800 border border-brand-300 font-mono text-xs font-semibold uppercase tracking-wider hover:bg-brand-50 transition-colors"
+                    className="inline-flex items-center justify-center px-3.5 py-2.5 bg-white text-brand-800 border border-brand-300 font-mono text-xs font-semibold hover:bg-brand-50 transition-colors"
                   >
                     {t.resetBucket}
                   </button>
