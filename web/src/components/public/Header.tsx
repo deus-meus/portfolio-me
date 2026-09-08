@@ -26,16 +26,16 @@ export const Header: React.FC<HeaderProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand / Identity */}
         <div className="flex items-center gap-2 min-w-0 flex-1 pr-1">
           <a href="#" className="flex flex-col min-w-0 space-y-0.5">
-            <span className="font-bold text-xs xs:text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug truncate">
+            <span className="font-bold text-sm xs:text-base sm:text-lg md:text-xl text-brand-900 tracking-tight leading-tight truncate">
               {fullName}
             </span>
             <div className="py-0.5">
-              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] xs:text-[10px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 inline-block">
+              <span className="px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 inline-block leading-none">
                 {roleTitle}
               </span>
             </div>
@@ -101,9 +101,9 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Navigation Overlay Drawer (Floats ON TOP of Content, attached to header) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-brand-200 px-4 py-3 space-y-1 font-mono text-xs shadow-lg animate-in slide-in-from-top-2 duration-150">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b-2 border-brand-900 px-4 py-3 space-y-1 font-mono text-xs shadow-2xl z-50 animate-in slide-in-from-top-1 duration-150">
           {navLinks.map((link) => (
             <a
               key={link.href}

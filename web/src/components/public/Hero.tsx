@@ -29,15 +29,15 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start">
         {/* Left Column: Profile Headline & Value Proposition */}
         <div className="lg:col-span-7 flex flex-col space-y-4 sm:space-y-5">
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 text-[10px] sm:text-xs font-mono font-semibold tracking-wide uppercase bg-brand-900 text-white">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs font-mono font-semibold tracking-wide uppercase bg-brand-900 text-white shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               {t.roleBadge}
             </span>
-            <span className="inline-flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs font-mono bg-white text-brand-700 border border-brand-200 font-medium">
+            <span className="inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs font-mono bg-white text-brand-800 border border-brand-300 font-semibold shadow-2xs">
               <span className="text-emerald-500 font-bold">●</span> Clean Architecture
             </span>
-            <span className="inline-flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs font-mono bg-white text-brand-700 border border-brand-200 font-medium">
+            <span className="inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs font-mono bg-white text-brand-800 border border-brand-300 font-semibold shadow-2xs">
               <Cpu className="w-3.5 h-3.5 text-accent shrink-0" /> Async Queues & Databases
             </span>
           </div>

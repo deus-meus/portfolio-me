@@ -78,51 +78,51 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         </div>
       </header>
 
-      {/* Mobile Selector Bar (Only on Mobile < 768px) */}
-      <div className="md:hidden bg-white border-b border-brand-200 px-3 py-2 flex items-center justify-between font-mono text-xs shadow-xs sticky top-14 z-40">
-        <div className="flex items-center gap-2 text-brand-900 font-bold">
+      {/* Mobile Selector Bar with Integrated Seamless Dropdown Drawer */}
+      <div className="md:hidden bg-white border-b border-brand-200 px-3 py-2 flex items-center justify-between font-mono text-xs shadow-xs sticky top-14 z-40 relative">
+        <div className="flex items-center gap-2 text-brand-900 font-bold min-w-0 pr-2">
           <ActiveIcon className="w-4 h-4 text-emerald-600 shrink-0" />
-          <span>{activeNavItem.label}</span>
+          <span className="truncate">{activeNavItem.label}</span>
         </div>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-brand-900 text-white font-semibold text-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-brand-900 text-white font-semibold text-xs transition-colors shrink-0"
         >
           {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           <span>NAV MENU</span>
           <ChevronDown className={`w-3.5 h-3.5 transition-transform ${mobileMenuOpen ? 'rotate-180' : ''}`} />
         </button>
-      </div>
 
-      {/* Mobile Menu Dropdown Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-brand-200 px-3 py-2 space-y-1 font-mono text-xs shadow-lg sticky top-26 z-30 animate-in slide-in-from-top-2 duration-150">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = currentTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => {
-                  onSelectTab(item.id);
-                  setMobileMenuOpen(false);
-                }}
-                className={`w-full flex items-center justify-between px-3 py-2.5 text-xs font-medium transition-colors border-b border-brand-100 last:border-b-0 ${
-                  isActive
-                    ? 'bg-brand-900 text-white font-semibold'
-                    : 'text-brand-800 hover:bg-brand-50'
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-emerald-400' : 'text-brand-500'}`} />
-                  <span>{item.label}</span>
-                </div>
-                <span className="text-[10px] text-brand-400">→</span>
-              </button>
-            );
-          })}
-        </div>
-      )}
+        {/* Seamless Dropdown Drawer Attached to Bottom Edge */}
+        {mobileMenuOpen && (
+          <div className="absolute top-full left-0 right-0 bg-white border-b-2 border-brand-900 px-3 py-2 space-y-1 font-mono text-xs shadow-2xl z-50 animate-in slide-in-from-top-1 duration-150">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = currentTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    onSelectTab(item.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 text-xs font-medium transition-colors border-b border-brand-100 last:border-b-0 ${
+                    isActive
+                      ? 'bg-brand-900 text-white font-semibold'
+                      : 'text-brand-800 hover:bg-brand-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-emerald-400' : 'text-brand-500'}`} />
+                    <span>{item.label}</span>
+                  </div>
+                  <span className="text-[10px] text-brand-400">→</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
 
       {/* Main Admin Area */}
       <div className="flex-1 flex flex-col md:flex-row max-w-7xl w-full mx-auto px-3 sm:px-6 py-4 sm:py-6 gap-4 sm:gap-6">
