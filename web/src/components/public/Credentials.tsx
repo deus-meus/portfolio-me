@@ -1,25 +1,28 @@
 import React from 'react';
 import { Award, CheckCircle2, ExternalLink } from 'lucide-react';
 import type { Credential } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface CredentialsProps {
   credentials?: Credential[];
 }
 
 export const CredentialsSection: React.FC<CredentialsProps> = ({ credentials = [] }) => {
+  const { t } = useLanguage();
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-brand-200" id="credentials">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-brand-200">
         <div>
           <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">
-            [04] CREDENTIALS & QUALIFICATIONS
+            {t.credTag}
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold text-brand-900 mt-1">
-            Certifications & Education
+            {t.credTitle}
           </h2>
         </div>
         <p className="text-sm text-brand-600 max-w-md mt-2 md:mt-0 font-normal">
-          Formal university degree in computer science and verified technical specializations.
+          {t.credDesc}
         </p>
       </div>
 
@@ -38,14 +41,14 @@ export const CredentialsSection: React.FC<CredentialsProps> = ({ credentials = [
                   <h3 className="font-bold text-brand-900 text-sm sm:text-base leading-snug">{c.title}</h3>
                   <span className="inline-flex items-center gap-1 font-mono text-[9px] sm:text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-1.5 py-0.5 shrink-0">
                     <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                    Verified
+                    {t.verifiedBadge}
                   </span>
                 </div>
                 <p className="text-xs text-brand-600 font-medium">{c.issuer}</p>
                 <div className="flex flex-wrap items-center gap-1.5 sm:gap-3 font-mono text-[10px] sm:text-xs text-brand-500 pt-0.5 sm:pt-1">
                   <span>ID: {c.credential_id}</span>
                   <span>•</span>
-                  <span>Issued: {c.issue_date}</span>
+                  <span>{t.issuedLabel}{c.issue_date}</span>
                 </div>
               </div>
             </div>

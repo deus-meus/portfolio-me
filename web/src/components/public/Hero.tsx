@@ -2,12 +2,18 @@ import React from 'react';
 import { Download, ExternalLink, Mail, Cpu } from 'lucide-react';
 import type { Profile } from '../../types';
 import { RecruiterCard } from './RecruiterCard';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface HeroProps {
   profile?: Profile | null;
 }
 
 export const Hero: React.FC<HeroProps> = ({ profile }) => {
+  const { lang, t } = useLanguage();
+
+  const headlineText = lang === 'id' ? t.heroHeadline : (profile?.headline || t.heroHeadline);
+  const bioText = lang === 'id' ? t.heroBio : (profile?.bio || t.heroBio);
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-12 border-b border-brand-200" id="overview">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
@@ -16,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono font-semibold tracking-wide uppercase bg-brand-900 text-white">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              BACKEND DEVELOPER
+              {t.roleBadge}
             </span>
             <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono bg-white text-brand-700 border border-brand-200 font-medium">
               <span className="text-emerald-500 font-bold">●</span> Clean Architecture
@@ -27,12 +33,11 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           </div>
 
           <h1 className="text-2xl sm:text-4xl lg:text-[40px] font-bold text-brand-900 leading-[1.2] sm:leading-[1.18] tracking-tight">
-            {profile?.headline || "Engineering Reliable RESTful APIs & Scalable Backend Systems."}
+            {headlineText}
           </h1>
 
           <p className="text-sm sm:text-base text-brand-600 leading-relaxed font-normal">
-            {profile?.bio ||
-              "Backend Developer experienced in building backend systems using NestJS and Node.js, including real-time systems (Socket.IO) and data management with PostgreSQL, MongoDB, and Redis. Familiar with observability infrastructure (Grafana, Loki) and object storage (MinIO). Seeking a Backend Developer role."}
+            {bioText}
           </p>
 
           <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pt-1">
@@ -42,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-brand-900 text-white text-xs font-semibold hover:bg-brand-800 transition-colors"
             >
-              <Download className="w-4 h-4" /> Download CV (PDF)
+              <Download className="w-4 h-4" /> {lang === 'id' ? 'Unduh CV (PDF)' : 'Download CV (PDF)'}
             </a>
             <a
               href={profile?.github_url || "https://github.com/deus-meus"}
@@ -77,46 +82,46 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           <div className="pt-4 border-t border-brand-200 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 font-mono text-xs">
             <div className="p-2.5 sm:p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">Experience</span>
+                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">{t.expLabel}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
               </div>
               <span className="font-bold text-brand-900 text-base sm:text-xl block tabular-nums">
-                {profile?.years_experience ? `${profile.years_experience}+ Years` : "2+ Years"}
+                {profile?.years_experience ? `${profile.years_experience}+ ${lang === 'id' ? 'Tahun' : 'Years'}` : t.yearsExp}
               </span>
-              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Backend Dev</span>
+              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">{t.yearsExpSub}</span>
             </div>
 
             <div className="p-2.5 sm:p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">Core Focus</span>
+                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">{t.coreFocusLabel}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
               <span className="font-bold text-brand-900 text-base sm:text-xl block">
-                REST APIs
+                {t.coreFocusVal}
               </span>
               <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Clean Arch</span>
             </div>
 
             <div className="p-2.5 sm:p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">Databases</span>
+                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">{t.databasesLabel}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               </div>
               <span className="font-bold text-brand-900 text-xs sm:text-lg block leading-snug">
-                Mongo & Redis
+                {t.databasesVal}
               </span>
-              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Document & Cache</span>
+              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">{t.databasesSub}</span>
             </div>
 
             <div className="p-2.5 sm:p-3.5 bg-white border border-brand-200 hover:border-emerald-200 transition-colors">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">Async Flow</span>
+                <span className="text-brand-500 uppercase text-[9px] sm:text-[10px] font-semibold tracking-wider">{t.asyncFlowLabel}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               </div>
               <span className="font-bold text-brand-900 text-xs sm:text-lg block leading-snug">
-                Queues & Workers
+                {t.asyncFlowVal}
               </span>
-              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">Background Jobs</span>
+              <span className="text-[10px] sm:text-[11px] text-brand-600 block mt-0.5">{t.asyncFlowSub}</span>
             </div>
           </div>
         </div>

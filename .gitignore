@@ -34,7 +34,7 @@ web/dist/*
 *.db-shm
 *.sqlite
 *.sqlite3
-data/
+/data/
 
 # IDE and OS
 .DS_Store

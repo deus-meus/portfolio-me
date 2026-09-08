@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import { HomePage } from './pages/Home';
 import { Login } from './pages/admin/Login';
 import { AdminLayout } from './components/admin/AdminLayout';
@@ -94,7 +95,11 @@ export const App: React.FC = () => {
   }
 
   // Otherwise, render Public Portfolio
-  return <HomePage />;
+  return (
+    <LanguageProvider>
+      <HomePage />
+    </LanguageProvider>
+  );
 };
 
 export default App;

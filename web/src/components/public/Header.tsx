@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Download, Mail, Menu, X } from 'lucide-react';
+import { Download, Mail, Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface HeaderProps {
   fullName?: string;
@@ -13,14 +14,15 @@ export const Header: React.FC<HeaderProps> = ({
   resumeUrl = "/resume.pdf",
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const { lang, toggleLang, t } = useLanguage();
 
   const navLinks = [
-    { href: "#overview", label: "Overview" },
-    { href: "#tech-stack", label: "Tech Stack" },
-    { href: "#case-studies", label: "Case Studies" },
-    { href: "#experience", label: "Experience" },
-    { href: "#credentials", label: "Education" },
-    { href: "#api-playground", label: "API Playground" },
+    { href: "#overview", label: t.navOverview },
+    { href: "#tech-stack", label: t.navTechStack },
+    { href: "#case-studies", label: t.navCaseStudies },
+    { href: "#experience", label: t.navExperience },
+    { href: "#credentials", label: t.navEducation },
+    { href: "#api-playground", label: t.navApiPlayground },
   ];
 
   return (
@@ -58,6 +60,18 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action Buttons & Mobile Hamburger */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Language Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleLang}
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
+            title={lang === 'en' ? 'Beralih ke Bahasa Indonesia' : 'Switch to English'}
+          >
+            <Globe className="w-3.5 h-3.5 text-brand-700" />
+            <span className="tracking-tight">{lang === 'en' ? 'EN' : 'ID'}</span>
+            <span className="text-[10px] text-brand-400 font-normal">| {lang === 'en' ? 'ID' : 'EN'}</span>
+          </button>
+
           <a
             href={resumeUrl}
             target="_blank"
@@ -65,14 +79,14 @@ export const Header: React.FC<HeaderProps> = ({
             className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap shadow-sm"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>CV (PDF)</span>
+            <span>{t.downloadCv}</span>
           </a>
           <a
             href="#contact"
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-white text-brand-800 border border-brand-300 hover:bg-brand-50 transition-colors whitespace-nowrap"
           >
             <Mail className="w-3.5 h-3.5" />
-            Contact
+            {t.contactBtn}
           </a>
 
           {/* Mobile Menu Toggle Button */}
@@ -104,13 +118,21 @@ export const Header: React.FC<HeaderProps> = ({
             </a>
           ))}
           <div className="pt-2 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleLang}
+              className="w-1/2 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-100 text-brand-900 border border-brand-300 font-bold"
+            >
+              <Globe className="w-3.5 h-3.5 text-brand-700" />
+              <span>Bahasa: {lang === 'en' ? 'EN' : 'ID'}</span>
+            </button>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 font-semibold"
+              className="w-1/2 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 font-semibold"
             >
               <Mail className="w-3.5 h-3.5" />
-              Direct Contact
+              {t.directContact}
             </a>
           </div>
         </div>
@@ -118,3 +140,4 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+

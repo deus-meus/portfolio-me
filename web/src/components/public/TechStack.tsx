@@ -1,59 +1,62 @@
 import React from 'react';
 import { Code2, Layers, Database, ArrowLeftRight, Cloud, Activity } from 'lucide-react';
 import type { Skill } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface TechStackProps {
   skills?: Record<string, Skill[]>;
 }
 
 export const TechStack: React.FC<TechStackProps> = ({ skills }) => {
+  const { t } = useLanguage();
+
   const domains = [
     {
       key: 'languages',
-      title: 'Languages & Runtimes',
-      badge: 'CORE SYNTAX',
+      title: t.catLanguages,
+      badge: t.catLanguagesBadge,
       icon: Code2,
-      desc: 'High-concurrency languages and efficient runtime engines.',
+      desc: t.catLanguagesDesc,
       defaultSkills: ['Go (Golang)', 'TypeScript', 'Node.js', 'Bun', 'SQL (ANSI)'],
     },
     {
       key: 'frameworks',
-      title: 'Frameworks & Protocols',
-      badge: 'FAST EXECUTION',
+      title: t.catFrameworks,
+      badge: t.catFrameworksBadge,
       icon: Layers,
-      desc: 'High-throughput HTTP routers, RPC transports, and microservice foundations.',
+      desc: t.catFrameworksDesc,
       defaultSkills: ['Go Chi', 'Fiber', 'NestJS', 'Fastify', 'Elysia', 'gRPC / Protobuf'],
     },
     {
       key: 'databases',
-      title: 'Databases & Storage',
-      badge: 'OLTP & MEMORY',
+      title: t.catDatabases,
+      badge: t.catDatabasesBadge,
       icon: Database,
-      desc: 'ACID relational schemas, distributed in-memory caching, and hybrid stores.',
+      desc: t.catDatabasesDesc,
       defaultSkills: ['PostgreSQL', 'Redis Cluster', 'SQLite', 'MongoDB'],
     },
     {
       key: 'queues',
-      title: 'Messaging & Queues',
-      badge: 'EVENT-DRIVEN',
+      title: t.catQueues,
+      badge: t.catQueuesBadge,
       icon: ArrowLeftRight,
-      desc: 'Reliable asynchronous brokers providing at-least-once processing guarantees.',
+      desc: t.catQueuesDesc,
       defaultSkills: ['BullMQ', 'Redis Streams & Pub/Sub', 'Apache Kafka', 'RabbitMQ'],
     },
     {
       key: 'devops',
-      title: 'DevOps & Infra',
-      badge: 'CONTAINERIZATION',
+      title: t.catDevops,
+      badge: t.catDevopsBadge,
       icon: Cloud,
-      desc: 'Containerized microservices and automated GitOps CI/CD delivery pipelines.',
+      desc: t.catDevopsDesc,
       defaultSkills: ['Docker', 'Docker Compose', 'Kubernetes', 'GitHub Actions', 'Linux / Bash'],
     },
     {
       key: 'observability',
-      title: 'Observability & Testing',
-      badge: 'SRE & QUALITY',
+      title: t.catObservability,
+      badge: t.catObservabilityBadge,
       icon: Activity,
-      desc: 'Structured telemetry, metric monitors, and automated AAA test suites.',
+      desc: t.catObservabilityDesc,
       defaultSkills: ['Prometheus', 'Grafana', 'Go Test (AAA)', 'Jest / Supertest'],
     },
   ];
@@ -63,14 +66,14 @@ export const TechStack: React.FC<TechStackProps> = ({ skills }) => {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-brand-200">
         <div>
           <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">
-            [01] TECH STACK & TECHNICAL EXPERTISE
+            {t.techStackTag}
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold text-brand-900 mt-1">
-            Backend Architecture Specialization
+            {t.techStackTitle}
           </h2>
         </div>
         <p className="text-sm text-brand-600 max-w-md mt-2 md:mt-0 font-normal">
-          Production-tested frameworks, data stores, and queue architectures engineered under high-concurrency workloads.
+          {t.techStackDesc}
         </p>
       </div>
 

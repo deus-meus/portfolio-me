@@ -1,12 +1,15 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Profile } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface RecruiterCardProps {
   profile?: Profile | null;
 }
 
 export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
+  const { lang, t } = useLanguage();
+
   return (
     <div className="w-full bg-white border border-brand-200 p-4 sm:p-6 space-y-3.5 sm:space-y-4 shadow-sm">
       <div className="flex items-center justify-between pb-3.5 border-b border-brand-100">
@@ -16,32 +19,32 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
           </div>
           <div>
             <h2 className="font-mono text-xs font-bold text-brand-900 uppercase tracking-wider">
-              RECRUITER QUICK CARD
+              {t.recruiterCardTitle}
             </h2>
             <span className="font-mono text-[10px] text-brand-400 block">
-              Verified Candidate Snapshot
+              {t.recruiterSnapshot}
             </span>
           </div>
         </div>
         <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 px-2.5 py-1 border border-emerald-200 font-semibold flex items-center gap-1.5 shrink-0">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          Open to Work
+          {t.openToWork}
         </span>
       </div>
 
       <div className="space-y-2.5 font-mono text-xs">
         <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-          <span className="text-[10px] sm:text-[11px] text-brand-500 font-medium uppercase">TARGET ROLE</span>
+          <span className="text-[10px] sm:text-[11px] text-brand-500 font-medium uppercase">{t.targetRoleLabel}</span>
           <span className="text-[11px] sm:text-[12px] font-bold text-brand-900">
-            {profile?.role_title || "Backend Developer / Software Engineer"}
+            {profile?.role_title || t.targetRoleVal}
           </span>
         </div>
 
         <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80 space-y-2">
           <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-brand-500 font-medium uppercase">
-            <span>PRIMARY PRODUCTION STACK</span>
+            <span>{t.primaryStackLabel}</span>
             <span className="text-emerald-700 font-semibold flex items-center gap-1 text-[10px]">
-              <CheckCircle2 className="w-3 h-3" /> Production Grade
+              <CheckCircle2 className="w-3 h-3" /> {t.productionGrade}
             </span>
           </div>
           <div className="flex flex-wrap gap-1.5 pt-0.5">
@@ -58,31 +61,31 @@ export const RecruiterCard: React.FC<RecruiterCardProps> = ({ profile }) => {
 
         <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
           <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80">
-            <span className="text-[10px] text-brand-500 uppercase block font-medium">EXPERIENCE</span>
+            <span className="text-[10px] text-brand-500 uppercase block font-medium">{t.expLabel}</span>
             <span className="text-[12px] sm:text-[13px] font-bold text-brand-900">
-              {profile?.years_experience ? `${profile.years_experience}+ Years` : "2+ Years"}
+              {profile?.years_experience ? `${profile.years_experience}+ ${lang === 'id' ? 'Tahun' : 'Years'}` : t.yearsExp}
             </span>
-            <span className="text-[10px] text-brand-600 block mt-0.5">Backend Dev</span>
+            <span className="text-[10px] text-brand-600 block mt-0.5">{t.yearsExpSub}</span>
           </div>
           <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80">
-            <span className="text-[10px] text-brand-500 uppercase block font-medium">NOTICE PERIOD</span>
+            <span className="text-[10px] text-brand-500 uppercase block font-medium">{t.noticePeriodLabel}</span>
             <span className="text-[12px] sm:text-[13px] font-bold text-emerald-700">
-              {profile?.notice_period || "1 Month Notice"}
+              {lang === 'id' ? t.noticePeriodVal : (profile?.notice_period || t.noticePeriodVal)}
             </span>
-            <span className="text-[10px] text-brand-600 block mt-0.5">Negotiable</span>
+            <span className="text-[10px] text-brand-600 block mt-0.5">{t.noticePeriodSub}</span>
           </div>
         </div>
 
         <div className="p-2.5 sm:p-3 bg-brand-50/70 border border-brand-200/80 space-y-1">
-          <span className="text-[10px] text-brand-500 uppercase font-medium block">LOCATION & BASE</span>
+          <span className="text-[10px] text-brand-500 uppercase font-medium block">{t.locationLabel}</span>
           <span className="text-[11px] sm:text-xs font-semibold text-brand-900 block leading-snug">
-            {profile?.location || "Denpasar, Bali • Open to On-site, Hybrid & Remote (Relocation OK)"}
+            {lang === 'id' ? t.locationVal : (profile?.location || t.locationVal)}
           </span>
         </div>
       </div>
 
       <div className="pt-3.5 border-t border-brand-100 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
-        <span className="text-brand-500">DIRECT CONTACT</span>
+        <span className="text-brand-500">{t.directContact}</span>
         <a
           href={`mailto:${profile?.email || "dwinarwastu02@gmail.com"}`}
           className="text-emerald-700 hover:text-emerald-800 font-semibold inline-flex items-center gap-1 underline underline-offset-2 break-all"
