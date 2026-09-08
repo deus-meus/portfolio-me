@@ -100,63 +100,63 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
       </div>
 
       {/* Content Domain Cards */}
-      <div className="border border-brand-200 p-5 space-y-4">
-        <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-brand-900">
+      <div className="space-y-3 pt-2">
+        <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-brand-900 px-0.5">
           CONTENT DOMAIN SUMMARY
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-white border border-brand-200 space-y-3">
-            <div className="flex items-center justify-between">
+          <div className="p-4 sm:p-5 bg-white border border-brand-200 space-y-3 shadow-xs hover:border-brand-400 transition-colors">
+            <div className="flex items-center justify-between pb-2 border-b border-brand-100">
               <span className="font-bold text-brand-900 text-sm">Case Studies</span>
-              <span className="font-mono text-xs px-2 py-0.5 bg-brand-100 font-semibold">
+              <span className="font-mono text-xs px-2 py-0.5 bg-brand-100 text-brand-800 font-semibold border border-brand-200">
                 {csCount} Records
               </span>
             </div>
-            <p className="text-xs text-brand-600">
+            <p className="text-xs text-brand-600 leading-relaxed">
               Hookbridge, Guardrail, Notihub, NontonPlus V2, PadelHive.
             </p>
             <button
               onClick={() => onNavigate('case-studies')}
-              className="text-xs font-mono font-semibold text-accent hover:text-accent-hover flex items-center gap-1"
+              className="text-xs font-mono font-semibold text-accent hover:text-accent-hover inline-flex items-center gap-1.5 pt-1"
             >
-              Manage Case Studies <ArrowRight className="w-3 h-3" />
+              <span>Manage Case Studies</span> <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <div className="p-4 bg-white border border-brand-200 space-y-3">
-            <div className="flex items-center justify-between">
+          <div className="p-4 sm:p-5 bg-white border border-brand-200 space-y-3 shadow-xs hover:border-brand-400 transition-colors">
+            <div className="flex items-center justify-between pb-2 border-b border-brand-100">
               <span className="font-bold text-brand-900 text-sm">Tech Stack & Skills</span>
-              <span className="font-mono text-xs px-2 py-0.5 bg-brand-100 font-semibold">
+              <span className="font-mono text-xs px-2 py-0.5 bg-brand-100 text-brand-800 font-semibold border border-brand-200">
                 {skillCount} Skills
               </span>
             </div>
-            <p className="text-xs text-brand-600">
+            <p className="text-xs text-brand-600 leading-relaxed">
               Languages, Frameworks, Databases, Queues, DevOps, Observability.
             </p>
             <button
               onClick={() => onNavigate('skills')}
-              className="text-xs font-mono font-semibold text-accent hover:text-accent-hover flex items-center gap-1"
+              className="text-xs font-mono font-semibold text-accent hover:text-accent-hover inline-flex items-center gap-1.5 pt-1"
             >
-              Manage Tech Stack <ArrowRight className="w-3 h-3" />
+              <span>Manage Tech Stack</span> <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <div className="p-4 bg-white border border-brand-200 space-y-3">
-            <div className="flex items-center justify-between">
+          <div className="p-4 sm:p-5 bg-white border border-brand-200 space-y-3 shadow-xs hover:border-brand-400 transition-colors">
+            <div className="flex items-center justify-between pb-2 border-b border-brand-100">
               <span className="font-bold text-brand-900 text-sm">Work History</span>
-              <span className="font-mono text-xs px-2 py-0.5 bg-brand-100 font-semibold">
+              <span className="font-mono text-xs px-2 py-0.5 bg-brand-100 text-brand-800 font-semibold border border-brand-200">
                 {expCount} Positions
               </span>
             </div>
-            <p className="text-xs text-brand-600">
+            <p className="text-xs text-brand-600 leading-relaxed">
               Career milestones, roles, and quantifiable achievement metrics.
             </p>
             <button
               onClick={() => onNavigate('experience')}
-              className="text-xs font-mono font-semibold text-accent hover:text-accent-hover flex items-center gap-1"
+              className="text-xs font-mono font-semibold text-accent hover:text-accent-hover inline-flex items-center gap-1.5 pt-1"
             >
-              Manage Experience <ArrowRight className="w-3 h-3" />
+              <span>Manage Experience</span> <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
