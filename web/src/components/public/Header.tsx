@@ -118,18 +118,10 @@ export const Header: React.FC<HeaderProps> = ({
             </a>
           ))}
           <div className="pt-2 flex items-center gap-2">
-            <button
-              type="button"
-              onClick={toggleLang}
-              className="w-1/2 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-100 text-brand-900 border border-brand-300 font-bold"
-            >
-              <Globe className="w-3.5 h-3.5 text-brand-700" />
-              <span>Bahasa: {lang === 'en' ? 'EN' : 'ID'}</span>
-            </button>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-1/2 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 font-semibold"
+              className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-brand-50 text-brand-900 border border-brand-200 font-semibold hover:bg-brand-100 transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />
               {t.directContact}
