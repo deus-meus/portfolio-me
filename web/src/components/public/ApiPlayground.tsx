@@ -439,9 +439,9 @@ export const ApiPlayground: React.FC = () => {
 
                 <button
                   onClick={handleSpamBurst}
-                  className="inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold transition-colors shadow-xs"
+                  className="inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-2 bg-brand-800 hover:bg-brand-900 text-white font-semibold transition-colors shadow-xs"
                 >
-                  <Activity className="w-3.5 h-3.5 shrink-0" />
+                  <Activity className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
                   <span className="truncate">{t.spamBurstReq}</span>
                 </button>
 
