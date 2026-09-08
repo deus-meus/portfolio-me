@@ -27,26 +27,26 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-4">
         {/* Brand / Identity */}
-        <div className="flex items-center gap-2 sm:gap-3 min-w-0 shrink-0">
+        <div className="flex items-center gap-3 min-w-0 shrink-0">
           <a href="#" className="flex flex-col min-w-0">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-              <span className="font-bold text-xs sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug truncate">
-                {fullName}
-              </span>
-              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 self-start sm:self-auto shrink-0 whitespace-nowrap">
+            <span className="font-bold text-sm sm:text-base md:text-lg text-brand-900 tracking-tight leading-snug">
+              {fullName}
+            </span>
+            <div className="flex items-center gap-2 mt-0.5">
+              <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-mono font-semibold tracking-wider uppercase bg-brand-100 text-brand-800 border border-brand-200 shrink-0">
                 {roleTitle}
               </span>
+              <span className="text-[11px] font-mono text-brand-500 hidden xl:inline truncate">
+                RESTful APIs, Queues & Distributed Systems
+              </span>
             </div>
-            <span className="text-[11px] font-mono text-brand-500 hidden xl:block mt-0.5">
-              RESTful APIs, Queues & Distributed Systems
-            </span>
           </a>
         </div>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-xs xl:text-sm font-medium text-brand-600 ml-auto mr-3 xl:mr-6 shrink-0">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-6 text-xs xl:text-sm font-medium text-brand-600">
           {navLinks.map((link) => (
             <a
               key={link.href}
