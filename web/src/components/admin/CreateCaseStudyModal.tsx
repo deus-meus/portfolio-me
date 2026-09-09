@@ -238,10 +238,11 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
                 </div>
                 <div>
                   <label className="block font-semibold uppercase text-brand-700 mb-1">
-                    Docs Blueprint URL
+                    Live Web App / Docs URL
                   </label>
                   <input
                     type="text"
+                    placeholder="e.g. https://padelhive.dwin-studio.my.id"
                     value={docsUrl}
                     onChange={(e) => setDocsUrl(e.target.value)}
                     className="w-full bg-brand-50 border border-brand-300 p-2.5 text-brand-900 focus:outline-none focus:border-brand-900"
