@@ -260,7 +260,7 @@ func SeedData(db *sql.DB) error {
 				},
 				TechStack:   []string{"Bun", "ElysiaJS", "Prisma", "PostgreSQL", "SvelteKit", "Midtrans", "Docker"},
 				GithubURL:   "https://github.com/dwinarwastu/padelhive",
-				DocsURL:     "https://github.com/dwinarwastu/padelhive#tech-stack",
+				DocsURL:     "https://padelhive.dwin-studio.my.id",
 				IsPublished: true,
 				SortOrder:   5,
 			},

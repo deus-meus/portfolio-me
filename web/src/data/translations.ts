@@ -80,6 +80,7 @@ export interface Translations {
   colResults: string;
   githubRepo: string;
   archBlueprint: string;
+  liveDemoApp: string;
   allProjects: string;
   filterBy: string;
 
@@ -248,6 +249,7 @@ export const translations: Record<Language, Translations> = {
     colResults: "03. Tested Impact & Results",
     githubRepo: "GitHub Repository",
     archBlueprint: "Architecture Blueprint",
+    liveDemoApp: "Live Web App",
 
     caseStudyOverrides: {},
 
@@ -393,6 +395,7 @@ export const translations: Record<Language, Translations> = {
     colResults: "03. Hasil & Dampak Teruji",
     githubRepo: "Repositori GitHub",
     archBlueprint: "Cetakan Arsitektur",
+    liveDemoApp: "Lihat Web App (Live)",
 
     caseStudyOverrides: {
       "padelhive": {
