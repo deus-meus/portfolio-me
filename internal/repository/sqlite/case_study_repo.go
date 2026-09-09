@@ -22,7 +22,7 @@ func (r *caseStudyRepo) List(ctx context.Context, publishedOnly bool) ([]domain.
 	query := `
 		SELECT id, slug, title, domain_category, badge_label,
 		       architecture_flow, problems_challenges, architecture_solution,
-		       metrics, tech_stack, COALESCE(github_url, ''), COALESCE(docs_url, ''),
+		       metrics, tech_stack, COALESCE(github_url, ''), COALESCE(docs_url, ''), COALESCE(demo_url, ''),
 		       is_published, sort_order, created_at, updated_at
 		FROM case_studies`
 	if publishedOnly {
@@ -46,7 +46,7 @@ func (r *caseStudyRepo) List(ctx context.Context, publishedOnly bool) ([]domain.
 		err := rows.Scan(
 			&cs.ID, &cs.Slug, &cs.Title, &cs.DomainCategory, &cs.BadgeLabel,
 			&flowJSON, &probJSON, &solJSON, &metricsJSON, &stackJSON,
-			&cs.GithubURL, &cs.DocsURL, &isPubInt, &cs.SortOrder,
+			&cs.GithubURL, &cs.DocsURL, &cs.DemoURL, &isPubInt, &cs.SortOrder,
 			&createdAt, &updatedAt,
 		)
 		if err != nil {
@@ -73,7 +73,7 @@ func (r *caseStudyRepo) GetBySlug(ctx context.Context, slug string) (*domain.Cas
 	query := `
 		SELECT id, slug, title, domain_category, badge_label,
 		       architecture_flow, problems_challenges, architecture_solution,
-		       metrics, tech_stack, COALESCE(github_url, ''), COALESCE(docs_url, ''),
+		       metrics, tech_stack, COALESCE(github_url, ''), COALESCE(docs_url, ''), COALESCE(demo_url, ''),
 		       is_published, sort_order, created_at, updated_at
 		FROM case_studies
 		WHERE slug = ? LIMIT 1`
@@ -86,7 +86,7 @@ func (r *caseStudyRepo) GetBySlug(ctx context.Context, slug string) (*domain.Cas
 	err := r.db.QueryRowContext(ctx, query, slug).Scan(
 		&cs.ID, &cs.Slug, &cs.Title, &cs.DomainCategory, &cs.BadgeLabel,
 		&flowJSON, &probJSON, &solJSON, &metricsJSON, &stackJSON,
-		&cs.GithubURL, &cs.DocsURL, &isPubInt, &cs.SortOrder,
+		&cs.GithubURL, &cs.DocsURL, &cs.DemoURL, &isPubInt, &cs.SortOrder,
 		&createdAt, &updatedAt,
 	)
 	if err == sql.ErrNoRows {
@@ -113,7 +113,7 @@ func (r *caseStudyRepo) GetByID(ctx context.Context, id int64) (*domain.CaseStud
 	query := `
 		SELECT id, slug, title, domain_category, badge_label,
 		       architecture_flow, problems_challenges, architecture_solution,
-		       metrics, tech_stack, COALESCE(github_url, ''), COALESCE(docs_url, ''),
+		       metrics, tech_stack, COALESCE(github_url, ''), COALESCE(docs_url, ''), COALESCE(demo_url, ''),
 		       is_published, sort_order, created_at, updated_at
 		FROM case_studies
 		WHERE id = ? LIMIT 1`
@@ -126,7 +126,7 @@ func (r *caseStudyRepo) GetByID(ctx context.Context, id int64) (*domain.CaseStud
 	err := r.db.QueryRowContext(ctx, query, id).Scan(
 		&cs.ID, &cs.Slug, &cs.Title, &cs.DomainCategory, &cs.BadgeLabel,
 		&flowJSON, &probJSON, &solJSON, &metricsJSON, &stackJSON,
-		&cs.GithubURL, &cs.DocsURL, &isPubInt, &cs.SortOrder,
+		&cs.GithubURL, &cs.DocsURL, &cs.DemoURL, &isPubInt, &cs.SortOrder,
 		&createdAt, &updatedAt,
 	)
 	if err == sql.ErrNoRows {
@@ -165,14 +165,14 @@ func (r *caseStudyRepo) Create(ctx context.Context, cs *domain.CaseStudy) error 
 		INSERT INTO case_studies (
 			slug, title, domain_category, badge_label,
 			architecture_flow, problems_challenges, architecture_solution,
-			metrics, tech_stack, github_url, docs_url, is_published, sort_order
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+			metrics, tech_stack, github_url, docs_url, demo_url, is_published, sort_order
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
 	res, err := r.db.ExecContext(ctx, query,
 		cs.Slug, cs.Title, cs.DomainCategory, cs.BadgeLabel,
 		string(flowJSON), string(probJSON), string(solJSON),
 		string(metricsJSON), string(stackJSON),
-		cs.GithubURL, cs.DocsURL, isPubInt, cs.SortOrder,
+		cs.GithubURL, cs.DocsURL, cs.DemoURL, isPubInt, cs.SortOrder,
 	)
 	if err != nil {
 		return fmt.Errorf("create case study: %w", err)
@@ -209,7 +209,7 @@ func (r *caseStudyRepo) Update(ctx context.Context, cs *domain.CaseStudy) error 
 		cs.Slug, cs.Title, cs.DomainCategory, cs.BadgeLabel,
 		string(flowJSON), string(probJSON), string(solJSON),
 		string(metricsJSON), string(stackJSON),
-		cs.GithubURL, cs.DocsURL, isPubInt, cs.SortOrder, cs.ID,
+		cs.GithubURL, cs.DocsURL, cs.DemoURL, isPubInt, cs.SortOrder, cs.ID,
 	)
 	if err != nil {
 		return fmt.Errorf("update case study: %w", err)

@@ -28,6 +28,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
   );
   const [githubUrl, setGithubUrl] = useState<string>(initialData?.github_url || '');
   const [docsUrl, setDocsUrl] = useState<string>(initialData?.docs_url || '');
+  const [demoUrl, setDemoUrl] = useState<string>(initialData?.demo_url || '');
   const [isPublished, setIsPublished] = useState<boolean>(
     initialData?.is_published !== undefined ? initialData.is_published : true
   );
@@ -86,6 +87,7 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
       badge_label: badgeLabel,
       github_url: githubUrl,
       docs_url: docsUrl,
+      demo_url: demoUrl,
       is_published: isPublished,
       problems_challenges: problemsText
         .split('\n')
@@ -224,13 +226,14 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-semibold uppercase text-brand-700 mb-1">
                     GitHub URL
                   </label>
                   <input
                     type="text"
+                    placeholder="e.g. https://github.com/..."
                     value={githubUrl}
                     onChange={(e) => setGithubUrl(e.target.value)}
                     className="w-full bg-brand-50 border border-brand-300 p-2.5 text-brand-900 focus:outline-none focus:border-brand-900"
@@ -238,11 +241,23 @@ export const CreateCaseStudyModal: React.FC<CreateCaseStudyModalProps> = ({
                 </div>
                 <div>
                   <label className="block font-semibold uppercase text-brand-700 mb-1">
-                    Live Web App / Docs URL
+                    Live Web App URL
                   </label>
                   <input
                     type="text"
                     placeholder="e.g. https://padelhive.dwin-studio.my.id"
+                    value={demoUrl}
+                    onChange={(e) => setDemoUrl(e.target.value)}
+                    className="w-full bg-brand-50 border border-brand-300 p-2.5 text-brand-900 focus:outline-none focus:border-brand-900"
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold uppercase text-brand-700 mb-1">
+                    Docs Blueprint URL
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. https://github.com/...#tech-stack"
                     value={docsUrl}
                     onChange={(e) => setDocsUrl(e.target.value)}
                     className="w-full bg-brand-50 border border-brand-300 p-2.5 text-brand-900 focus:outline-none focus:border-brand-900"

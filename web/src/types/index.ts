@@ -37,6 +37,7 @@ export interface CaseStudy {
   tech_stack: string[];
   github_url: string;
   docs_url: string;
+  demo_url?: string;
   is_published: boolean;
   sort_order: number;
   created_at: string;

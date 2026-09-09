@@ -34,5 +34,8 @@ func NewDB(dbPath string) (*sql.DB, error) {
 		return nil, fmt.Errorf("exec schema: %w", err)
 	}
 
+	// Safe migration for demo_url column
+	_, _ = db.Exec("ALTER TABLE case_studies ADD COLUMN demo_url TEXT;")
+
 	return db, nil
 }

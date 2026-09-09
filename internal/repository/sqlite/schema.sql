@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS case_studies (
     tech_stack TEXT NOT NULL,
     github_url TEXT,
     docs_url TEXT,
+    demo_url TEXT,
     is_published INTEGER DEFAULT 1,
     sort_order INTEGER DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

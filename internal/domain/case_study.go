@@ -24,6 +24,7 @@ type CaseStudy struct {
 	TechStack            []string       `json:"tech_stack"`
 	GithubURL            string         `json:"github_url"`
 	DocsURL              string         `json:"docs_url"`
+	DemoURL              string         `json:"demo_url"`
 	IsPublished          bool           `json:"is_published"`
 	SortOrder            int            `json:"sort_order"`
 	CreatedAt            time.Time      `json:"created_at"`

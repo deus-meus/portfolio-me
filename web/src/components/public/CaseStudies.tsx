@@ -210,7 +210,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
 
               {/* Footer Links */}
               {(() => {
-                const liveUrl = (cs as any).demo_url || (cs.slug === 'padelhive' ? 'https://padelhive.dwin-studio.my.id' : undefined);
+                const liveUrl = cs.demo_url || (cs.slug === 'padelhive' ? 'https://padelhive.dwin-studio.my.id' : undefined);
                 return (
                   <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-3 border-t border-brand-100 text-xs font-mono">
                     {liveUrl && (
