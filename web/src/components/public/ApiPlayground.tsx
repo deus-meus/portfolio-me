@@ -350,10 +350,10 @@ export const ApiPlayground: React.FC = () => {
                     {t.payloadLabel}
                   </label>
                   <textarea
-                    rows={2}
+                    rows={4}
                     value={payload}
                     onChange={(e) => setPayload(e.target.value)}
-                    className="w-full bg-brand-950 text-emerald-400 font-mono text-xs p-2 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    className="w-full bg-brand-950 text-emerald-400 font-mono text-xs p-2.5 focus:outline-none focus:ring-1 focus:ring-emerald-500 leading-relaxed"
                   />
                 </div>
 
@@ -386,7 +386,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Webhook Dispatch Terminal Log */}
-              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-52 overflow-y-auto font-mono text-xs">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-32 overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE WEBHOOK DISPATCH LOG (HMAC ENGINE)</span>
                   <span>{webhookLogs.length} events</span>
@@ -398,7 +398,7 @@ export const ApiPlayground: React.FC = () => {
                   </div>
                 )}
                 {webhookLogs.length === 0 ? (
-                  <div className="text-brand-500 py-6 text-center text-[11px] italic">
+                  <div className="text-brand-500 py-3 text-center text-[11px] italic">
                     Click "{t.dispatchBtn}" to simulate HMAC verification live.
                   </div>
                 ) : (
