@@ -186,8 +186,8 @@ export const ApiPlayground: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Column: Live System Telemetry Card */}
-        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full space-y-4">
-          <div className="space-y-4 flex-1 flex flex-col">
+        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full min-h-[490px] space-y-4">
+          <div className="space-y-3.5 flex-1 flex flex-col">
             <div className="flex items-center justify-between pb-3 border-b border-brand-100">
               <div className="flex items-center gap-2">
                 <Activity className="w-4 h-4 text-emerald-600" />
@@ -264,7 +264,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-2.5 bg-emerald-50/70 border border-emerald-200/80 flex items-center justify-between font-mono text-[10px] text-emerald-900 shrink-0">
+            <div className="p-2 bg-emerald-50/70 border border-emerald-200/80 flex items-center justify-between font-mono text-[10px] text-emerald-900 shrink-0">
               <span className="flex items-center gap-1.5 font-bold">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
                 RUNTIME SLA: 99.95% ONLINE
@@ -273,16 +273,16 @@ export const ApiPlayground: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-3 border-t border-brand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] sm:text-xs font-mono text-brand-500 shrink-0">
+          <div className="pt-2.5 border-t border-brand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] sm:text-xs font-mono text-brand-500 shrink-0">
             <span>DATABASE: SQLite (WAL Mode)</span>
             <span className="text-emerald-700 font-semibold">CGO-Free Pure Go</span>
           </div>
         </div>
 
         {/* Right Column: Interactive Simulators (Webhook HMAC vs Rate Limiter) */}
-        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full space-y-4">
+        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full min-h-[490px] space-y-4">
           {/* Tab Switcher Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-brand-100 gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-brand-100 gap-2 shrink-0">
             <div className="grid grid-cols-2 gap-1.5 font-mono text-xs font-bold w-full sm:w-auto">
               <button
                 onClick={() => setActiveTab('webhook')}
@@ -313,17 +313,17 @@ export const ApiPlayground: React.FC = () => {
           </div>
 
           {activeTab === 'webhook' ? (
-            <div className="flex-1 flex flex-col justify-between space-y-4">
-              <div className="space-y-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="flex-1 flex flex-col justify-between space-y-3">
+              <div className="space-y-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <div>
-                    <label className="block font-mono text-[11px] font-semibold text-brand-700 uppercase mb-1">
+                    <label className="block font-mono text-[10px] sm:text-[11px] font-semibold text-brand-700 uppercase mb-1">
                       {t.providerLabel}
                     </label>
                     <select
                       value={provider}
                       onChange={(e) => setProvider(e.target.value)}
-                      className="w-full bg-brand-50 border border-brand-300 px-3 py-1.5 font-mono text-xs text-brand-900 focus:outline-none focus:border-brand-900"
+                      className="w-full bg-brand-50 border border-brand-300 px-2.5 py-1 font-mono text-xs text-brand-900 focus:outline-none focus:border-brand-900"
                     >
                       <option value="Stripe">Stripe (payment_intent.succeeded)</option>
                       <option value="GitHub">GitHub (push.event)</option>
@@ -333,32 +333,32 @@ export const ApiPlayground: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block font-mono text-[11px] font-semibold text-brand-700 uppercase mb-1">
+                    <label className="block font-mono text-[10px] sm:text-[11px] font-semibold text-brand-700 uppercase mb-1">
                       {t.eventTypeLabel}
                     </label>
                     <input
                       type="text"
                       value={eventType}
                       onChange={(e) => setEventType(e.target.value)}
-                      className="w-full bg-brand-50 border border-brand-300 px-3 py-1.5 font-mono text-xs text-brand-900 focus:outline-none focus:border-brand-900"
+                      className="w-full bg-brand-50 border border-brand-300 px-2.5 py-1 font-mono text-xs text-brand-900 focus:outline-none focus:border-brand-900"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block font-mono text-[11px] font-semibold text-brand-700 uppercase mb-1">
+                  <label className="block font-mono text-[10px] sm:text-[11px] font-semibold text-brand-700 uppercase mb-1">
                     {t.payloadLabel}
                   </label>
                   <textarea
-                    rows={3}
+                    rows={2}
                     value={payload}
                     onChange={(e) => setPayload(e.target.value)}
-                    className="w-full bg-brand-950 text-emerald-400 font-mono text-xs p-2.5 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    className="w-full bg-brand-950 text-emerald-400 font-mono text-xs p-2 focus:outline-none focus:ring-1 focus:ring-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-mono text-[11px] font-semibold text-brand-700 uppercase mb-1">
+                  <label className="block font-mono text-[10px] sm:text-[11px] font-semibold text-brand-700 uppercase mb-1">
                     {t.sigLabel}
                   </label>
                   <input
@@ -366,15 +366,15 @@ export const ApiPlayground: React.FC = () => {
                     placeholder={t.sigPlaceholder}
                     value={customSig}
                     onChange={(e) => setCustomSig(e.target.value)}
-                    className="w-full bg-brand-50 border border-brand-300 px-3 py-1.5 font-mono text-xs text-brand-900 focus:outline-none focus:border-brand-900 placeholder:text-brand-400"
+                    className="w-full bg-brand-50 border border-brand-300 px-2.5 py-1 font-mono text-xs text-brand-900 focus:outline-none focus:border-brand-900 placeholder:text-brand-400"
                   />
                 </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-2.5 pt-1">
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-0.5">
                   <button
                     onClick={handleSimulate}
                     disabled={simulating}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 disabled:bg-brand-400 transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 disabled:bg-brand-400 transition-colors"
                   >
                     <Play className="w-3.5 h-3.5 fill-current" />
                     {simulating ? t.dispatchingBtn : t.dispatchBtn}
@@ -386,13 +386,13 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Webhook Dispatch Terminal Log */}
-              <div className="bg-brand-950 text-brand-200 p-3 border border-brand-800 space-y-1.5 flex-1 min-h-[160px] max-h-[220px] overflow-y-auto font-mono text-xs">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 flex-1 min-h-[140px] max-h-[180px] overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE WEBHOOK DISPATCH LOG (HMAC ENGINE)</span>
                   <span>{webhookLogs.length} events</span>
                 </div>
                 {errorMsg && (
-                  <div className="p-2 bg-red-950/80 border border-red-800 text-red-300 text-[11px] flex items-center gap-1.5">
+                  <div className="p-1.5 bg-red-950/80 border border-red-800 text-red-300 text-[11px] flex items-center gap-1.5">
                     <ShieldAlert className="w-3.5 h-3.5 text-red-400 shrink-0" />
                     <span>{errorMsg}</span>
                   </div>
@@ -405,7 +405,7 @@ export const ApiPlayground: React.FC = () => {
                   webhookLogs.map((log) => (
                     <div
                       key={log.id}
-                      className={`text-[11px] py-1.5 border-b border-brand-900 last:border-b-0 space-y-1 ${
+                      className={`text-[11px] py-1 border-b border-brand-900 last:border-b-0 space-y-1 ${
                         log.isValid ? 'text-emerald-400' : 'text-red-400'
                       }`}
                     >
@@ -435,10 +435,10 @@ export const ApiPlayground: React.FC = () => {
             </div>
           ) : (
             /* Rate Limiter Simulator Tab */
-            <div className="flex-1 flex flex-col justify-between space-y-4 font-mono text-xs">
-              <div className="space-y-4">
+            <div className="flex-1 flex flex-col justify-between space-y-3">
+              <div className="space-y-3">
                 {/* Token Bucket Meter Visualizer */}
-                <div className="p-3.5 bg-brand-900 text-white border border-brand-800 space-y-3">
+                <div className="p-3 bg-brand-900 text-white border border-brand-800 space-y-2.5">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-xs uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
                       <Sliders className="w-4 h-4 text-emerald-400 animate-pulse shrink-0" />
@@ -457,11 +457,11 @@ export const ApiPlayground: React.FC = () => {
                   </div>
 
                   {/* Token Meter Bars */}
-                  <div className="grid grid-cols-5 gap-1.5 pt-1">
+                  <div className="grid grid-cols-5 gap-1.5 pt-0.5">
                     {Array.from({ length: MAX_TOKENS }).map((_, idx) => (
                       <div
                         key={idx}
-                        className={`h-3 transition-all duration-300 ${
+                        className={`h-2.5 transition-all duration-300 ${
                           idx < tokens
                             ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]'
                             : 'bg-brand-800'
@@ -472,11 +472,11 @@ export const ApiPlayground: React.FC = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap items-center justify-between gap-2.5 pt-1 font-mono text-xs">
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-0.5 font-mono text-xs">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                     <button
                       onClick={handleSendRateLimitReq}
-                      className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 transition-colors shadow-xs"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-brand-900 text-white font-mono text-xs font-semibold hover:bg-brand-800 transition-colors shadow-xs"
                     >
                       <Play className="w-3.5 h-3.5 fill-current shrink-0" />
                       <span>{t.sendOneReq}</span>
@@ -484,7 +484,7 @@ export const ApiPlayground: React.FC = () => {
 
                     <button
                       onClick={handleSpamBurst}
-                      className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-brand-800 text-white font-mono text-xs font-semibold hover:bg-brand-900 transition-colors shadow-xs"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-brand-800 text-white font-mono text-xs font-semibold hover:bg-brand-900 transition-colors shadow-xs"
                     >
                       <Activity className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
                       <span>{t.spamBurstReq}</span>
@@ -495,7 +495,7 @@ export const ApiPlayground: React.FC = () => {
                         setTokens(MAX_TOKENS);
                         setRlLogs([]);
                       }}
-                      className="inline-flex items-center justify-center px-3.5 py-2 bg-white text-brand-800 border border-brand-300 font-mono text-xs font-semibold hover:bg-brand-50 transition-colors"
+                      className="inline-flex items-center justify-center px-3 py-1.5 bg-white text-brand-800 border border-brand-300 font-mono text-xs font-semibold hover:bg-brand-50 transition-colors"
                     >
                       {t.resetBucket}
                     </button>
@@ -508,7 +508,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Request Logs Terminal */}
-              <div className="bg-brand-950 text-brand-200 p-3 border border-brand-800 space-y-1.5 flex-1 min-h-[200px] max-h-[260px] overflow-y-auto">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 flex-1 min-h-[220px] max-h-[260px] overflow-y-auto">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE TRAFFIC LOG (TOKEN BUCKET ENGINE)</span>
                   <span>{rlLogs.length} events</span>
