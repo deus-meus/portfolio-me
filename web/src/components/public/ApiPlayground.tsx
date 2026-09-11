@@ -186,7 +186,7 @@ export const ApiPlayground: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Column: Live System Telemetry Card */}
-        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-[500px] space-y-4">
+        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-[540px] space-y-4">
           <div className="space-y-3.5 flex-1 flex flex-col justify-between">
             <div className="space-y-3.5">
               <div className="flex items-center justify-between pb-3 border-b border-brand-100">
@@ -282,7 +282,7 @@ export const ApiPlayground: React.FC = () => {
         </div>
 
         {/* Right Column: Interactive Simulators (Webhook HMAC vs Rate Limiter) */}
-        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-[500px] space-y-4">
+        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-[540px] space-y-4">
           {/* Tab Switcher Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-brand-100 gap-2 shrink-0">
             <div className="grid grid-cols-2 gap-1.5 font-mono text-xs font-bold w-full sm:w-auto">
@@ -506,6 +506,18 @@ export const ApiPlayground: React.FC = () => {
                   <span className="font-mono text-[10px] sm:text-[11px] text-brand-500">
                     Token Bucket Engine (1500ms Refill)
                   </span>
+                </div>
+
+                {/* Rate Limiter Spec & Metadata Summary Tile */}
+                <div className="grid grid-cols-2 gap-2 p-2 bg-brand-50 border border-brand-200 font-mono text-[10px]">
+                  <div>
+                    <span className="text-brand-500 uppercase block font-medium">Algoritma Engine</span>
+                    <span className="font-bold text-brand-900 block mt-0.5">Token Bucket (Lua Redis)</span>
+                  </div>
+                  <div>
+                    <span className="text-brand-500 uppercase block font-medium">Header HTTP Response</span>
+                    <span className="font-bold text-emerald-700 block mt-0.5">X-RateLimit-Remaining</span>
+                  </div>
                 </div>
               </div>
 
