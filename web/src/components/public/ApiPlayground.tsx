@@ -386,7 +386,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Webhook Dispatch Terminal Log */}
-              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 flex-1 min-h-[140px] max-h-[180px] overflow-y-auto font-mono text-xs">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-52 overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE WEBHOOK DISPATCH LOG (HMAC ENGINE)</span>
                   <span>{webhookLogs.length} events</span>
@@ -508,7 +508,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Request Logs Terminal */}
-              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 flex-1 min-h-[220px] max-h-[260px] overflow-y-auto">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-52 overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE TRAFFIC LOG (TOKEN BUCKET ENGINE)</span>
                   <span>{rlLogs.length} events</span>
