@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Play, RefreshCw, CheckCircle2, ShieldAlert, Cpu, Activity, Clock, Database, Copy, ShieldCheck, Sliders } from 'lucide-react';
 import { api } from '../../services/api';
-import type { HealthMetrics, SimulationResult } from '../../types';
+import type { HealthMetrics } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { useToast } from '../../context/ToastContext';
 import { copyToClipboard } from '../../utils/clipboard';
@@ -12,6 +12,17 @@ interface RateLimitLog {
   status: 200 | 429;
   msg: string;
   tokensLeft: number;
+}
+
+interface WebhookLogItem {
+  id: number;
+  time: string;
+  provider: string;
+  eventType: string;
+  isValid: boolean;
+  responseTimeMs: number;
+  providedSig: string;
+  expectedSig: string;
 }
 
 export const ApiPlayground: React.FC = () => {
@@ -32,7 +43,7 @@ export const ApiPlayground: React.FC = () => {
     JSON.stringify({ id: 'pi_3MtwBwLkdIwHu7ix', amount: 250000, currency: 'idr', status: 'succeeded' }, null, 2)
   );
   const [customSig, setCustomSig] = useState<string>('');
-  const [simResult, setSimResult] = useState<SimulationResult | null>(null);
+  const [webhookLogs, setWebhookLogs] = useState<WebhookLogItem[]>([]);
   const [simulating, setSimulating] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -136,7 +147,20 @@ export const ApiPlayground: React.FC = () => {
     setErrorMsg(null);
     try {
       const res = await api.simulateWebhook(provider, eventType, payload, customSig || undefined);
-      setSimResult(res);
+      const now = new Date().toLocaleTimeString('en-US', { hour12: false });
+      setWebhookLogs((prev) => [
+        {
+          id: Date.now(),
+          time: now,
+          provider: res.provider || provider,
+          eventType: res.event_type || eventType,
+          isValid: res.is_valid,
+          responseTimeMs: res.response_time_ms,
+          providedSig: res.provided_signature,
+          expectedSig: res.expected_signature,
+        },
+        ...prev.slice(0, 9),
+      ]);
     } catch (err: any) {
       setErrorMsg(err.message || 'Simulation failed');
     } finally {
@@ -355,46 +379,53 @@ export const ApiPlayground: React.FC = () => {
                 </span>
               </div>
 
-              {/* Simulation Output Box */}
-              {errorMsg && (
-                <div className="p-3 bg-red-50 border border-red-200 text-red-700 font-mono text-xs flex items-center gap-2">
-                  <ShieldAlert className="w-4 h-4 text-red-600 shrink-0" />
-                  <span>{errorMsg}</span>
+              {/* Webhook Dispatch Terminal Log */}
+              <div className="bg-brand-950 text-brand-200 p-3 border border-brand-800 space-y-1.5 h-48 sm:h-52 overflow-y-auto font-mono text-xs">
+                <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
+                  <span>LIVE WEBHOOK DISPATCH LOG (HMAC ENGINE)</span>
+                  <span>{webhookLogs.length} events</span>
                 </div>
-              )}
-
-              {simResult && (
-                <div className="mt-3 p-3 bg-brand-50 border border-brand-200 font-mono text-xs space-y-1.5">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-1 border-b border-brand-200">
-                    <span className="flex items-center gap-1.5 font-bold">
-                      {simResult.is_valid ? (
-                        <>
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                          <span className="text-emerald-800">{t.sigValid}</span>
-                        </>
-                      ) : (
-                        <>
-                          <ShieldAlert className="w-4 h-4 text-red-600 shrink-0" />
-                          <span className="text-red-700">{t.sigInvalid}</span>
-                        </>
-                      )}
-                    </span>
-                    <span className="text-brand-600 tabular-nums text-[11px]">
-                      {t.execLatency}{simResult.response_time_ms} ms
-                    </span>
+                {errorMsg && (
+                  <div className="p-2 bg-red-950/80 border border-red-800 text-red-300 text-[11px] flex items-center gap-1.5">
+                    <ShieldAlert className="w-3.5 h-3.5 text-red-400 shrink-0" />
+                    <span>{errorMsg}</span>
                   </div>
-                  <div className="text-[11px] text-brand-700 pt-1 space-y-1">
-                    <div className="break-all">
-                      <span className="text-brand-500 font-semibold">{t.providedSig}</span>
-                      {simResult.provided_signature}
-                    </div>
-                    <div className="break-all">
-                      <span className="text-brand-500 font-semibold">{t.expectedSig}</span>
-                      {simResult.expected_signature}
-                    </div>
+                )}
+                {webhookLogs.length === 0 ? (
+                  <div className="text-brand-500 py-8 text-center text-[11px] italic">
+                    Click "{t.dispatchBtn}" to simulate HMAC verification live.
                   </div>
-                </div>
-              )}
+                ) : (
+                  webhookLogs.map((log) => (
+                    <div
+                      key={log.id}
+                      className={`text-[11px] py-1.5 border-b border-brand-900 last:border-b-0 space-y-1 ${
+                        log.isValid ? 'text-emerald-400' : 'text-red-400'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1.5 truncate pr-2 font-bold">
+                          <span className="text-brand-500 font-normal text-[10px]">[{log.time}]</span>
+                          <span>{log.provider} • {log.eventType}</span>
+                        </div>
+                        <span
+                          className={`px-1.5 py-0.2 text-[9px] font-bold shrink-0 ${
+                            log.isValid
+                              ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                              : 'bg-red-950 text-red-400 border border-red-800'
+                          }`}
+                        >
+                          {log.isValid ? `200 OK (${log.responseTimeMs}ms)` : `400 INVALID (${log.responseTimeMs}ms)`}
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-brand-400 space-y-0.5 pl-2 border-l border-brand-800">
+                        <div className="truncate">Provided: {log.providedSig}</div>
+                        <div className="truncate text-brand-300">Expected: {log.expectedSig}</div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
             </>
           ) : (
             /* Rate Limiter Simulator Tab */
