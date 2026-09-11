@@ -186,64 +186,66 @@ export const ApiPlayground: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Column: Live System Telemetry Card */}
-        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full min-h-[490px] space-y-4">
-          <div className="space-y-3.5 flex-1 flex flex-col">
-            <div className="flex items-center justify-between pb-3 border-b border-brand-100">
-              <div className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-emerald-600" />
-                <h3 className="font-mono text-xs font-bold text-brand-900 uppercase tracking-wider">
-                  {t.telemetryTitle}
-                </h3>
+        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full min-h-[510px] space-y-4">
+          <div className="space-y-3.5 flex-1 flex flex-col justify-between">
+            <div className="space-y-3.5">
+              <div className="flex items-center justify-between pb-3 border-b border-brand-100">
+                <div className="flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-emerald-600" />
+                  <h3 className="font-mono text-xs font-bold text-brand-900 uppercase tracking-wider">
+                    {t.telemetryTitle}
+                  </h3>
+                </div>
+                <button
+                  onClick={fetchHealth}
+                  disabled={loadingHealth}
+                  className="p-1 text-brand-400 hover:text-brand-900 transition-colors"
+                  title="Refresh Health"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${loadingHealth ? 'animate-spin text-accent' : ''}`} />
+                </button>
               </div>
-              <button
-                onClick={fetchHealth}
-                disabled={loadingHealth}
-                className="p-1 text-brand-400 hover:text-brand-900 transition-colors"
-                title="Refresh Health"
-              >
-                <RefreshCw className={`w-3.5 h-3.5 ${loadingHealth ? 'animate-spin text-accent' : ''}`} />
-              </button>
+
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 font-mono text-xs">
+                <div className="p-3 bg-brand-50 border border-brand-200">
+                  <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
+                    <Clock className="w-3 h-3" /> {t.serverUptime}
+                  </span>
+                  <span className="text-base font-bold text-brand-900 block mt-1 tabular-nums">
+                    {health?.uptime || (lang === 'id' ? 'Memuat...' : 'Loading...')}
+                  </span>
+                </div>
+
+                <div className="p-3 bg-brand-50 border border-brand-200">
+                  <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
+                    <Cpu className="w-3 h-3" /> {t.goroutines}
+                  </span>
+                  <span className="text-base font-bold text-brand-900 block mt-1 tabular-nums">
+                    {health ? `${health.goroutines} ${lang === 'id' ? 'aktif' : 'active'}` : "--"}
+                  </span>
+                </div>
+
+                <div className="p-3 bg-brand-50 border border-brand-200">
+                  <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
+                    <Database className="w-3 h-3" /> {t.heapAlloc}
+                  </span>
+                  <span className="text-base font-bold text-brand-900 block mt-1 tabular-nums">
+                    {health ? `${health.memory_alloc_mb.toFixed(2)} MB` : "--"}
+                  </span>
+                </div>
+
+                <div className="p-3 bg-brand-50 border border-brand-200">
+                  <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-600" /> {t.gcCycles}
+                  </span>
+                  <span className="text-base font-bold text-emerald-800 block mt-1 tabular-nums">
+                    {health ? `${health.num_gc} ${lang === 'id' ? 'selesai' : 'completed'}` : "--"}
+                  </span>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 font-mono text-xs">
-              <div className="p-3 bg-brand-50 border border-brand-200">
-                <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
-                  <Clock className="w-3 h-3" /> {t.serverUptime}
-                </span>
-                <span className="text-base font-bold text-brand-900 block mt-1 tabular-nums">
-                  {health?.uptime || (lang === 'id' ? 'Memuat...' : 'Loading...')}
-                </span>
-              </div>
-
-              <div className="p-3 bg-brand-50 border border-brand-200">
-                <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
-                  <Cpu className="w-3 h-3" /> {t.goroutines}
-                </span>
-                <span className="text-base font-bold text-brand-900 block mt-1 tabular-nums">
-                  {health ? `${health.goroutines} ${lang === 'id' ? 'aktif' : 'active'}` : "--"}
-                </span>
-              </div>
-
-              <div className="p-3 bg-brand-50 border border-brand-200">
-                <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
-                  <Database className="w-3 h-3" /> {t.heapAlloc}
-                </span>
-                <span className="text-base font-bold text-brand-900 block mt-1 tabular-nums">
-                  {health ? `${health.memory_alloc_mb.toFixed(2)} MB` : "--"}
-                </span>
-              </div>
-
-              <div className="p-3 bg-brand-50 border border-brand-200">
-                <span className="text-[10px] text-brand-500 uppercase flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-600" /> {t.gcCycles}
-                </span>
-                <span className="text-base font-bold text-emerald-800 block mt-1 tabular-nums">
-                  {health ? `${health.num_gc} ${lang === 'id' ? 'selesai' : 'completed'}` : "--"}
-                </span>
-              </div>
-            </div>
-
-            <div className="p-3 bg-brand-900 text-brand-200 font-mono text-[10px] sm:text-[11px] space-y-1.5 border border-brand-800 flex-1 flex flex-col justify-between overflow-y-auto">
+            <div className="p-3 bg-brand-900 text-brand-200 font-mono text-[10px] sm:text-[11px] space-y-1.5 border border-brand-800 flex-1 min-h-[180px] flex flex-col justify-between overflow-y-auto my-1">
               <div>
                 <div className="flex items-start justify-between gap-2 text-emerald-400 font-semibold">
                   <span className="break-all">$ curl http://101.32.126.104:8080/api/v1/health</span>
@@ -280,7 +282,7 @@ export const ApiPlayground: React.FC = () => {
         </div>
 
         {/* Right Column: Interactive Simulators (Webhook HMAC vs Rate Limiter) */}
-        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full min-h-[490px] space-y-4">
+        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-full min-h-[510px] space-y-4">
           {/* Tab Switcher Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-brand-100 gap-2 shrink-0">
             <div className="grid grid-cols-2 gap-1.5 font-mono text-xs font-bold w-full sm:w-auto">
@@ -386,7 +388,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Webhook Dispatch Terminal Log */}
-              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-32 overflow-y-auto font-mono text-xs">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 flex-1 min-h-[140px] overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE WEBHOOK DISPATCH LOG (HMAC ENGINE)</span>
                   <span>{webhookLogs.length} events</span>
@@ -508,7 +510,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Request Logs Terminal */}
-              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-36 overflow-y-auto font-mono text-xs">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 flex-1 min-h-[220px] overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE TRAFFIC LOG (TOKEN BUCKET ENGINE)</span>
                   <span>{rlLogs.length} events</span>
