@@ -160,9 +160,9 @@ export const ApiPlayground: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Live System Telemetry Card */}
-        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between space-y-5">
+        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 space-y-5">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-brand-100">
               <div className="flex items-center gap-2">
@@ -463,13 +463,13 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Request Logs Terminal */}
-              <div className="bg-brand-950 text-brand-200 p-3 border border-brand-800 space-y-1.5 max-h-56 overflow-y-auto">
-                <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between">
+              <div className="bg-brand-950 text-brand-200 p-3 border border-brand-800 space-y-1.5 h-48 sm:h-52 overflow-y-auto">
+                <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE TRAFFIC LOG (TOKEN BUCKET ENGINE)</span>
                   <span>{rlLogs.length} events</span>
                 </div>
                 {rlLogs.length === 0 ? (
-                  <div className="text-brand-500 py-3 text-center text-[11px] italic">
+                  <div className="text-brand-500 py-8 text-center text-[11px] italic">
                     Click "Send 1 Request" or "Spam 10 Requests" to test rate limiting live.
                   </div>
                 ) : (

@@ -326,7 +326,7 @@ export const translations: Record<Language, Translations> = {
     navCaseStudies: "Studi Kasus",
     navExperience: "Pengalaman",
     navEducation: "Pendidikan",
-    navApiPlayground: "Uji API",
+    navApiPlayground: "Simulasi API",
     downloadCv: "CV (PDF)",
     contactBtn: "Kontak",
     directContact: "Kontak Langsung",
