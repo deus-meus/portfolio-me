@@ -440,8 +440,8 @@ export const ApiPlayground: React.FC = () => {
                 {/* Token Bucket Meter Visualizer */}
                 <div className="p-3 bg-brand-900 text-white border border-brand-800 space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-xs uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                      <Sliders className="w-4 h-4 text-emerald-400 animate-pulse shrink-0" />
+                    <span className="font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                      <Sliders className="w-3.5 h-3.5 text-emerald-400 animate-pulse shrink-0" />
                       {t.rateLimiterTitle}
                     </span>
                     <span className="text-[10px] text-brand-300">
@@ -508,7 +508,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Request Logs Terminal */}
-              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-52 overflow-y-auto font-mono text-xs">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-36 overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE TRAFFIC LOG (TOKEN BUCKET ENGINE)</span>
                   <span>{rlLogs.length} events</span>
