@@ -261,7 +261,7 @@ export const ApiPlayground: React.FC = () => {
                   HTTP/1.1 200 OK | Content-Type: application/json
                 </div>
                 <div className="text-emerald-400 font-mono text-[10px] sm:text-[11px] leading-relaxed pt-0.5 whitespace-pre">
-                  {`{\n  "status": "${health?.status || 'ok'}",\n  "goroutines": ${health?.goroutines || 0},\n  "memory_alloc_mb": ${health?.memory_alloc_mb?.toFixed(2) || '0.00'}\n}`}
+                  {`{\n  "status": "${health?.status || 'ok'}",\n  "uptime": "${health?.uptime || '0m'}",\n  "goroutines": ${health?.goroutines || 0},\n  "memory_alloc_mb": ${health?.memory_alloc_mb?.toFixed(2) || '0.00'},\n  "memory_sys_mb": ${health?.memory_sys_mb?.toFixed(2) || '4.20'},\n  "num_gc": ${health?.num_gc || 0},\n  "database": "sqlite_wal",\n  "timestamp": "${health?.timestamp || new Date().toISOString()}"\n}`}
                 </div>
               </div>
             </div>
