@@ -61,7 +61,7 @@ export const ApiPlayground: React.FC = () => {
   }, []);
 
   const handleCopyCurl = () => {
-    const curlCmd = "curl http://101.32.126.104:8080/api/v1/health";
+    const curlCmd = "curl https://dwin-studio.my.id/api/v1/health";
     copyToClipboard(curlCmd);
     showToast(t.curlCopied);
   };
@@ -248,7 +248,7 @@ export const ApiPlayground: React.FC = () => {
             <div className="p-3 bg-brand-900 text-brand-200 font-mono text-[10px] sm:text-[11px] space-y-1.5 border border-brand-800 flex-1 min-h-[180px] flex flex-col justify-between overflow-y-auto my-1">
               <div>
                 <div className="flex items-start justify-between gap-2 text-emerald-400 font-semibold">
-                  <span className="break-all">$ curl http://101.32.126.104:8080/api/v1/health</span>
+                  <span className="break-all">$ curl https://dwin-studio.my.id/api/v1/health</span>
                   <button
                     onClick={handleCopyCurl}
                     className="p-1 hover:text-white transition-colors shrink-0 bg-brand-800/80"
