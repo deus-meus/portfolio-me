@@ -442,7 +442,7 @@ export const ApiPlayground: React.FC = () => {
                 {/* Token Bucket Meter Visualizer */}
                 <div className="p-3 bg-brand-900 text-white border border-brand-800 space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                    <span className="font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
                       <Sliders className="w-3.5 h-3.5 text-emerald-400 animate-pulse shrink-0" />
                       {t.rateLimiterTitle}
                     </span>
@@ -517,6 +517,14 @@ export const ApiPlayground: React.FC = () => {
                   <div>
                     <span className="text-brand-500 uppercase block font-medium">Header HTTP Response</span>
                     <span className="font-bold text-emerald-700 block mt-0.5">X-RateLimit-Remaining</span>
+                  </div>
+                  <div>
+                    <span className="text-brand-500 uppercase block font-medium">Latensi Overhead</span>
+                    <span className="font-bold text-brand-900 block mt-0.5">Sub-ms (&lt; 1ms Atomic)</span>
+                  </div>
+                  <div>
+                    <span className="text-brand-500 uppercase block font-medium">Status Proteksi</span>
+                    <span className="font-bold text-emerald-700 block mt-0.5">HTTP 429 Active Guard</span>
                   </div>
                 </div>
               </div>
