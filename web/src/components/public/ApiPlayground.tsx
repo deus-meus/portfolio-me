@@ -186,7 +186,7 @@ export const ApiPlayground: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Column: Live System Telemetry Card */}
-        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-[540px] space-y-4">
+        <div className="lg:col-span-5 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-auto lg:h-[540px] space-y-4">
           <div className="space-y-3.5 flex-1 flex flex-col justify-between">
             <div className="space-y-3.5">
               <div className="flex items-center justify-between pb-3 border-b border-brand-100">
@@ -282,7 +282,7 @@ export const ApiPlayground: React.FC = () => {
         </div>
 
         {/* Right Column: Interactive Simulators (Webhook HMAC vs Rate Limiter) */}
-        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-[540px] space-y-4">
+        <div className="lg:col-span-7 bg-white border border-brand-200 p-4 sm:p-6 flex flex-col justify-between h-auto lg:h-[540px] space-y-4">
           {/* Tab Switcher Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-brand-100 gap-2 shrink-0">
             <div className="grid grid-cols-2 gap-1.5 font-mono text-xs font-bold w-full sm:w-auto">
@@ -352,7 +352,7 @@ export const ApiPlayground: React.FC = () => {
                     {t.payloadLabel}
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     value={payload}
                     onChange={(e) => setPayload(e.target.value)}
                     className="w-full bg-brand-950 text-emerald-400 font-mono text-xs p-2.5 focus:outline-none focus:ring-1 focus:ring-emerald-500 leading-relaxed"
@@ -388,7 +388,7 @@ export const ApiPlayground: React.FC = () => {
               </div>
 
               {/* Webhook Dispatch Terminal Log */}
-              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 flex-1 min-h-[140px] overflow-y-auto font-mono text-xs">
+              <div className="bg-brand-950 text-brand-200 p-2.5 border border-brand-800 space-y-1.5 h-36 overflow-y-auto font-mono text-xs">
                 <div className="text-[10px] text-brand-400 font-bold uppercase pb-1 border-b border-brand-800 flex items-center justify-between sticky top-0 bg-brand-950 z-10">
                   <span>LIVE WEBHOOK DISPATCH LOG (HMAC ENGINE)</span>
                   <span>{webhookLogs.length} events</span>
