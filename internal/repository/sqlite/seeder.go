@@ -356,7 +356,7 @@ func SeedData(db *sql.DB) error {
 				StartDate:      "Aug 2025",
 				EndDate:        "Present",
 				IsActive:       true,
-				CoreFocus:      "Built the backend of Nonton+ V2 for the hospitality sector from scratch using NestJS, Node.js, and MongoDB. Implemented multi-tenant ISP management, real-time communication via Socket.IO, caching via Redis, object storage with MinIO, and observability using Grafana and Loki.",
+				CoreFocus:      "Built the backend of Nonton+ V2 for the hospitality sector from scratch using NestJS, Node.js, and MongoDB. Implemented multi-tenant hotel and hospitality management, real-time communication via Socket.IO, caching via Redis, object storage with MinIO, and observability using Grafana and Loki.",
 				Achievements: []domain.ExperienceAchievement{
 					{
 						Number:      "01.",
@@ -372,9 +372,9 @@ func SeedData(db *sql.DB) error {
 					},
 					{
 						Number:      "03.",
-						Title:       "Multi-Tenant ISP System",
+						Title:       "Multi-Tenant Hotel System",
 						Metric:      "Multi-Tenant Core",
-						Description: "Contributed to a team developing a multi-tenant management system for ISP services.",
+						Description: "Contributed to a team developing a multi-tenant management system for hotel properties.",
 					},
 					{
 						Number:      "04.",

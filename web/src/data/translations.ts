@@ -476,11 +476,11 @@ export const translations: Record<Language, Translations> = {
         ]
       },
       "nontonplus-v2-backend": {
-        title: "Backend Nonton+ V2 — Platform IPTV Hospitality & Manajemen ISP Multi-Tenant",
-        domain_category: "BACKEND IPTV & MANAJEMEN ISP",
+        title: "Backend Nonton+ V2 — Platform IPTV Hospitality & Manajemen Hotel Multi-Tenant",
+        domain_category: "BACKEND IPTV & HOSPITALITY",
         badge_label: "SISTEM PRODUKSI HOSPITALITY",
         problems_challenges: [
-          "Refactoring sistem legacy backend menjadi arsitektur berbasis NestJS & Fastify berskala produksi dengan stack 100% MongoDB & Mongoose untuk melayani IPTV rumah sakit, hotel, serta manajemen ISP multi-tenant.",
+          "Refactoring sistem legacy backend menjadi arsitektur berbasis NestJS & Fastify berskala produksi dengan stack 100% MongoDB & Mongoose untuk melayani IPTV rumah sakit, hotel, serta manajemen properti perhotelan multi-tenant.",
           "Menangani komunikasi real-time Socket.IO untuk pembaruan status channel IPTV, permintaan layanan kamar, dan sinkronisasi log tanpa delay.",
           "Mengintegrasikan MinIO object storage untuk manajemen aset media serta Grafana & Loki untuk observabilitas log terpusat."
         ],
@@ -529,7 +529,7 @@ export const translations: Record<Language, Translations> = {
     expOverrides: {
       "saia-fulltime": {
         role_title: "Backend Developer",
-        company_tagline: "Nonton+ V2 Hospitality IPTV & Platform ISP Multi-Tenant",
+        company_tagline: "Nonton+ V2 Hospitality IPTV & Manajemen Hotel Multi-Tenant",
         employment_type: "Full-time",
         location: "Surabaya, Jawa Timur",
         core_focus: "Mengembangkan backend Nonton+ V2 menggunakan NestJS, Fastify, MongoDB, Redis, Socket.IO, MinIO, serta pemantauan log terpusat Grafana & Loki.",
@@ -538,7 +538,7 @@ export const translations: Record<Language, Translations> = {
             number: "01.",
             title: "Pengembangan Backend Nonton+ V2",
             metric: "NestJS & MongoDB Stack",
-            description: "Membangun sistem backend berskala produksi untuk IPTV hospitality dan manajemen jaringan ISP multi-tenant."
+            description: "Membangun sistem backend berskala produksi untuk IPTV hospitality dan manajemen properti hotel multi-tenant."
           },
           {
             number: "02.",
