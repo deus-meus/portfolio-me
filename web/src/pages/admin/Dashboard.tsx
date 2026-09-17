@@ -220,7 +220,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
                 </span>
               </div>
               <p className="text-xs text-brand-600 leading-relaxed font-sans">
-                Production-grade STAR architectural case studies (HookBridge, Guardrail, NotiHub, NontonPlus V2, PadelHive).
+                Production-grade STAR architectural case studies (HookBridge, Guardrail, NotiHub, Nonton+ V2, PadelHive).
               </p>
               <div className="flex flex-wrap gap-1 pt-1">
                 <span className="text-[10px] px-1.5 py-0.5 bg-brand-50 border border-brand-200 text-brand-700">Go Chi</span>

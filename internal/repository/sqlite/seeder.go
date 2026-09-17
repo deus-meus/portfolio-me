@@ -336,7 +336,7 @@ func SeedData(db *sql.DB) error {
 	}
 
 	var hasV1 bool
-	_ = db.QueryRowContext(ctx, "SELECT EXISTS(SELECT 1 FROM experiences WHERE company_tagline LIKE '%NontonPlus V1%')").Scan(&hasV1)
+	_ = db.QueryRowContext(ctx, "SELECT EXISTS(SELECT 1 FROM experiences WHERE company_tagline LIKE '%Nonton+ V1%')").Scan(&hasV1)
 
 	if expCount < 4 || !hasV1 {
 		_, _ = db.ExecContext(ctx, "DELETE FROM experiences")
@@ -350,13 +350,13 @@ func SeedData(db *sql.DB) error {
 			{
 				RoleTitle:      "Programmer (Backend Developer)",
 				CompanyName:    "PT. Semua Aplikasi Indonesia",
-				CompanyTagline: "NontonPlus V2 — IPTV Hospitality & Multi-Tenant Management",
+				CompanyTagline: "Nonton+ V2 — IPTV Hospitality & Multi-Tenant Management",
 				EmploymentType: "Full-time • On-site",
 				Location:       "Denpasar, Bali",
 				StartDate:      "Aug 2025",
 				EndDate:        "Present",
 				IsActive:       true,
-				CoreFocus:      "Built the backend of NontonPlus V2 for the hospitality sector from scratch using NestJS, Node.js, and MongoDB. Implemented multi-tenant ISP management, real-time communication via Socket.IO, caching via Redis, object storage with MinIO, and observability using Grafana and Loki.",
+				CoreFocus:      "Built the backend of Nonton+ V2 for the hospitality sector from scratch using NestJS, Node.js, and MongoDB. Implemented multi-tenant ISP management, real-time communication via Socket.IO, caching via Redis, object storage with MinIO, and observability using Grafana and Loki.",
 				Achievements: []domain.ExperienceAchievement{
 					{
 						Number:      "01.",
@@ -389,13 +389,13 @@ func SeedData(db *sql.DB) error {
 			{
 				RoleTitle:      "Programmer Intern",
 				CompanyName:    "PT. Semua Aplikasi Indonesia",
-				CompanyTagline: "NontonPlus V1 — Hospital IPTV & Patient Care System",
+				CompanyTagline: "Nonton+ V1 — Hospital IPTV & Patient Care System",
 				EmploymentType: "Internship",
 				Location:       "Denpasar, Bali",
 				StartDate:      "Feb 2025",
 				EndDate:        "Jun 2025",
 				IsActive:       false,
-				CoreFocus:      "Developed the backend for patient satisfaction surveys and real-time nurse-call features on NontonPlus V1 (IPTV application for hospitals) using Node.js, Express, MongoDB, and Socket.IO.",
+				CoreFocus:      "Developed the backend for patient satisfaction surveys and real-time nurse-call features on Nonton+ V1 (IPTV application for hospitals) using Node.js, Express, MongoDB, and Socket.IO.",
 				Achievements: []domain.ExperienceAchievement{
 					{
 						Number:      "01.",

@@ -476,7 +476,7 @@ export const translations: Record<Language, Translations> = {
         ]
       },
       "nontonplus-v2-backend": {
-        title: "Backend NontonPlus V2 — Platform IPTV Hospitality & Manajemen ISP Multi-Tenant",
+        title: "Backend Nonton+ V2 — Platform IPTV Hospitality & Manajemen ISP Multi-Tenant",
         domain_category: "BACKEND IPTV & MANAJEMEN ISP",
         badge_label: "SISTEM PRODUKSI HOSPITALITY",
         problems_challenges: [
@@ -497,18 +497,18 @@ export const translations: Record<Language, Translations> = {
         ]
       },
       "nontonplus-v1-internship": {
-        title: "Backend NontonPlus V1 — Sistem IPTV Rumah Sakit, Survei Pasien & Nurse-Call (Magang)",
+        title: "Backend Nonton+ V1 — Sistem IPTV Rumah Sakit, Survei Pasien & Nurse-Call (Magang)",
         domain_category: "Magang Backend Enterprise",
         badge_label: "Sistem IPTV Rumah Sakit",
         problems_challenges: [
-          "Mengembangkan modul backend untuk IPTV rumah sakit (NontonPlus V1) mencakup fitur survei kepuasan pasien dan pemanggilan perawat (nurse-call).",
+          "Mengembangkan modul backend untuk IPTV rumah sakit (Nonton+ V1) mencakup fitur survei kepuasan pasien dan pemanggilan perawat (nurse-call).",
           "Membangun API untuk pemrosesan survei interaktif yang berjalan langsung di layar TV pasien kamar rumah sakit.",
           "Memastikan pengiriman alur sinyal pemanggilan perawat terhubung secara andal dan bebas hambatan."
         ],
         architecture_solution: [
           "Membangun REST API dan modul pengumpulan data survei pasien yang terstruktur dan responsif.",
           "Mengintegrasikan alur pengiriman sinyal nurse-call secara cepat dan stabil dari TV pasien ke sistem perawat.",
-          "Menyusun dokumentasi teknis dan skenario pengujian API pendukung untuk keandalan deployment NontonPlus V1."
+          "Menyusun dokumentasi teknis dan skenario pengujian API pendukung untuk keandalan deployment Nonton+ V1."
         ],
         metrics: [
           { label: "Proyek Magang", value: "IPTV V1", delta: "Sistem Rumah Sakit" },
@@ -529,14 +529,14 @@ export const translations: Record<Language, Translations> = {
     expOverrides: {
       "saia-fulltime": {
         role_title: "Backend Developer",
-        company_tagline: "NontonPlus V2 Hospitality IPTV & Platform ISP Multi-Tenant",
+        company_tagline: "Nonton+ V2 Hospitality IPTV & Platform ISP Multi-Tenant",
         employment_type: "Full-time",
         location: "Surabaya, Jawa Timur",
-        core_focus: "Mengembangkan backend NontonPlus V2 menggunakan NestJS, Fastify, MongoDB, Redis, Socket.IO, MinIO, serta pemantauan log terpusat Grafana & Loki.",
+        core_focus: "Mengembangkan backend Nonton+ V2 menggunakan NestJS, Fastify, MongoDB, Redis, Socket.IO, MinIO, serta pemantauan log terpusat Grafana & Loki.",
         achievements: [
           {
             number: "01.",
-            title: "Pengembangan Backend NontonPlus V2",
+            title: "Pengembangan Backend Nonton+ V2",
             metric: "NestJS & MongoDB Stack",
             description: "Membangun sistem backend berskala produksi untuk IPTV hospitality dan manajemen jaringan ISP multi-tenant."
           },
@@ -550,22 +550,22 @@ export const translations: Record<Language, Translations> = {
       },
       "saia-intern": {
         role_title: "Backend Developer Intern",
-        company_tagline: "NontonPlus V1 Hospital IPTV",
+        company_tagline: "Nonton+ V1 Hospital IPTV",
         employment_type: "Magang",
         location: "Surabaya, Jawa Timur",
-        core_focus: "Mengembangkan API backend NontonPlus V1 untuk survei kepuasan pasien rumah sakit dan pengiriman sinyal panggilan perawat (nurse-call).",
+        core_focus: "Mengembangkan API backend Nonton+ V1 untuk survei kepuasan pasien rumah sakit dan pengiriman sinyal panggilan perawat (nurse-call).",
         achievements: [
           {
             number: "01.",
             title: "Modul Survei Pasien & Nurse-Call",
-            metric: "Integrasi NontonPlus V1",
+            metric: "Integrasi Nonton+ V1",
             description: "Membangun endpoint API survei di TV kamar pasien serta integrasi sinyal panggilan perawat yang cepat dan stabil."
           },
           {
             number: "02.",
             title: "Dokumentasi & Pengujian API",
             metric: "Kualitas Kode API",
-            description: "Menyusun skenario pengujian API dan dokumentasi modul backend untuk mendukung deployment NontonPlus V1."
+            description: "Menyusun skenario pengujian API dan dokumentasi modul backend untuk mendukung deployment Nonton+ V1."
           }
         ]
       }
