@@ -1,6 +1,7 @@
 %-------------------------
 % Resume in Latex
-% Author : Jake Gutierrez (Modified for Narwastu Dwi Nilan Bara' Allo)
+% Author : Jake Gutierrez (Canonical Template)
+% Modified for: Narwastu Dwi Nilan Bara' Allo
 % Based off of: https://github.com/jakegut/resume
 % License : MIT
 %------------------------
@@ -21,15 +22,8 @@
 \input{glyphtounicode}
 
 %----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
+% Sans-serif option (uncomment below if sans-serif is preferred):
 % \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -37,7 +31,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Adjust margins
+% Adjust margins (Standard 0.5 in)
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
@@ -55,7 +49,7 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
+% Ensure that generated pdf is machine readable/ATS parsable
 \pdfgentounicode=1
 
 %-------------------------
@@ -112,10 +106,6 @@
     \href{https://dwin-studio.my.id}{\underline{dwin-studio.my.id}}
 \end{center}
 
-%-----------SUMMARY-----------
-\section{Summary}
-  \small{Results-driven \textbf{Backend Developer} with production experience designing and deploying scalable multi-tenant architectures, real-time communication systems, and high-performance REST APIs. Proficient in NestJS, Node.js, Go (Golang), and Redis caching, with a strong focus on data integrity, concurrency handling, and system observability (Grafana, Loki).}
-
 %-----------EXPERIENCE-----------
 \section{Work Experience}
   \resumeSubHeadingListStart
@@ -126,7 +116,7 @@
       \resumeItemListStart
         \resumeItem{Architected and engineered the core multi-tenant backend for \textbf{NontonPlus V2} (Hospitality IPTV platform) from scratch using \textbf{NestJS}, \textbf{PostgreSQL}, and \textbf{MongoDB}.}
         \resumeItem{Implemented low-latency bidirectional real-time telemetry and device communication protocols using \textbf{Socket.IO}.}
-        \resumeItem{Engineered a scalable multi-tenant management service tailored for ISP clients with strict data isolation.}
+        \resumeItem{Engineered a scalable multi-tenant management service tailored for ISP clients with strict tenant-level data isolation.}
         \resumeItem{Reduced database read-overhead and optimized session handling by implementing high-performance caching layers via \textbf{Redis}.}
         \resumeItem{Integrated object storage with \textbf{MinIO} and established end-to-end system health observability and log aggregation using \textbf{Grafana} and \textbf{Loki}.}
       \resumeItemListEnd
@@ -161,10 +151,17 @@
 \section{Key Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Interactive API Playground \& FinTech Gateway} $|$ \emph{Go, Chi, SQLite WAL, React, TypeScript}}{2026}
+          {\textbf{Interactive API Playground \& FinTech Gateway} $|$ \emph{Go, Chi Router, SQLite WAL, React, TypeScript}}{2026}
           \resumeItemListStart
             \resumeItem{Engineered an enterprise developer portfolio and single-binary server showcasing Go sub-millisecond telemetry and Clean Architecture (\href{https://dwin-studio.my.id}{\underline{dwin-studio.my.id}}).}
             \resumeItem{Implemented zero-allocation Webhook HMAC-SHA256 signature verification and a Token Bucket rate-limiting simulator with sub-ms atomic overhead.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Hospital Nurse-Call \& Emergency Telemetry} $|$ \emph{Node.js, Express, Socket.IO, MongoDB}}{2025}
+          \resumeItemListStart
+            \resumeItem{Engineered a real-time event-driven emergency signaling backend between inpatient hospital rooms and on-duty nursing stations.}
+            \resumeItem{Implemented low-latency socket room clustering and automated failover message delivery protocols for critical patient care.}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
@@ -185,7 +182,7 @@
     \small{\item{
      \textbf{Languages \& Backend}{: Go (Golang), TypeScript, JavaScript, Node.js, NestJS, Express, PHP, Laravel, RESTful APIs} \\
      \textbf{Databases \& Caching}{: PostgreSQL, MongoDB, SQLite (WAL Mode), Redis} \\
-     \textbf{Protocols \& Architecture}{: Multi-Tenant Architecture, Socket.IO, WebSockets, Webhook HMAC Verification, Clean Architecture} \\
+     \textbf{Architecture \& Real-Time}{: Multi-Tenant Systems, WebSockets, Socket.IO, Webhook HMAC Verification, Clean Architecture} \\
      \textbf{DevOps \& Observability}{: Docker, Git, MinIO (S3-compatible), Grafana, Loki, Postman, Linux} \\
      \textbf{Languages}{: Indonesian (Native), English (Technical / Working Proficiency)}
     }}
