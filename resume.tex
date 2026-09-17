@@ -1,0 +1,195 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez (Modified for Narwastu Dwi Nilan Bara' Allo)
+% Based off of: https://github.com/jakegut/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlength{\footskip}{4.08003pt}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Narwastu Dwi Nilan Bara' Allo} \\ \vspace{2pt}
+    \small Denpasar, Bali, Indonesia $|$ \href{tel:+6281332444081}{+62 813-3244-4081} $|$ \href{mailto:dwinarwastu02@gmail.com}{\underline{dwinarwastu02@gmail.com}} \\
+    \href{https://linkedin.com/in/dwinarwastu}{\underline{linkedin.com/in/dwinarwastu}} $|$
+    \href{https://github.com/dwinarwastu}{\underline{github.com/dwinarwastu}} $|$
+    \href{https://dwin-studio.my.id}{\underline{dwin-studio.my.id}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+  \small{Results-driven \textbf{Backend Developer} with production experience designing and deploying scalable multi-tenant architectures, real-time communication systems, and high-performance REST APIs. Proficient in NestJS, Node.js, Go (Golang), and Redis caching, with a strong focus on data integrity, concurrency handling, and system observability (Grafana, Loki).}
+
+%-----------EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Programmer (Backend Developer)}{Aug 2025 -- Present}
+      {PT. Semua Aplikasi Indonesia}{Denpasar, Bali}
+      \resumeItemListStart
+        \resumeItem{Architected and engineered the core multi-tenant backend for \textbf{NontonPlus V2} (Hospitality IPTV platform) from scratch using \textbf{NestJS}, \textbf{PostgreSQL}, and \textbf{MongoDB}.}
+        \resumeItem{Implemented low-latency bidirectional real-time telemetry and device communication protocols using \textbf{Socket.IO}.}
+        \resumeItem{Engineered a scalable multi-tenant management service tailored for ISP clients with strict data isolation.}
+        \resumeItem{Reduced database read-overhead and optimized session handling by implementing high-performance caching layers via \textbf{Redis}.}
+        \resumeItem{Integrated object storage with \textbf{MinIO} and established end-to-end system health observability and log aggregation using \textbf{Grafana} and \textbf{Loki}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Programmer Intern}{Feb 2025 -- Jun 2025}
+      {PT. Semua Aplikasi Indonesia}{Denpasar, Bali}
+      \resumeItemListStart
+        \resumeItem{Developed backend RESTful APIs for inpatient survey modules and real-time emergency nurse-call features on the \textbf{Nonton+ Hospital} application using \textbf{Node.js} and \textbf{Socket.IO}.}
+        \resumeItem{Collaborated with cross-functional teams to test socket connection reliability and telemetry payload parsing across hospital room devices.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Programmer Intern}{Jun 2024 -- Aug 2024}
+      {CV. Natusi}{Mojokerto, Jawa Timur}
+      \resumeItemListStart
+        \resumeItem{Developed the digital medication and fluid administration tracking module for the emergency room (IGD) website of \textbf{RSUD Dr. Wahidin Sudiro Husodo}.}
+        \resumeItem{Streamlined clinical data entry workflows, reducing manual documentation time for medical personnel using \textbf{Laravel} and \textbf{MySQL}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Programmer Intern}{Jul 2020 -- Sep 2020}
+      {PT. Anekapay Teknologi Indonesia}{Kediri, Jawa Timur}
+      \resumeItemListStart
+        \resumeItem{Developed a concurrent web scraper using \textbf{Go (Golang)} to extract product catalogs, pricing, and merchant data from e-commerce platforms.}
+        \resumeItem{Structured and parsed raw JSON marketplace data pipelines for downstream payment and commerce workflows.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Key Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Interactive API Playground \& FinTech Gateway} $|$ \emph{Go, Chi, SQLite WAL, React, TypeScript}}{2026}
+          \resumeItemListStart
+            \resumeItem{Engineered an enterprise developer portfolio and single-binary server showcasing Go sub-millisecond telemetry and Clean Architecture (\href{https://dwin-studio.my.id}{\underline{dwin-studio.my.id}}).}
+            \resumeItem{Implemented zero-allocation Webhook HMAC-SHA256 signature verification and a Token Bucket rate-limiting simulator with sub-ms atomic overhead.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Politeknik Negeri Malang}{Malang, Jawa Timur}
+      {Associate Degree (D3) in Informatics Management}{2022 -- 2025}
+    \resumeSubheading
+      {SMK Telkom Malang}{Malang, Jawa Timur}
+      {Vocational High School Diploma in Software Engineering}{2019 -- 2022}
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages \& Backend}{: Go (Golang), TypeScript, JavaScript, Node.js, NestJS, Express, PHP, Laravel, RESTful APIs} \\
+     \textbf{Databases \& Caching}{: PostgreSQL, MongoDB, SQLite (WAL Mode), Redis} \\
+     \textbf{Protocols \& Architecture}{: Multi-Tenant Architecture, Socket.IO, WebSockets, Webhook HMAC Verification, Clean Architecture} \\
+     \textbf{DevOps \& Observability}{: Docker, Git, MinIO (S3-compatible), Grafana, Loki, Postman, Linux} \\
+     \textbf{Languages}{: Indonesian (Native), English (Technical / Working Proficiency)}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
