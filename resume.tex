@@ -21,10 +21,6 @@
 \usepackage{tabularx}
 \input{glyphtounicode}
 
-%----------FONT OPTIONS----------
-% Sans-serif option (uncomment below if sans-serif is preferred):
-% \usepackage[sfdefault]{roboto}
-
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
@@ -106,8 +102,19 @@
     \href{https://dwin-studio.my.id}{\underline{dwin-studio.my.id}}
 \end{center}
 
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Politeknik Negeri Malang}{Malang, Jawa Timur}
+      {Associate Degree (D3) in Informatics Management}{2022 -- 2025}
+    \resumeSubheading
+      {SMK Telkom Malang}{Malang, Jawa Timur}
+      {Vocational High School Diploma in Software Engineering}{2019 -- 2022}
+  \resumeSubHeadingListEnd
+
 %-----------EXPERIENCE-----------
-\section{Work Experience}
+\section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
@@ -148,41 +155,30 @@
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
-\section{Key Projects}
+\section{Projects}
     \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{PadelHive -- Court Booking Engine \& Marketplace} $|$ \emph{Bun, ElysiaJS, Prisma, PostgreSQL, Midtrans}}{2026}
+          \resumeItemListStart
+            \resumeItem{Architected a high-concurrency sports court booking engine with ACID transaction isolation preventing race conditions and slot collision (\href{https://padelhive.dwin-studio.my.id}{\underline{padelhive.dwin-studio.my.id}} $|$ \href{https://github.com/dwinarwastu/padelhive}{\underline{GitHub}}).}
+            \resumeItem{Engineered Midtrans payment gateway webhook processing with cryptographic signature verification, idempotency, and automated settlement reconciliation.}
+          \resumeItemListEnd
+
       \resumeProjectHeading
           {\textbf{Interactive API Playground \& FinTech Gateway} $|$ \emph{Go, Chi Router, SQLite WAL, React, TypeScript}}{2026}
           \resumeItemListStart
-            \resumeItem{Engineered an enterprise developer portfolio and single-binary server showcasing Go sub-millisecond telemetry and Clean Architecture (\href{https://dwin-studio.my.id}{\underline{dwin-studio.my.id}}).}
+            \resumeItem{Engineered an enterprise single-binary server showcasing Go sub-millisecond telemetry and Clean Architecture (\href{https://dwin-studio.my.id}{\underline{dwin-studio.my.id}}).}
             \resumeItem{Implemented zero-allocation Webhook HMAC-SHA256 signature verification and a Token Bucket rate-limiting simulator with sub-ms atomic overhead.}
           \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Hospital Nurse-Call \& Emergency Telemetry} $|$ \emph{Node.js, Express, Socket.IO, MongoDB}}{2025}
-          \resumeItemListStart
-            \resumeItem{Engineered a real-time event-driven emergency signaling backend between inpatient hospital rooms and on-duty nursing stations.}
-            \resumeItem{Implemented low-latency socket room clustering and automated failover message delivery protocols for critical patient care.}
-          \resumeItemListEnd
     \resumeSubHeadingListEnd
-
-%-----------EDUCATION-----------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Politeknik Negeri Malang}{Malang, Jawa Timur}
-      {Associate Degree (D3) in Informatics Management}{2022 -- 2025}
-    \resumeSubheading
-      {SMK Telkom Malang}{Malang, Jawa Timur}
-      {Vocational High School Diploma in Software Engineering}{2019 -- 2022}
-  \resumeSubHeadingListEnd
 
 %-----------TECHNICAL SKILLS-----------
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages \& Backend}{: Go (Golang), TypeScript, JavaScript, Node.js, NestJS, Express, PHP, Laravel, RESTful APIs} \\
-     \textbf{Databases \& Caching}{: PostgreSQL, MongoDB, SQLite (WAL Mode), Redis} \\
-     \textbf{Architecture \& Real-Time}{: Multi-Tenant Systems, WebSockets, Socket.IO, Webhook HMAC Verification, Clean Architecture} \\
+     \textbf{Languages \& Backend}{: Go (Golang), TypeScript, JavaScript, Bun, Node.js, NestJS, ElysiaJS, Express, PHP, Laravel, RESTful APIs} \\
+     \textbf{Databases \& ORM}{: PostgreSQL, Prisma, MongoDB, SQLite (WAL Mode), Redis} \\
+     \textbf{Architecture \& Real-Time}{: Multi-Tenant Systems, WebSockets, Socket.IO, Webhook HMAC Verification, Midtrans Payment Gateway} \\
      \textbf{DevOps \& Observability}{: Docker, Git, MinIO (S3-compatible), Grafana, Loki, Postman, Linux} \\
      \textbf{Languages}{: Indonesian (Native), English (Technical / Working Proficiency)}
     }}
