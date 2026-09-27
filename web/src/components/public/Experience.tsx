@@ -28,10 +28,27 @@ export const ExperienceSection: React.FC<ExperienceProps> = ({ experiences = [] 
 
       <div className="relative space-y-8 sm:space-y-10 before:absolute before:left-3.5 sm:before:left-5 before:-translate-x-1/2 before:top-6 before:bottom-6 before:w-px before:bg-brand-200">
         {experiences.map((exp, idx) => {
-          // Key detection for ID overrides
-          const isV2Fulltime = exp.company_tagline?.includes('V2') || exp.employment_type === 'Full-time';
-          const overrideKey = isV2Fulltime ? 'saia-fulltime' : 'saia-intern';
-          const override = lang === 'id' ? t.expOverrides[overrideKey] : undefined;
+          // Key detection for ID overrides across all experiences
+          const getOverrideKey = (e: Experience) => {
+            const company = (e.company_name || '').toLowerCase();
+            const tagline = (e.company_tagline || '').toLowerCase();
+            if (tagline.includes('v2') || (company.includes('semua aplikasi') && e.employment_type?.includes('Full-time'))) {
+              return 'saia-fulltime';
+            }
+            if (tagline.includes('v1') || (company.includes('semua aplikasi') && e.employment_type?.includes('Intern'))) {
+              return 'saia-intern';
+            }
+            if (company.includes('natusi') || tagline.includes('healthcare') || tagline.includes('hospital information')) {
+              return 'natusi';
+            }
+            if (company.includes('anekapay') || tagline.includes('fintech') || tagline.includes('payment')) {
+              return 'anekapay';
+            }
+            return '';
+          };
+
+          const overrideKey = getOverrideKey(exp);
+          const override = lang === 'id' && overrideKey ? t.expOverrides[overrideKey] : undefined;
 
           const displayRole = override?.role_title || exp.role_title;
           const displayTagline = override?.company_tagline || exp.company_tagline;
