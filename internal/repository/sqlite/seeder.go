@@ -94,7 +94,10 @@ func SeedData(db *sql.DB) error {
 	var hasPostgresInNontonPlus bool
 	_ = db.QueryRowContext(ctx, "SELECT EXISTS(SELECT 1 FROM case_studies WHERE slug='nontonplus-v2-backend' AND (tech_stack LIKE '%PostgreSQL%' OR architecture_flow LIKE '%PostgreSQL%'))").Scan(&hasPostgresInNontonPlus)
 
-	if csCount < 5 || hasPostgresInNontonPlus {
+	var hasNavidwirome bool
+	_ = db.QueryRowContext(ctx, "SELECT EXISTS(SELECT 1 FROM case_studies WHERE slug='navidwirome')").Scan(&hasNavidwirome)
+
+	if csCount < 6 || !hasNavidwirome || hasPostgresInNontonPlus {
 		_, _ = db.ExecContext(ctx, "DELETE FROM case_studies")
 		csCount = 0
 	}
@@ -133,7 +136,7 @@ func SeedData(db *sql.DB) error {
 				GithubURL:   "https://github.com/dwinarwastu/hookbridge",
 				DocsURL:     "https://github.com/dwinarwastu/hookbridge#how-it-works",
 				IsPublished: true,
-				SortOrder:   2,
+				SortOrder:   4,
 			},
 			{
 				Slug:           "guardrail",
@@ -165,7 +168,7 @@ func SeedData(db *sql.DB) error {
 				GithubURL:   "https://github.com/dwinarwastu/guardrail",
 				DocsURL:     "https://github.com/dwinarwastu/guardrail#architecture",
 				IsPublished: true,
-				SortOrder:   3,
+				SortOrder:   5,
 			},
 			{
 				Slug:           "notihub-pulseboard",
@@ -197,7 +200,7 @@ func SeedData(db *sql.DB) error {
 				GithubURL:   "https://github.com/dwinarwastu/notihub",
 				DocsURL:     "https://github.com/dwinarwastu/pulseboard",
 				IsPublished: true,
-				SortOrder:   4,
+				SortOrder:   6,
 			},
 			{
 				Slug:           "nontonplus-v2-backend",
@@ -232,6 +235,41 @@ func SeedData(db *sql.DB) error {
 				SortOrder:   1,
 			},
 			{
+				Slug:           "navidwirome",
+				Title:          "Self-Hosted Music Streaming Server & Audio Media Engine with Go & React 19",
+				DomainCategory: "MEDIA STREAMING & AUDIO ENGINE",
+				BadgeLabel:     "GO BACKEND & REACT 19",
+				ArchitectureFlow: []string{
+					"Web & Subsonic Client",
+					"Go HTTP Engine (Subsonic API)",
+					"SQLite FTS5 & Tag Mutators",
+					"Chromaprint & Audio Transcoder",
+					"Low-Latency Stream (Opus/Raw)",
+				},
+				ProblemsChallenges: []string{
+					"Standard self-hosted music servers lacked native browser-based audio uploads, disk-level tag editing, and granular user capability controls.",
+					"Audio playback over variable or mobile network bandwidth suffered from socket stalls and slow initial buffering latencies.",
+				},
+				ArchitectureSolution: []string{
+					"Extended Go backend with native web audio upload endpoints, disk-level ID3/FLAC metadata mutators, and granular capability-based access controls.",
+					"Integrated Chromaprint (fpcalc) audio fingerprinting with AcoustID and MusicBrainz APIs for automated metadata identification.",
+					"Engineered low-latency audio delivery with raw/opus 192kbps streaming, metadata preloading, and connection flush routines eliminating socket stalls.",
+					"Built modern audiophile web interface (ui-new) using React 19, Tailwind CSS, and Zustand featuring floating mini-player and dual sidebars.",
+				},
+				Metrics: []domain.ImpactMetric{
+					{Label: "Core Engine", Value: "Go 1.22+", Delta: "Subsonic API & SQLite FTS5"},
+					{Label: "Streaming", Value: "Opus & Raw Stream", Delta: "Instant Playback Start"},
+					{Label: "Audio Tooling", Value: "Chromaprint & Mutator", Delta: "AcoustID & ID3/FLAC"},
+					{Label: "Packaging", Value: "Docker & GHCR", Delta: "Multi-Arch Container"},
+				},
+				TechStack:   []string{"Go", "SQLite FTS5", "React 19", "Tailwind CSS", "Zustand", "Docker", "Subsonic API"},
+				GithubURL:   "https://github.com/deus-meus/navidwirome",
+				DocsURL:     "https://github.com/deus-meus/navidwirome#readme",
+				DemoURL:     "https://navidwirome.dwin-studio.my.id/app/",
+				IsPublished: true,
+				SortOrder:   2,
+			},
+			{
 				Slug:           "padelhive",
 				Title:          "Padel Court Booking Marketplace & High-Speed Booking Engine",
 				DomainCategory: "COMMERCE & REAL-TIME SCHEDULING",
@@ -261,9 +299,9 @@ func SeedData(db *sql.DB) error {
 				TechStack:   []string{"Bun", "ElysiaJS", "Prisma", "PostgreSQL", "SvelteKit", "Midtrans", "Docker"},
 				GithubURL:   "https://github.com/dwinarwastu/padelhive",
 				DocsURL:     "https://github.com/dwinarwastu/padelhive#tech-stack",
-	DemoURL:     "https://padelhive.dwin-studio.my.id",
+				DemoURL:     "https://padelhive.dwin-studio.my.id",
 				IsPublished: true,
-				SortOrder:   5,
+				SortOrder:   3,
 			},
 		}
 

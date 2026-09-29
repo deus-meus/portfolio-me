@@ -493,6 +493,27 @@ export const translations: Record<Language, Translations> = {
           { label: "Basis Data Utama", value: "MongoDB Cluster", delta: "Playback & Katalog High-Write" },
           { label: "Object Storage", value: "MinIO & Redis", delta: "Aset Media & Cache Sesi" }
         ]
+      },
+      "navidwirome": {
+        title: "Server Streaming Musik & Engine Media Audio Self-Hosted dengan Go & React 19",
+        domain_category: "STREAMING MEDIA & ENGINE AUDIO",
+        badge_label: "GO BACKEND & REACT 19",
+        problems_challenges: [
+          "Server musik self-hosted bawaan belum memiliki fitur upload audio langsung via browser, editor metadata pada disk, dan kontrol izin pengguna yang granular.",
+          "Streaming audio pada bandwidth jaringan seluler yang fluktuatif sering mengalami socket stall dan latensi buffering awal yang lambat."
+        ],
+        architecture_solution: [
+          "Mengembangkan ekstensi backend Go dengan endpoint upload audio web native, mutator metadata tag ID3/FLAC langsung di disk, dan kontrol izin akses berbasis kapabilitas (can_upload, can_edit_tags).",
+          "Mengintegrasikan fingerprinting audio Chromaprint (fpcalc) dengan API AcoustID dan MusicBrainz untuk identifikasi metadata otomatis.",
+          "Mengoptimalkan streaming audio dengan format raw/opus 192kbps, preload metadata, dan mekanisme flush koneksi untuk mencegah socket stall.",
+          "Membangun antarmuka web modern (ui-new) menggunakan React 19, Tailwind CSS, dan Zustand dengan fitur mini-player melayang dan sidebar ganda."
+        ],
+        metrics: [
+          { label: "Core Engine", value: "Go 1.22+", delta: "Subsonic API & SQLite FTS5" },
+          { label: "Streaming", value: "Opus & Raw Stream", delta: "Playback Instan Tanpa Lag" },
+          { label: "Tooling Audio", value: "Chromaprint & Mutator", delta: "AcoustID & Edit ID3/FLAC" },
+          { label: "Kontainerisasi", value: "Docker & GHCR", delta: "Paket Kontainer Multi-Arch" }
+        ]
       }
     },
 

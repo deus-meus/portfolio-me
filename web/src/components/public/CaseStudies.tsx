@@ -14,14 +14,16 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
   const filterOptions = useMemo(() => {
     const counts = {
       all: caseStudies.length,
+      golang: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /^go$|golang/i.test(t)) || /navidwirome/i.test(cs.slug)).length,
       queues: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bullmq|redis|lua/i.test(t)) || /hookbridge|guardrail|notihub/i.test(cs.slug)).length,
-      realtime: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub/i.test(t)) || /notihub|nontonplus/i.test(cs.slug)).length,
+      realtime: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub/i.test(t)) || /notihub|nontonplus|navidwirome/i.test(cs.slug)).length,
       bun: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bun|elysia|prisma/i.test(t)) || cs.slug === 'padelhive').length,
       mongodb: caseStudies.filter((cs) => cs.tech_stack?.some((t) => /mongo/i.test(t)) || cs.slug === 'nontonplus-v2-backend').length,
     };
 
     return [
       { id: 'all', label: t.allProjects, count: counts.all },
+      { id: 'golang', label: 'Go (Golang)', count: counts.golang },
       { id: 'queues', label: lang === 'id' ? 'Redis & Queues' : 'Redis & Queues', count: counts.queues },
       { id: 'realtime', label: lang === 'id' ? 'Real-Time & Webhooks' : 'Real-Time & Webhooks', count: counts.realtime },
       { id: 'bun', label: 'Bun & ElysiaJS', count: counts.bun },
@@ -31,11 +33,14 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
 
   const filteredCaseStudies = useMemo(() => {
     if (selectedFilter === 'all') return caseStudies;
+    if (selectedFilter === 'golang') {
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /^go$|golang/i.test(t)) || /navidwirome/i.test(cs.slug));
+    }
     if (selectedFilter === 'queues') {
       return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bullmq|redis|lua/i.test(t)) || /hookbridge|guardrail|notihub/i.test(cs.slug));
     }
     if (selectedFilter === 'realtime') {
-      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub/i.test(t)) || /notihub|nontonplus/i.test(cs.slug));
+      return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /socket|sse|pub\/sub/i.test(t)) || /notihub|nontonplus|navidwirome/i.test(cs.slug));
     }
     if (selectedFilter === 'bun') {
       return caseStudies.filter((cs) => cs.tech_stack?.some((t) => /bun|elysia|prisma/i.test(t)) || cs.slug === 'padelhive');
@@ -210,7 +215,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ caseStudies = [] }) =>
 
               {/* Footer Links */}
               {(() => {
-                const liveUrl = cs.demo_url || (cs.slug === 'padelhive' ? 'https://padelhive.dwin-studio.my.id' : undefined);
+                const liveUrl = cs.demo_url || (cs.slug === 'padelhive' ? 'https://padelhive.dwin-studio.my.id' : cs.slug === 'navidwirome' ? 'https://navidwirome.dwin-studio.my.id/app/' : undefined);
                 return (
                   <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-3 border-t border-brand-100 text-xs font-mono">
                     {liveUrl && (
