@@ -14,7 +14,7 @@ export const Header: React.FC<HeaderProps> = ({
   resumeUrl = "/resume.pdf",
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const { lang, toggleLang, t } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
   const activeResumeUrl = resumeUrl && resumeUrl.startsWith('http') ? resumeUrl : t.resumeUrl;
 
   const navLinks = [
@@ -61,17 +61,36 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action Buttons & Mobile Hamburger */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-          {/* Language Toggle Button */}
-          <button
-            type="button"
-            onClick={toggleLang}
-            className="inline-flex items-center gap-1 min-h-[36px] px-2 sm:px-2.5 py-1.5 text-xs font-mono font-bold bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-300 transition-colors shrink-0 shadow-xs"
-            title={lang === 'en' ? 'Beralih ke Bahasa Indonesia' : 'Switch to English'}
-          >
-            <Globe className="w-3.5 h-3.5 text-brand-700 shrink-0" />
-            <span className="tracking-tight font-bold">{lang === 'en' ? 'ID' : 'EN'}</span>
-            <span className="text-[10px] text-brand-400 font-normal hidden xs:inline">| {lang === 'en' ? 'EN' : 'ID'}</span>
-          </button>
+          {/* Language Toggle Segmented Switch */}
+          <div className="inline-flex items-center border border-brand-300 bg-white font-mono text-xs h-[36px] shadow-2xs shrink-0">
+            <div className="px-2 h-full flex items-center justify-center text-brand-500 border-r border-brand-200">
+              <Globe className="w-3.5 h-3.5 text-brand-700" />
+            </div>
+            <button
+              type="button"
+              onClick={() => setLang('en')}
+              className={`px-2 sm:px-2.5 h-full flex items-center justify-center font-bold transition-colors ${
+                lang === 'en'
+                  ? 'bg-brand-900 text-white'
+                  : 'text-brand-600 hover:text-brand-900 hover:bg-brand-50'
+              }`}
+              title="Switch to English"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang('id')}
+              className={`px-2 sm:px-2.5 h-full flex items-center justify-center font-bold transition-colors border-l border-brand-200 ${
+                lang === 'id'
+                  ? 'bg-brand-900 text-white'
+                  : 'text-brand-600 hover:text-brand-900 hover:bg-brand-50'
+              }`}
+              title="Beralih ke Bahasa Indonesia"
+            >
+              ID
+            </button>
+          </div>
 
           <a
             href={activeResumeUrl}
