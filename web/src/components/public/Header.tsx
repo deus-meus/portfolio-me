@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, Mail, Menu, X, Globe } from 'lucide-react';
+import { Download, Mail, Menu, X } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 interface HeaderProps {
@@ -62,34 +62,36 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Action Buttons & Mobile Hamburger */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           {/* Language Toggle Segmented Switch */}
-          <div className="inline-flex items-center border border-brand-300 bg-white font-mono text-xs h-[36px] shadow-2xs shrink-0">
-            <div className="px-2 h-full flex items-center justify-center text-brand-500 border-r border-brand-200">
-              <Globe className="w-3.5 h-3.5 text-brand-700" />
+          <div className="inline-flex items-center gap-1.5 shrink-0">
+            <span className="text-[10px] font-mono font-bold text-brand-500 uppercase tracking-wider hidden sm:inline">
+              {lang === 'id' ? 'BAHASA:' : 'LANG:'}
+            </span>
+            <div className="inline-flex items-center p-0.5 bg-brand-100 border border-brand-300 font-mono text-xs shadow-2xs">
+              <button
+                type="button"
+                onClick={() => setLang('id')}
+                className={`px-2.5 py-1 text-xs font-bold transition-all ${
+                  lang === 'id'
+                    ? 'bg-brand-900 text-white shadow-xs'
+                    : 'text-brand-600 hover:text-brand-900'
+                }`}
+                title="Beralih ke Bahasa Indonesia"
+              >
+                ID
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={`px-2.5 py-1 text-xs font-bold transition-all ${
+                  lang === 'en'
+                    ? 'bg-brand-900 text-white shadow-xs'
+                    : 'text-brand-600 hover:text-brand-900'
+                }`}
+                title="Switch to English"
+              >
+                EN
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={() => setLang('en')}
-              className={`px-2 sm:px-2.5 h-full flex items-center justify-center font-bold transition-colors ${
-                lang === 'en'
-                  ? 'bg-brand-900 text-white'
-                  : 'text-brand-600 hover:text-brand-900 hover:bg-brand-50'
-              }`}
-              title="Switch to English"
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              onClick={() => setLang('id')}
-              className={`px-2 sm:px-2.5 h-full flex items-center justify-center font-bold transition-colors border-l border-brand-200 ${
-                lang === 'id'
-                  ? 'bg-brand-900 text-white'
-                  : 'text-brand-600 hover:text-brand-900 hover:bg-brand-50'
-              }`}
-              title="Beralih ke Bahasa Indonesia"
-            >
-              ID
-            </button>
           </div>
 
           <a
