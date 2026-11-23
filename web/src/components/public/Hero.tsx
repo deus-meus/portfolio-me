@@ -16,6 +16,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
   const headlineText = lang === 'id' ? t.heroHeadline : (profile?.headline || t.heroHeadline);
   const bioText = lang === 'id' ? t.heroBio : (profile?.bio || t.heroBio);
+  const resumeUrl = profile?.resume_url && profile.resume_url.startsWith('http') ? profile.resume_url : t.resumeUrl;
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -52,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 pt-1 w-full">
             <a
-              href={profile?.resume_url || "/resume.pdf"}
+              href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-1.5 min-h-[42px] px-3 sm:px-4 py-2.5 bg-brand-900 text-white text-xs font-semibold hover:bg-brand-800 transition-colors min-w-0 shadow-xs"

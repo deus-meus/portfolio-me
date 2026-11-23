@@ -15,6 +15,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const { lang, toggleLang, t } = useLanguage();
+  const activeResumeUrl = resumeUrl && resumeUrl.startsWith('http') ? resumeUrl : t.resumeUrl;
 
   const navLinks = [
     { href: "#overview", label: t.navOverview },
@@ -73,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           <a
-            href={resumeUrl}
+            href={activeResumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 min-h-[36px] px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-brand-900 text-white hover:bg-brand-800 transition-colors whitespace-nowrap shadow-sm"
@@ -119,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({
           ))}
           <div className="pt-2.5 grid grid-cols-2 gap-2 font-sans">
             <a
-              href={resumeUrl}
+              href={activeResumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}

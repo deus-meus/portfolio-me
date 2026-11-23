@@ -15,6 +15,7 @@ export interface Translations {
   navEducation: string;
   navApiPlayground: string;
   downloadCv: string;
+  resumeUrl: string;
   contactBtn: string;
   directContact: string;
 
@@ -182,6 +183,7 @@ export const translations: Record<Language, Translations> = {
     navEducation: "Education",
     navApiPlayground: "API Playground",
     downloadCv: "CV (PDF)",
+    resumeUrl: "/resume-en.pdf",
     contactBtn: "Contact",
     directContact: "Direct Contact",
 
@@ -328,6 +330,7 @@ export const translations: Record<Language, Translations> = {
     navEducation: "Pendidikan",
     navApiPlayground: "Simulasi API",
     downloadCv: "CV (PDF)",
+    resumeUrl: "/cv-id.pdf",
     contactBtn: "Kontak",
     directContact: "Kontak Langsung",
 
